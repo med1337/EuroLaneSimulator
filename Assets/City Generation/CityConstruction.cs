@@ -16,7 +16,7 @@ public class CityConstruction : MonoBehaviour
     [SerializeField] int map_width = 20;
     [SerializeField] int map_height = 20;
 
-    [SerializeField] int max_block_length = 8;
+    [SerializeField] int max_block_length = 10;
 
     // Spacing between Grid spaces
     [SerializeField] float building_spacing = 1.0f;
@@ -39,12 +39,12 @@ public class CityConstruction : MonoBehaviour
 
         if (user_seed_set == false)
         {
-            //GenerateRoadData();
+            GenerateRoadData();
 
-            //PopulateRoads();
+            PopulateRoads();
         }
 
-        GenerateStraightRoads();
+        GenerateRoads();
 
         PopulateBuildings();
     }
@@ -91,7 +91,7 @@ public class CityConstruction : MonoBehaviour
             for (int h = 0; h < map_height; h++)
             {
                 // Set this position as a Horizontal Road
-                map_grid[x, h] = -1;
+                //map_grid[x, h] = -1; // NOT NEEDED, DRAWS ROADS UP THE Z AXIS
             }
 
             x += 3;
@@ -101,9 +101,10 @@ public class CityConstruction : MonoBehaviour
                 break;
         }
 
+        
         // Z Axis (Up)
-        int z = 0;
-        for (int n = 0; n < map_width; n++)
+        int z = 10;
+        for (int n = 0; n < map_height; n++)
         {
             for (int w = 0; w < map_width; w++)
             {
@@ -117,14 +118,17 @@ public class CityConstruction : MonoBehaviour
                 // otherwise its just a road on the Z axis
                 else
                     map_grid[w, z] = -2;
+                    
             }
 
             // Use a Random Range to increase and Vary block Lengths
-            z += Random.Range(3, max_block_length);
+            z += Random.Range(8, max_block_length);
 
             // If weve gone past the end of the grid
             if (z >= map_height)
+            {
                 break;
+            }
         }
     }
 
@@ -203,14 +207,14 @@ public class CityConstruction : MonoBehaviour
 
 
 
-    private void GenerateStraightRoads()
+    private void GenerateRoads()
     {
         // Cycle through grid and create the roads
         for (int h = 0; h < map_height; h++)
         {
             for (int w = 0; w < map_width; w++)
             {
-                int gridID = map_grid[w, h];
+                //int gridID = map_grid[w, h];
 
                 Vector3 pos = new Vector3(w * building_spacing,
                     0, h * building_spacing);
