@@ -51,4 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfab9652c2a1f364ca76a424e94baf56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleOne: {fileID: 0}
+  obstacleOne: {fileID: 1613987558066840, guid: 82efc9567b845334bb30afcaa2f23ae5,
+    type: 2}
