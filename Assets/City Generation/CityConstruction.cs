@@ -25,6 +25,7 @@ public class CityConstruction : MonoBehaviour
     [SerializeField] bool user_seed_set = false;
     [SerializeField] int user_seed_number;
 
+    [SerializeField]  GameObject city_level;
 
     // Perlin Noise Data
     private int[,] map_grid;
@@ -38,9 +39,9 @@ public class CityConstruction : MonoBehaviour
 
         if (user_seed_set == false)
         {
-            GenerateRoadData();
+            //GenerateRoadData();
 
-            PopulateRoads();
+            //PopulateRoads();
         }
 
         GenerateStraightRoads();
@@ -149,7 +150,15 @@ public class CityConstruction : MonoBehaviour
                 {
                     if (gridID < i && gridID >= 0)
                     {
-                        CreateBuilding(building_no, pos);
+                        if (w <= map_width / 2)
+                        {
+                            CreateBuilding(building_no, pos, true);
+                        }
+
+                        if (w > map_width / 2)
+                        {
+                            CreateBuilding(building_no, pos, false);
+                        }
 
                         // Reset Building No and Height
                         building_no = 0;
@@ -220,15 +229,29 @@ public class CityConstruction : MonoBehaviour
 
 
 
-    private void CreateBuilding(int building_no, Vector3 pos)
+    private void CreateBuilding(int building_no, Vector3 pos, bool rotate_pos)
     {
-        Instantiate(buildings[building_no], pos, buildings[building_no].transform.rotation);
+        var building = Instantiate(buildings[building_no], pos, buildings[building_no].transform.rotation);
+
+        if (rotate_pos == true)
+        {
+            building.transform.Rotate(0.0f, 0.0f, 90.0f);
+        }
+
+        if (rotate_pos == false)
+        {
+            building.transform.Rotate(0.0f, 0.0f, -90.0f);
+        }
+
+        building.transform.SetParent(city_level.transform);
     }
 
 
 
     private void CreateRoad(GameObject road_type, Vector3 pos)
     {
-        Instantiate(road_type, pos, road_type.transform.rotation);
+        var road = Instantiate(road_type, pos, road_type.transform.rotation);
+
+        road.transform.SetParent(city_level.transform);
     }
 }
