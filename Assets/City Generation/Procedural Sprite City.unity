@@ -197,6 +197,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &865115843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 865115844}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &865115844
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865115843}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1386631445
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,12 +345,13 @@ MonoBehaviour:
   road_x: {fileID: 1011005209096142, guid: 4a534944acc72444096ccc3c7098a70b, type: 2}
   road_z: {fileID: 1102459474312304, guid: efa3340ada0f98f42b2f41d0c4fa66a6, type: 2}
   cross_road: {fileID: 1797404076813002, guid: 2988490237d1f6b43a07c262887bfd57, type: 2}
-  map_width: 15
-  map_height: 1000
+  map_width: 32
+  map_height: 500
   max_block_length: 8
-  building_spacing: 0.2
-  user_seed_set: 1
+  building_spacing: 5.25
+  user_seed_set: 0
   user_seed_number: 1
+  city_level: {fileID: 865115843}
 --- !u!4 &1640208501
 Transform:
   m_ObjectHideFlags: 0
