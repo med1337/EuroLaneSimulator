@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Axis : MonoBehaviour
+public class WheelVisual : MonoBehaviour
 {
-    public bool Steering;
-    public bool Motor;
-
-
     public WheelCollider LeftCollider;
     public WheelCollider RightCollider;
+
+    public GameObject LeftVisual;
+
+    public GameObject RightVisual;
 
     // Use this for initialization
     void Start()
@@ -18,10 +18,6 @@ public class Axis : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-    }
-
-    void FixedUpdate()
     {
     }
 }
