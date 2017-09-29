@@ -60,7 +60,6 @@ public class ObstacleManagerScript : MonoBehaviour
             obstacles.Add(Instantiate(obstacleOne, spawnPoint, Quaternion.identity));
         }
 
-
         //spawn another in random time range
         int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
 
