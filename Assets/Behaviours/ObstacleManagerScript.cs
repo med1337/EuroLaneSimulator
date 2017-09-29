@@ -5,14 +5,14 @@ using UnityEngine;
 public class ObstacleManagerScript : MonoBehaviour
 {
 
-    GameObject player;
-    private int maxObstacles = 3;
-    private int currentObstacles = 0;
-    private int minSpawnTime = 1;
-    private int maxSpawnTime = 5;
-    private float spawnDistance = 10.0f;
-    private List<GameObject> obstacles = new List<GameObject>();
-    public GameObject obstacleOne;
+    GameObject player; //player GO
+    private int maxObstacles = 3; //max number of obstacles to spawn
+    private int currentObstacles = 0; //how many obstacles spawned
+    private int minSpawnTime = 1; //minimum time to next spawn
+    private int maxSpawnTime = 5; //maximum time to next spawn
+    private float spawnDistance = 10.0f; //distance obstacles spawn/despawn fomr player
+    private List<GameObject> obstacles = new List<GameObject>(); //obstacle List
+    public GameObject obstacleOne; //obstacle GO to spawn
 
     // Use this for initialization
     void Start()
@@ -25,6 +25,7 @@ public class ObstacleManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if there are obstacles far enough behind player, despawn
         if (currentObstacles > 0)
         {
             foreach (GameObject obstacle in obstacles)
@@ -43,6 +44,7 @@ public class ObstacleManagerScript : MonoBehaviour
 
     void SpawnObstacle()
     {
+        //spawn obstacles somewhere in front of player
         if (currentObstacles < maxObstacles)
         {
             Vector3 spawnPoint = player.transform.position;
@@ -53,13 +55,13 @@ public class ObstacleManagerScript : MonoBehaviour
 
             spawnPoint.x = xCoord;
 
-            //Instantiate(obstacleOne, spawnPoint, Quaternion.identity);
-
             currentObstacles++;
 
             obstacles.Add(Instantiate(obstacleOne, spawnPoint, Quaternion.identity));
         }
 
+
+        //spawn another in random time range
         int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
 
         Invoke("SpawnObstacle", randomSpawn);
