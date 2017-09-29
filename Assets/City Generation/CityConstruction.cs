@@ -43,6 +43,8 @@ public class CityConstruction : MonoBehaviour
             PopulateRoads();
         }
 
+        GenerateStraightRoads();
+
         PopulateBuildings();
     }
 
@@ -185,6 +187,32 @@ public class CityConstruction : MonoBehaviour
                 else if (gridID < 0)
                 {
                     CreateRoad(road_z, pos);
+                }
+            }
+        }
+    }
+
+
+
+    private void GenerateStraightRoads()
+    {
+        // Cycle through grid and create the roads
+        for (int h = 0; h < map_height; h++)
+        {
+            for (int w = 0; w < map_width; w++)
+            {
+                int gridID = map_grid[w, h];
+
+                Vector3 pos = new Vector3(w * building_spacing,
+                    0, h * building_spacing);
+
+                if (w == map_width / 2 ||
+                    w == map_width / 2 + 1 || w == map_width / 2 + 2 ||
+                    w == map_width / 2 + 3 || w == map_width / 2 - 1 ||
+                    w == map_width / 2 - 2 || w == map_width / 2 - 3)
+                {
+                    map_grid[w, h] = -1;
+                    CreateRoad(road_x, pos);
                 }
             }
         }
