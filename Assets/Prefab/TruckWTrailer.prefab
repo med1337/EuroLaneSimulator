@@ -613,6 +613,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1839926590252108
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4746886011927692}
+  - component: {fileID: 65452770890049048}
+  m_Layer: 0
+  m_Name: PickupTrigger
+  m_TagString: Trailer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1841400051360892
 GameObject:
   m_ObjectHideFlags: 1
@@ -769,6 +785,7 @@ Transform:
   - {fileID: 4866561306097288}
   - {fileID: 4506884131990620}
   - {fileID: 4920677534904352}
+  - {fileID: 4746886011927692}
   m_Father: {fileID: 4881837137090678}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1089,6 +1106,19 @@ Transform:
   m_Father: {fileID: 4865648399675970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4746886011927692
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839926590252108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4080282241488496}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4749462144128514
 Transform:
   m_ObjectHideFlags: 1
@@ -1407,6 +1437,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.78, y: 1.2400002, z: 0.20000005}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65452770890049048
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839926590252108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7746598, y: 0.14244413, z: 0.520429}
+  m_Center: {x: 0.008666834, y: 0.082993746, z: 0.23978552}
 --- !u!65 &65509237702195322
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2388,15 +2430,11 @@ MonoBehaviour:
   - {fileID: 21300002, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
   - {fileID: 21300004, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
   - {fileID: 21300006, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  AngleSpriteLevels:
-  - 2.5
-  - 30
-  - 89
-  - 89
   WheelControlScript: {fileID: 114968056459411102}
   SpeedText: {fileID: 0}
   SpeedLimit: 40
   Speed: 0
+  TrailerInReach: 0
 --- !u!114 &114446990440677162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2641,11 +2679,6 @@ MonoBehaviour:
   - {fileID: 21300010, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
   - {fileID: 21300012, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
   - {fileID: 21300014, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  AngleSpriteLevels:
-  - 2.5
-  - 30
-  - 89
-  - 89
   CargoValue: 100000
   CargoValText: {fileID: 0}
 --- !u!114 &114868315766916328
@@ -2753,8 +2786,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 20613.264
-    damper: 3298.1218
+    spring: 20613.268
+    damper: 3298.1228
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
   m_ForceAppPointDistance: 0.7584825
@@ -2811,8 +2844,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 5019.6436
-    damper: 803.14294
+    spring: 5019.6367
+    damper: 803.14197
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
   m_ForceAppPointDistance: 0.7584825
@@ -2928,7 +2961,7 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 49367.094
-    damper: 7898.7354
+    damper: 7898.736
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
   m_ForceAppPointDistance: 0.7584825
@@ -2956,8 +2989,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 5019.6284
-    damper: 803.14056
+    spring: 5019.6196
+    damper: 803.1392
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
   m_ForceAppPointDistance: 0.7584825

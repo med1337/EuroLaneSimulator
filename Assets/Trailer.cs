@@ -45,4 +45,6 @@ public class Trailer : Vehicle
     {
         base.FixedUpdate();
     }
+
+   
 }

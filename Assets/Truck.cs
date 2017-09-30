@@ -11,6 +11,8 @@ public class Truck : Vehicle
     public float SpeedLimit;
     public float Speed;
 
+    public bool TrailerInReach;
+
     // Update is called once per frame
     public override void Update()
     {
@@ -37,5 +39,21 @@ public class Truck : Vehicle
             MyRigidbody.velocity = MyRigidbody.velocity.normalized * SpeedLimit;
         }
         base.FixedUpdate();
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.CompareTag("Trailer"))
+        {
+            TrailerInReach = true;
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("Trailer"))
+        {
+            TrailerInReach = false;
+        }
     }
 }
