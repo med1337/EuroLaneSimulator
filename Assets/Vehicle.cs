@@ -16,7 +16,7 @@ public abstract class Vehicle : MonoBehaviour
 
     [Header("Sprites, do not use more than 4 atm")] public SpriteRenderer CurrentSprite;
     public List<Sprite> TippingSpritesList;
-    public float[] AngleSpriteLevels = {2.5f, 30, 89};
+    private float[] AngleSpriteLevels = {2.5f, 5, 89};
 
 
     public virtual void Start()
