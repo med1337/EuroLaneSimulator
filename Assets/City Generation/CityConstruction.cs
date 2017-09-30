@@ -11,19 +11,17 @@ public class CityConstruction : MonoBehaviour
     public GameObject road_x;
     public GameObject road_z;
     public GameObject cross_road;
+    public GameObject pavement;
 
     // City Size
     [SerializeField] int map_width = 20;
     [SerializeField] int map_height = 20;
 
-    [SerializeField] int max_block_length = 10;
+    // Max length of Blocks ie zones between roads
+    [SerializeField] int max_block_length = 14;
 
     // Spacing between Grid spaces
     [SerializeField] float building_spacing = 1.0f;
-
-    // Bool for user Seed
-    [SerializeField] bool user_seed_set = false;
-    [SerializeField] int user_seed_number;
 
     [SerializeField]  GameObject city_level;
 
@@ -37,14 +35,13 @@ public class CityConstruction : MonoBehaviour
 
         GenerateBuildingData();
 
-        if (user_seed_set == false)
-        {
-            GenerateRoadData();
+        // Generates Cross Road data...
+        GenerateRoadDataAcross();
 
-            PopulateRoads();
-        }
+        // Creates main Road for player to drive on
+        GeneratePlayerRoad();
 
-        GenerateRoads();
+        PopulateRoads();
 
         PopulateBuildings();
     }
@@ -54,19 +51,6 @@ public class CityConstruction : MonoBehaviour
     private void GenerateBuildingData()
     {
         int seed = 0;
-
-        // if user hasn't set a seed
-        if (user_seed_set == false)
-        {
-            // needs to be Seeded, else same map!
-            seed = Random.Range(0, 100);
-        }
-        
-        // if user has set a seed
-        if (user_seed_set == true)
-        {
-            seed = user_seed_number;
-        }
 
         // Generate Map Data
         for (int h = 0; h < map_height; h++)
@@ -82,47 +66,36 @@ public class CityConstruction : MonoBehaviour
 
 
 
-    private void GenerateRoadData()
+    private void GenerateRoadDataAcross()
     {
-        // X Axis (Right)
-        int x = 0;
-        for (int n = 0; n < map_height; n++)
-        {
-            for (int h = 0; h < map_height; h++)
-            {
-                // Set this position as a Horizontal Road
-                //map_grid[x, h] = -1; // NOT NEEDED, DRAWS ROADS UP THE Z AXIS
-            }
-
-            x += 3;
-
-            // If weve gone past the end of the grid
-            if (x >= map_width)
-                break;
-        }
-
-        
-        // Z Axis (Up)
+        // Draws Roads Across
         int z = 10;
+
         for (int n = 0; n < map_height; n++)
         {
             for (int w = 0; w < map_width; w++)
             {
-                // if its already a road from the Z axis,
-                // update to a cross section
-                if (map_grid[w, z] == -1)
+                // -2 = roadX
+                map_grid[w, z] = -2;
+                
+                if(z + 1 < map_height)
                 {
-                    map_grid[w, z] = -3;
+                    map_grid[w, z + 1] = -2;
                 }
 
-                // otherwise its just a road on the Z axis
-                else
-                    map_grid[w, z] = -2;
-                    
+                if (z + 2 < map_height)
+                {
+                    map_grid[w, z + 2] = -4;
+                }
+
+                if (z - 1 > 0)
+                {
+                    map_grid[w, z - 1] = -4;
+                }
             }
 
             // Use a Random Range to increase and Vary block Lengths
-            z += Random.Range(8, max_block_length);
+            z += Random.Range(14, max_block_length);
 
             // If weve gone past the end of the grid
             if (z >= map_height)
@@ -189,9 +162,18 @@ public class CityConstruction : MonoBehaviour
                 Vector3 pos = new Vector3(w * building_spacing,
                     0, h * building_spacing);
 
-                if (gridID < -2)
+                if (gridID < -3)
                 {
-                    CreateRoad(cross_road, pos);
+                    CreatePavement(pavement, pos);
+                }
+                else if (gridID < -2)
+                {
+                    if (w <= map_width / 2)
+                    {
+                        CreateCrossRoad(cross_road, pos, true);
+                    }
+                    else
+                        CreateCrossRoad(cross_road, pos, false);
                 }
                 else if (gridID < -1)
                 {
@@ -207,17 +189,13 @@ public class CityConstruction : MonoBehaviour
 
 
 
-    private void GenerateRoads()
+    private void GeneratePlayerRoad()
     {
         // Cycle through grid and create the roads
         for (int h = 0; h < map_height; h++)
         {
             for (int w = 0; w < map_width; w++)
             {
-                //int gridID = map_grid[w, h];
-
-                Vector3 pos = new Vector3(w * building_spacing,
-                    0, h * building_spacing);
 
                 if (w == map_width / 2 ||
                     w == map_width / 2 + 1 || w == map_width / 2 + 2 ||
@@ -225,7 +203,21 @@ public class CityConstruction : MonoBehaviour
                     w == map_width / 2 - 2 || w == map_width / 2 - 3)
                 {
                     map_grid[w, h] = -1;
-                    CreateRoad(road_x, pos);
+                    //CreateRoad(road_x, pos);
+                }
+
+                if (w == map_width / 2 + 4 ||
+                    w == map_width / 2 - 4)
+                {
+                    if (map_grid[w, h] == -2)
+                    {
+                        map_grid[w, h] = -3;
+                    }
+
+                    else if (map_grid[w, h] > 0)
+                    {
+                        map_grid[w, h] = -4;
+                    }
                 }
             }
         }
@@ -257,5 +249,36 @@ public class CityConstruction : MonoBehaviour
         var road = Instantiate(road_type, pos, road_type.transform.rotation);
 
         road.transform.SetParent(city_level.transform);
+    }
+
+
+
+    private void CreateCrossRoad(GameObject road_type, Vector3 pos, bool rotate_pos)
+    {
+        var cross_road = Instantiate(road_type, pos, road_type.transform.rotation);
+
+        if (rotate_pos == true)
+        {
+            //NEEDS ROTATION ADDED ON Z AXIS
+            cross_road.transform.Rotate(0.0f, 0.0f, 0.0f);
+        }
+
+        if (rotate_pos == false)
+        {
+            //NEEDS ROTATION ADDED ON Z AXIS
+            cross_road.transform.Rotate(0.0f, 0.0f, 0.0f);
+        }
+
+        cross_road.transform.SetParent(city_level.transform);
+
+    }
+
+
+
+    private void CreatePavement(GameObject pavement, Vector3 pos)
+    {
+        var path = Instantiate(pavement, pos, pavement.transform.rotation);
+
+        path.transform.SetParent(city_level.transform);
     }
 }

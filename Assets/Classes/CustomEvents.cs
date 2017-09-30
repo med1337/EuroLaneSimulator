@@ -17,4 +17,16 @@ public class CustomEvents
     [System.Serializable]
     public class FloatEvent : UnityEvent<float> { }
 
+    [System.Serializable]
+    public class CollisionEvent : UnityEvent<Collision> { }
+
+    [System.Serializable]
+    public class ColliderEvent : UnityEvent<Collider> { }
+
+    [System.Serializable]
+    public class Collision2DEvent : UnityEvent<Collision2D> { }
+
+    [System.Serializable]
+    public class Collider2DEvent : UnityEvent<Collider2D> { }
+
 }

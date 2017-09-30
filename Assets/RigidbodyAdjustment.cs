@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RigidbodyAdjustment : MonoBehaviour
 {
-
+    public Rigidbody RigidBody;
     public Vector3 RbadjustVector3;
 
 	// Use this for initialization
@@ -15,12 +15,12 @@ public class RigidbodyAdjustment : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    GetComponent<Rigidbody>().centerOfMass = RbadjustVector3;
+	    RigidBody.centerOfMass = RbadjustVector3;
 	}
 
     void OnDrawGizmosSelected()
     {
-        Vector3 com = GetComponent<Rigidbody>().centerOfMass;
+        Vector3 com = RigidBody.centerOfMass;
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.TransformPoint(com), 0.15f);
     }
