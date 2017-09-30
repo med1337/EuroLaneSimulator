@@ -24,7 +24,9 @@ public class Trailer : Vehicle
     // Update is called once per frame
     public override void Update()
     {
-        UpdateCargoValueText();
+        if (CargoValText != null)
+            UpdateCargoValueText();
+
         base.Update();
     }
 
