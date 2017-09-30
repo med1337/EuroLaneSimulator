@@ -1788,129 +1788,46 @@ Prefab:
       propertyPath: m_Name
       value: TruckWTrailer (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 146777530789680036, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.spring
-      value: 5019.616
-      objectReference: {fileID: 0}
-    - target: {fileID: 146777530789680036, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.damper
-      value: 803.1386
-      objectReference: {fileID: 0}
-    - target: {fileID: 146426335680023708, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.spring
-      value: 5019.6445
-      objectReference: {fileID: 0}
-    - target: {fileID: 146426335680023708, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.damper
-      value: 803.1431
-      objectReference: {fileID: 0}
-    - target: {fileID: 146330816556830956, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.spring
-      value: 20613.268
-      objectReference: {fileID: 0}
-    - target: {fileID: 146330816556830956, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.damper
-      value: 3298.123
-      objectReference: {fileID: 0}
-    - target: {fileID: 146736290830410474, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.damper
-      value: 7898.736
-      objectReference: {fileID: 0}
-    - target: {fileID: 146837122222791524, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
-      objectReference: {fileID: 0}
-    - target: {fileID: 146837122222791524, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionDistance
-      value: 0.19620001
-      objectReference: {fileID: 0}
-    - target: {fileID: 146431325076017396, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
-      objectReference: {fileID: 0}
-    - target: {fileID: 146431325076017396, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionDistance
-      value: 0.19620001
-      objectReference: {fileID: 0}
-    - target: {fileID: 146334572773061592, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
-      objectReference: {fileID: 0}
-    - target: {fileID: 146334572773061592, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: m_SuspensionDistance
-      value: 0.19620001
-      objectReference: {fileID: 0}
     - target: {fileID: 146952299053723540, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146952299053723540, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
-    - target: {fileID: 114440348316302200, guid: 50debfaffda14bd4e8fd0363dcb21518,
+    - target: {fileID: 146334572773061592, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
-      propertyPath: TippingSpritesList.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
-    - target: {fileID: 114440348316302200, guid: 50debfaffda14bd4e8fd0363dcb21518,
+      propertyPath: m_SuspensionSpring.damper
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 146334572773061592, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
-      propertyPath: TippingSpritesList.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300002, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
-    - target: {fileID: 114440348316302200, guid: 50debfaffda14bd4e8fd0363dcb21518,
+      propertyPath: m_SuspensionDistance
+      value: 0.19620003
+      objectReference: {fileID: 0}
+    - target: {fileID: 146431325076017396, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
-      propertyPath: TippingSpritesList.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300004, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
-    - target: {fileID: 114440348316302200, guid: 50debfaffda14bd4e8fd0363dcb21518,
+      propertyPath: m_SuspensionSpring.damper
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 146431325076017396, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
-      propertyPath: TippingSpritesList.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300006, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
-    - target: {fileID: 114866666942828878, guid: 50debfaffda14bd4e8fd0363dcb21518,
+      propertyPath: m_SuspensionDistance
+      value: 0.19620003
+      objectReference: {fileID: 0}
+    - target: {fileID: 146837122222791524, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
-      propertyPath: TippingSpritesList.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300008, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
-    - target: {fileID: 114866666942828878, guid: 50debfaffda14bd4e8fd0363dcb21518,
+      propertyPath: m_SuspensionSpring.damper
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 146837122222791524, guid: 50debfaffda14bd4e8fd0363dcb21518,
         type: 2}
-      propertyPath: TippingSpritesList.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300010, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
-    - target: {fileID: 114866666942828878, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: TippingSpritesList.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300012, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
-    - target: {fileID: 114866666942828878, guid: 50debfaffda14bd4e8fd0363dcb21518,
-        type: 2}
-      propertyPath: TippingSpritesList.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300014, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc,
-        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.19620003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50debfaffda14bd4e8fd0363dcb21518, type: 2}
   m_IsPrefabParent: 0
