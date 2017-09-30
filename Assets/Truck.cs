@@ -7,6 +7,7 @@ public class Truck : MonoBehaviour
 {
     public WheelControlScript WheelControlScript;
     public Text SpeedText;
+    public Rigidbody RigidBody;
 
     public float SpeedLimit;
     public float Speed;
@@ -18,15 +19,17 @@ public class Truck : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    Speed = GetComponent<Rigidbody>().velocity.magnitude;
-        SpeedText.text = GetComponent<Rigidbody>().velocity.magnitude.ToString();
+	    Speed = RigidBody.velocity.magnitude;
+
+        if (SpeedText != null)
+            SpeedText.text = RigidBody.velocity.magnitude.ToString();
 	}
 
     void FixedUpdate()
     {
-        if (GetComponent< Rigidbody >().velocity.magnitude > SpeedLimit)
+        if (RigidBody.velocity.magnitude > SpeedLimit)
         {
-            GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * SpeedLimit;
+            RigidBody.velocity = RigidBody.velocity.normalized * SpeedLimit;
         }
     }
 }

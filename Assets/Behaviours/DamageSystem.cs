@@ -7,9 +7,10 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] List<FadableGraphic> fades;
     [SerializeField] List<SpriteRenderer> sprites;
     [SerializeField] List<ShakeModule> shakes;
-    [SerializeField] float flash_duration;
-    [SerializeField] float shake_strength;
-    [SerializeField] float shake_duration;
+
+    [SerializeField] DamageEffectSettings environment_effect_settings;
+    [SerializeField] DamageEffectSettings hazard_effect_settings;
+
     [SerializeField] float invulnerability_duration;
     [SerializeField] float invulnerability_opacity;
     [SerializeField] float invulnerability_variance;
@@ -17,15 +18,22 @@ public class DamageSystem : MonoBehaviour
     private bool invulnerable;
 
 
-    public void Damage(int _damage)
+    public void EnvironmentCollision(Collision _other)
+    {
+        DamageEffect(environment_effect_settings);
+    }
+
+
+    public void HazardCollision(Collider _other)
     {
         if (invulnerable)
             return;
 
+        DamageEffect(hazard_effect_settings);
         invulnerable = true;
 
         StopAllCoroutines();
-        StartCoroutine(DamageEffect());
+        StartCoroutine(InvulnerabilityEnumerator());
     }
 
 
@@ -36,17 +44,21 @@ public class DamageSystem : MonoBehaviour
     }
 
 
-    IEnumerator DamageEffect()
+    void DamageEffect(DamageEffectSettings _settings)
     {
         foreach (FadableGraphic fade in fades)
         {
-            fade.SetBaseColor(Color.white);
-            fade.FadeOut(flash_duration);
+            fade.SetBaseColor(_settings.flash_color);
+            fade.FadeOut(_settings.flash_duration);
         }
 
         foreach (ShakeModule shake in shakes)
-            shake.Shake(shake_strength, shake_duration);
+            shake.Shake(_settings.shake_strength, _settings.shake_duration);
+    }
 
+
+    IEnumerator InvulnerabilityEnumerator()
+    {
         yield return new WaitForSeconds(invulnerability_duration);
 
         invulnerable = false;
@@ -73,6 +85,12 @@ public class DamageSystem : MonoBehaviour
 
             sprite.color = color;
         }
+    }
+
+
+    void OnCollisionEnter(Collision _other)
+    {
+        Debug.Log(_other.gameObject.name);
     }
 
 }
