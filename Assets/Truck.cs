@@ -3,33 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Truck : MonoBehaviour
+public class Truck : Vehicle
 {
     public WheelControlScript WheelControlScript;
     public Text SpeedText;
-    public Rigidbody RigidBody;
 
     public float SpeedLimit;
     public float Speed;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    Speed = RigidBody.velocity.magnitude;
 
-        if (SpeedText != null)
-            SpeedText.text = RigidBody.velocity.magnitude.ToString();
-	}
-
-    void FixedUpdate()
+    // Update is called once per frame
+    public override void Update()
     {
-        if (RigidBody.velocity.magnitude > SpeedLimit)
+        CheckSpeed();
+        base.Update();
+    }
+
+    private void CheckSpeed()
+    {
+        var localSpeed = transform.InverseTransformDirection(MyRigidbody.velocity);
+        Speed = localSpeed.z;
+        Speed *= 2.237f;
+        if (SpeedText != null)
         {
-            RigidBody.velocity = RigidBody.velocity.normalized * SpeedLimit;
+            var speedText = (int) Speed + " MPH";
+            SpeedText.text = speedText;
         }
+    }
+
+    public override void FixedUpdate()
+    {
+        if (MyRigidbody.velocity.magnitude > SpeedLimit)
+        {
+            MyRigidbody.velocity = MyRigidbody.velocity.normalized * SpeedLimit;
+        }
+        base.FixedUpdate();
     }
 }
