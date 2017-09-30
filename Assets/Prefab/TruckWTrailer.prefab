@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4016996205658776}
   - component: {fileID: 146736290830410474}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4707327566924250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelSprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4506884131990620}
   - component: {fileID: 96284503923721268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skid_Trail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4977144228806986}
   - component: {fileID: 114968056459411102}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4551333954176662}
   - component: {fileID: 114368045199278842}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: MiddleAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4415051646838688}
   - component: {fileID: 96955489368953142}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skid_Trail (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4939948145356848}
   - component: {fileID: 146330816556830956}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4021801758076832}
   - component: {fileID: 146475776585489110}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4284619576579826}
   - component: {fileID: 96037893369458520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skid_Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4881020130667144}
   - component: {fileID: 96678111921166166}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skid_Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4282799654003082}
   - component: {fileID: 114470673764663860}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: RearAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4704823561635836}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545013920245330}
   - component: {fileID: 114198321915631762}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: RearAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4880094498465164}
   - component: {fileID: 146511617532652146}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4749462144128514}
   - component: {fileID: 96841430259348576}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skid_Trail (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4367819829157228}
   - component: {fileID: 114446990440677162}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FrontAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4029835029226232}
   - component: {fileID: 212593444305662820}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4920677534904352}
   - component: {fileID: 96750521433327128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skid_Trail (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4652369628119162}
   - component: {fileID: 96699831989516840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skid_Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901441609502492}
   - component: {fileID: 114653002694918396}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: MiddleAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4858753217459770}
   - component: {fileID: 96889348042353936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skid_Trail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798549707125190}
   - component: {fileID: 146837122222791524}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 114740219007085196}
   - component: {fileID: 114539236463011270}
   - component: {fileID: 114866666942828878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trailer (1)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 4258654720889418}
   - component: {fileID: 212502552893258146}
   - component: {fileID: 114154603383884824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4199973891622958}
   - component: {fileID: 96273194880795518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skid_Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 4218578090410794}
   - component: {fileID: 212519618556028368}
   - component: {fileID: 114633301016932700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4368070125138932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WheelSprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4828695133911096}
   - component: {fileID: 212745497510628954}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4011018505750508}
   - component: {fileID: 146777530789680036}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 114440348316302200}
   - component: {fileID: 114967364718304628}
   - component: {fileID: 114842005917162902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Truck
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545199140838500}
   - component: {fileID: 146431325076017396}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4269730642602764}
   - component: {fileID: 96672907756383586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skid_Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4223672710404260}
   - component: {fileID: 146426335680023708}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: RightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,25 +606,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4588160023017514}
   - component: {fileID: 146334572773061592}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: LeftWheel
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1839926590252108
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4746886011927692}
-  - component: {fileID: 65452770890049048}
-  m_Layer: 0
-  m_Name: PickupTrigger
-  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -641,7 +625,7 @@ GameObject:
   - component: {fileID: 92015667970394478}
   - component: {fileID: 124211250925560002}
   - component: {fileID: 81247096923408370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -674,7 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4174139133123594}
   - component: {fileID: 114965827915985790}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FrontAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +675,7 @@ GameObject:
   - component: {fileID: 4842575191981876}
   - component: {fileID: 212544419188147192}
   - component: {fileID: 114868315766916328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488025162311802}
   - component: {fileID: 146952299053723540}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: LeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +769,6 @@ Transform:
   - {fileID: 4866561306097288}
   - {fileID: 4506884131990620}
   - {fileID: 4920677534904352}
-  - {fileID: 4746886011927692}
   m_Father: {fileID: 4881837137090678}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1106,19 +1089,6 @@ Transform:
   m_Father: {fileID: 4865648399675970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &4746886011927692
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1839926590252108}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.73}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4080282241488496}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4749462144128514
 Transform:
   m_ObjectHideFlags: 1
@@ -1423,8 +1393,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.77, y: 1.2804595, z: 0.20000005}
-  m_Center: {x: 0, y: -0.19477035, z: 7.8485967e-16}
+  m_Size: {x: 0.77, y: 1.5484436, z: 0.20000005}
+  m_Center: {x: 0, y: -0.3287624, z: 1.2329496e-15}
 --- !u!65 &65402607518549050
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1435,20 +1405,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.78, y: 1.2400002, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65452770890049048
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1839926590252108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7746598, y: 0.14244413, z: 0.520429}
-  m_Center: {x: 0.008666834, y: 0.082993746, z: 0.23978552}
+  m_Size: {x: 0.78, y: 1.4637758, z: 0.20000005}
+  m_Center: {x: 0, y: 0.11188789, z: 1.2007964e-15}
 --- !u!65 &65509237702195322
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1459,8 +1417,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76874375, y: 1.6469064, z: 0.4792358}
-  m_Center: {x: 0.00062807405, y: -0.011547003, z: -0.36943474}
+  m_Size: {x: 0.76874375, y: 2.2985492, z: 0.4792358}
+  m_Center: {x: 0.00062807405, y: 0.047215592, z: -0.36943486}
 --- !u!65 &65804583963663620
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1471,8 +1429,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.78, y: 0.65947187, z: 0.4823207}
-  m_Center: {x: 0, y: 0.29026425, z: -0.36096922}
+  m_Size: {x: 0.78, y: 0.8768774, z: 0.4823207}
+  m_Center: {x: 0, y: 0.3989672, z: -0.36096922}
 --- !u!81 &81247096923408370
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2426,15 +2384,14 @@ MonoBehaviour:
   TipAngle: 0
   CurrentSprite: {fileID: 212544419188147192}
   TippingSpritesList:
-  - {fileID: 21300000, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  - {fileID: 21300002, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  - {fileID: 21300004, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  - {fileID: 21300006, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
+  - {fileID: 21300000, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
+  - {fileID: 21300002, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
+  - {fileID: 21300004, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
+  - {fileID: 21300006, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
   WheelControlScript: {fileID: 114968056459411102}
   SpeedText: {fileID: 0}
   SpeedLimit: 40
   Speed: 0
-  TrailerInReach: 0
 --- !u!114 &114446990440677162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2675,10 +2632,10 @@ MonoBehaviour:
   TipAngle: 0
   CurrentSprite: {fileID: 212920021944815868}
   TippingSpritesList:
-  - {fileID: 21300008, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  - {fileID: 21300010, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  - {fileID: 21300012, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
-  - {fileID: 21300014, guid: 8af58f595b9dfc44fbd89e920c3666ab, type: 3}
+  - {fileID: 21300008, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
+  - {fileID: 21300010, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
+  - {fileID: 21300012, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
+  - {fileID: 21300014, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
   CargoValue: 100000
   CargoValText: {fileID: 0}
 --- !u!114 &114868315766916328
@@ -2786,11 +2743,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 20613.268
-    damper: 3298.1228
+    spring: 24999.998
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7584825
+  m_ForceAppPointDistance: 0.78994185
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2816,10 +2773,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
-  m_ForceAppPointDistance: 1.2583048
+  m_SuspensionDistance: 0.19620001
+  m_ForceAppPointDistance: 1.2583054
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2844,11 +2801,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 5019.6367
-    damper: 803.14197
+    spring: 24999.998
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7584825
+  m_ForceAppPointDistance: 0.78994185
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2874,10 +2831,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
-  m_ForceAppPointDistance: 1.2583048
+  m_SuspensionDistance: 0.19620001
+  m_ForceAppPointDistance: 1.2583054
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2902,11 +2859,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 49367.12
-    damper: 7898.7397
+    spring: 24999.998
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7584825
+  m_ForceAppPointDistance: 0.78994185
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2931,11 +2888,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 20613.246
-    damper: 3298.1191
+    spring: 24999.998
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.19620001
-  m_ForceAppPointDistance: 0.7584825
+  m_ForceAppPointDistance: 0.78994185
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2960,11 +2917,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 49367.094
-    damper: 7898.736
+    spring: 24999.998
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7584825
+  m_ForceAppPointDistance: 0.78994185
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2989,11 +2946,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 5019.6196
-    damper: 803.1392
+    spring: 24999.998
+    damper: 4000
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7584825
+  m_ForceAppPointDistance: 0.78994185
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -3019,10 +2976,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
-  m_ForceAppPointDistance: 1.2583048
+  m_SuspensionDistance: 0.19620001
+  m_ForceAppPointDistance: 1.2583054
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -3048,10 +3005,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
-  m_ForceAppPointDistance: 1.2583048
+  m_SuspensionDistance: 0.19620001
+  m_ForceAppPointDistance: 1.2583054
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -3107,6 +3064,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212519618556028368
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -3147,6 +3105,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212544419188147192
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -3187,6 +3146,7 @@ SpriteRenderer:
   m_Size: {x: 0.78, y: 1.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212593444305662820
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -3227,6 +3187,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212745497510628954
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -3267,6 +3228,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212920021944815868
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -3307,3 +3269,4 @@ SpriteRenderer:
   m_Size: {x: 0.78, y: 1.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
