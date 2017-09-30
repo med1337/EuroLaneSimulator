@@ -4,65 +4,66 @@ using UnityEngine;
 
 public class ObstacleManagerScript : MonoBehaviour
 {
-
     GameObject player; //player GO
-    private int maxObstacles = 3; //max number of obstacles to spawn
-    private int currentObstacles = 0; //how many obstacles spawned
-    private int minSpawnTime = 1; //minimum time to next spawn
-    private int maxSpawnTime = 5; //maximum time to next spawn
-    private float spawnDistance = 5.0f; //distance obstacles spawn/despawn fomr player
+    private int minSpawnTime = 3; //minimum time to next spawn
+    private int maxSpawnTime = 6; //maximum time to next spawn
+    private int spawnDistance = 50; //distance from player to spawn a car
     public List<GameObject> obstacles = new List<GameObject>(); //obstacle List
-    public GameObject obstacleOne; //obstacle GO to spawn
+    public GameObject car; //car GO to spawn
+
+    public bool car_spawn_right = false;
+    public bool car_spawn_left = false;
+    public bool car_spawn_up = false;
+    public bool car_spawn_down = false;
+
+    private bool thing_queued;
 
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
-        Invoke("SpawnObstacle", 5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if there are obstacles far enough behind or in front of player, despawn
-        if (currentObstacles > 0)
+        if (Vector3.Distance(transform.position, player.transform.position) < spawnDistance)
         {
-            foreach (GameObject obstacle in obstacles)
+            if (!thing_queued)
             {
-                if ((obstacle.transform.position.y < player.transform.position.y - spawnDistance) || (obstacle.transform.position.y > player.transform.position.y + spawnDistance * 2))
-                {
-                    obstacles.Remove(obstacle);
+                int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
 
-                    Destroy(obstacle);
+                Invoke("SpawnObstacle", randomSpawn);
 
-                    currentObstacles--;                    
-                }
+                thing_queued = true;
             }
         }
     }
 
     void SpawnObstacle()
     {
-        //spawn obstacles somewhere in front of player
-        if (currentObstacles < maxObstacles)
+        thing_queued = false;
+
+        Vector3 spawnPoint = transform.position;
+
+        if (car_spawn_down)
         {
-            Vector3 spawnPoint = player.transform.position;
-
-            spawnPoint.y = spawnPoint.y + spawnDistance;
-
-            float xCoord = Random.Range(-5.0f, 5.0f);
-
-            spawnPoint.x = xCoord;
-
-            currentObstacles++;
-
-            obstacles.Add(Instantiate(obstacleOne, spawnPoint, Quaternion.identity));
+            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 180, 0)));
         }
 
-        //spawn another in random time range
-        int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
+        else if (car_spawn_left)
+        {
+            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 270, 0)));
+        }
 
-        Invoke("SpawnObstacle", randomSpawn);
+        else if (car_spawn_right)
+        {
+            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 90, 0)));
+        }
+
+        else if (car_spawn_up)
+        {
+            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 0, 0)));
+        }
     }
 }

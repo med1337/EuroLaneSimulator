@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - Hazard
+  - CarTurnLeft
+  - CarTurnRight
   layers:
   - Default
   - TransparentFX
