@@ -11,6 +11,7 @@ public class CityConstruction : MonoBehaviour
     public GameObject road_x;
     public GameObject road_z;
     public GameObject cross_road;
+    public GameObject pavement;
 
     // City Size
     [SerializeField] int map_width = 20;
@@ -227,6 +228,14 @@ public class CityConstruction : MonoBehaviour
                     map_grid[w, h] = -1;
                     CreateRoad(road_x, pos);
                 }
+
+                if (w == map_width / 2 + 4 ||
+                    w == map_width / 2 - 4)
+                {
+                    map_grid[w, h] = -2;
+                    CreatePavement(pavement, pos);
+                }
+
             }
         }
     }
@@ -257,5 +266,14 @@ public class CityConstruction : MonoBehaviour
         var road = Instantiate(road_type, pos, road_type.transform.rotation);
 
         road.transform.SetParent(city_level.transform);
+    }
+
+
+
+    private void CreatePavement(GameObject pavement, Vector3 pos)
+    {
+        var path = Instantiate(pavement, pos, pavement.transform.rotation);
+
+        path.transform.SetParent(city_level.transform);
     }
 }
