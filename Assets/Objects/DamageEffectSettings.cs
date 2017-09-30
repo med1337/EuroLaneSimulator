@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "DamageEffect/Effect Settings")]
+[CreateAssetMenu(menuName = "Custom/Effect Settings")]
 public class DamageEffectSettings : ScriptableObject
 {
     public float shake_strength;
