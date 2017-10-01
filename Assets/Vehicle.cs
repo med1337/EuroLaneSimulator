@@ -9,7 +9,10 @@ public abstract class Vehicle : MonoBehaviour
     protected Rigidbody MyRigidbody;
 
     //change this value to adjust ease of tipping
-    private readonly float _tipLiftForce = 7.5f;
+    protected readonly float _baseTipLiftForce = 0.025f;
+    protected float _currentTipForce;
+
+    private float s;
 
     private bool _flipped;
     private bool _rotated;
@@ -26,6 +29,11 @@ public abstract class Vehicle : MonoBehaviour
 
     public virtual void Update()
     {
+        var localSpeed = transform.InverseTransformDirection(MyRigidbody.velocity);
+        s = localSpeed.z;
+        s *= 2.237f;
+        _currentTipForce = s * _baseTipLiftForce;
+
         if (TipAngle > 45)
         {
             _flipped = true;
@@ -79,9 +87,9 @@ public abstract class Vehicle : MonoBehaviour
         {
             CurrentSprite.flipX = true;
         }
-        if (TipAngle > 0.5 && TipAngle < 30)
+        if (TipAngle > 4 && TipAngle < 30)
         {
-            MyRigidbody.AddForceAtPosition(Vector3.up * TipAngle * _tipLiftForce, Vector3.zero);
+            MyRigidbody.AddForceAtPosition(Vector3.up * TipAngle * _currentTipForce, Vector3.zero);
         }
         else if (TipAngle >= 89)
         {
