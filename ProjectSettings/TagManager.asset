@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - Hazard
+  - Floor
+  - Intersection
   layers:
   - Default
   - TransparentFX
