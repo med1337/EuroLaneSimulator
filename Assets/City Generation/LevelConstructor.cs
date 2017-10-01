@@ -27,7 +27,6 @@ public class LevelConstructor : MonoBehaviour
         city_grid = new int[city_width, city_height];
 
         GenerateCityData();
-
         GenerateDepotData();
 
         PopulateCity();
@@ -71,14 +70,13 @@ public class LevelConstructor : MonoBehaviour
         int section_size_w = 100;
         int section_size_h = 100;
 
-        int random_standard_section = Random.Range(0, standard_sections.Length);
-
-        int random_depot_section = Random.Range(0, depot_sections.Length);
-
         for (int h = 0; h < city_height; h++)
         {
             for (int w = 0; w < city_width; w++)
             {
+                int random_standard_section = Random.Range(0, standard_sections.Length);
+                int random_depot_section = Random.Range(0, depot_sections.Length);
+
                 section_pos = new Vector3(section_size_w, 0.0f, section_size_h);
 
                 if (city_grid[h, w] == 0)

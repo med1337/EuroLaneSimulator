@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -136,11 +136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard_sections:
-  - {fileID: 1485863026232840, guid: 8371033c544f3544d9d2204185b58a42, type: 2}
-  - {fileID: 1485863026232840, guid: 8371033c544f3544d9d2204185b58a42, type: 2}
+  - {fileID: 1737036010980190, guid: 4656c8c5e48977847a029ec76c7b1131, type: 2}
+  - {fileID: 1482149695203418, guid: 72c6e3fdf6313b543b5922a3a2c27c24, type: 2}
+  - {fileID: 1868334768816918, guid: 1d085ac6fd077de479ae3dff4edb4eb3, type: 2}
+  - {fileID: 1695362407153782, guid: 19ca83d9c5b66104abbcf7241818e052, type: 2}
   depot_sections:
-  - {fileID: 1177006157992106, guid: 04e215d73dbfd9445a96e0720e38d8b2, type: 2}
-  - {fileID: 1177006157992106, guid: 04e215d73dbfd9445a96e0720e38d8b2, type: 2}
+  - {fileID: 1737036010980190, guid: 4656c8c5e48977847a029ec76c7b1131, type: 2}
+  - {fileID: 1482149695203418, guid: 72c6e3fdf6313b543b5922a3a2c27c24, type: 2}
   city_width: 20
   city_height: 20
   total_no_depots: 10
@@ -329,7 +331,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 29.09
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -353,7 +355,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 799013076}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 84, y: 4.75, z: 9.81}
+  m_LocalPosition: {x: 84, y: 78.6, z: 9.8}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -401,15 +403,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4881837137090678, guid: 50debfaffda14bd4e8fd0363dcb21518, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 99.3
       objectReference: {fileID: 0}
     - target: {fileID: 4881837137090678, guid: 50debfaffda14bd4e8fd0363dcb21518, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.27
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4881837137090678, guid: 50debfaffda14bd4e8fd0363dcb21518, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 9.09
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4881837137090678, guid: 50debfaffda14bd4e8fd0363dcb21518, type: 2}
       propertyPath: m_LocalRotation.x
