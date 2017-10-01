@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool restarting_scene;
-
+    public static TempSceneRefs scene = new TempSceneRefs();
     private static GameManager instance;
-
+    
 
     void Awake()
     {

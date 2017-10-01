@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DistanceIndicator : MonoBehaviour
 {
     [SerializeField] private Slider distance_slider;
+    [SerializeField] private Image trailer_image;
     [SerializeField] private Transform player_transform;
     [SerializeField] private Transform start_transform;
     [SerializeField] private Transform end_transform;
@@ -21,6 +22,12 @@ public class DistanceIndicator : MonoBehaviour
         start_transform = _end_transform;
 
         CalculateSliderMaxValue();
+    }
+
+
+    public void SetTrailerGraphic(bool _enabled)
+    {
+        trailer_image.enabled = _enabled;
     }
 
 
@@ -39,12 +46,11 @@ public class DistanceIndicator : MonoBehaviour
         if (NullChecks())
             return;
 
-        float dist = (player_transform.position - end_transform.position  ).sqrMagnitude;
+        float dist = (player_transform.position - end_transform.position).sqrMagnitude;
         distance_slider.value = dist;
     }
 
 
-    // Update is called once per frame
     void Update ()
     {
         if (NullChecks())

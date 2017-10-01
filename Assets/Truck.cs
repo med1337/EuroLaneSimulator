@@ -11,6 +11,8 @@ public class Truck : Vehicle
     public float SpeedLimit;
     public float Speed;
 
+    [HideInInspector] public bool has_trailer = true;
+
     // Update is called once per frame
     public override void Update()
     {
