@@ -26,7 +26,7 @@ public class DamageSystem : MonoBehaviour
 
     public void HazardCollision(Collider _other)
     {
-        if (invulnerable)
+        if (invulnerable || _other.tag != "Hazard")
             return;
 
         DamageEffect(hazard_effect_settings);
