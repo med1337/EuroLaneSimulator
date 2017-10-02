@@ -6,12 +6,48 @@ using UnityEngine.UI;
 
 public class Trailer : Vehicle
 {
+    public DamageSystem damage_system;
+
     public int CargoValue = 100000;
     public Text CargoValText;
     public GameObject LegsGameObject;
     public Truck MyTruck;
     [SerializeField] List<TrailRenderer> trails = new List<TrailRenderer>();
     private Quaternion start_rotation;
+
+
+
+    public void CollisionEvent(Collision _other)
+    {
+        if (MyTruck != null)
+        {
+            MyTruck.damage_system.EnvironmentCollision();
+        }
+
+        damage_system.EnvironmentCollision();
+    }
+
+
+    public void TriggerEvent(Collider _other)
+    {
+        if (_other.tag == "Intersection")
+        {
+
+        }
+        else if (_other.tag == "Hazard")
+        {
+            if (damage_system.invulnerable)
+                return;
+
+            if (MyTruck != null)
+            {
+                MyTruck.damage_system.HazardCollision();
+            }
+
+            damage_system.HazardCollision();
+        }
+    }
+
 
     void OnMouseClick()
     {

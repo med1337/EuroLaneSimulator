@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Truck : Vehicle
 {
+    public DamageSystem damage_system;
+
     public WheelControlScript WheelControlScript;
     public Text SpeedText;
     public Trailer PossibleTrailer;
@@ -12,8 +14,50 @@ public class Truck : Vehicle
     public float SpeedLimit;
     public float Speed;
     private float AttachDelay = 0.5f;
-    private float _timer =0.0f;
+    private float _timer = 0.0f;
     [HideInInspector] public bool has_trailer = true;
+
+
+    public void CollisionEvent(Collision _other)
+    {
+        if (AttachedTrailer != null)
+        {
+            AttachedTrailer.damage_system.EnvironmentCollision();
+        }
+
+        damage_system.EnvironmentCollision();
+
+        if (_other.gameObject.tag == "Hazard")
+        {
+            GameManager.scene.money_panel.LogTransaction((int)FineAmounts.COLLISION, "Vehicle Collision");
+        }
+    }
+
+
+    public void TriggerEvent(Collider _other)
+    {
+        if (_other.tag == "Intersection")
+        {
+            if (Speed >= GameManager.ROAD_SPEED_LIMIT)
+            {
+                GameManager.scene.money_panel.LogTransaction((int)FineAmounts.SPEEDING, "Speeding Violation");
+            }
+        }
+        else if (_other.tag == "Hazard")
+        {
+            if (damage_system.invulnerable)
+                return;
+
+            if (AttachedTrailer != null)
+            {
+                AttachedTrailer.damage_system.HazardCollision();
+            }
+
+            damage_system.HazardCollision();
+
+            GameManager.scene.money_panel.LogTransaction((int)FineAmounts.COLLISION, "Vehicle Collision");
+        }
+    }
 
 
     // Update is called once per frame

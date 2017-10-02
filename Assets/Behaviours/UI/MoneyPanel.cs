@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum FineAmounts
+{
+    COLLISION = -100,
+    SPEEDING = -50
+}
+
 public class MoneyPanel : MonoBehaviour
 {
     public int money;

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 96856383567486980}
   m_Layer: 9
   m_Name: Skid_Trail (3)
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 65961783422158860}
   m_Layer: 9
   m_Name: BoxColliders
-  m_TagString: Player
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 65621258333393536}
   m_Layer: 9
   m_Name: AttachTrigger
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 114885627801234234}
   m_Layer: 9
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 114822140456940714}
   m_Layer: 9
   m_Name: BackFlash
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 4490642287130998}
   m_Layer: 9
   m_Name: WheelColliders
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 96458535626061292}
   m_Layer: 9
   m_Name: Skid_Trail (2)
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 96171191860034170}
   m_Layer: 9
   m_Name: Skid_Trail (1)
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 114713820995626356}
   m_Layer: 9
   m_Name: Trailer
-  m_TagString: Player
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 65182241378347834}
   m_Layer: 9
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 96202856796055344}
   m_Layer: 9
   m_Name: Skid_Trail (1)
-  m_TagString: Untagged
+  m_TagString: Trailer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1475394815769292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9304643, y: 1, z: -35.02}
+  m_LocalPosition: {x: 92.72994, y: 0.93, z: 9.714722}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4221853215669512}
@@ -959,10 +959,16 @@ MonoBehaviour:
   - {fileID: 21300010, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
   - {fileID: 21300012, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
   - {fileID: 21300014, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
+  damage_system: {fileID: 114713820995626356}
   CargoValue: 100000
   CargoValText: {fileID: 0}
   LegsGameObject: {fileID: 1535059453447228}
   MyTruck: {fileID: 0}
+  trails:
+  - {fileID: 96171191860034170}
+  - {fileID: 96202856796055344}
+  - {fileID: 96458535626061292}
+  - {fileID: 96856383567486980}
 --- !u!114 &114713820995626356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -987,6 +993,7 @@ MonoBehaviour:
   invulnerability_duration: 2
   invulnerability_opacity: 0.5
   invulnerability_variance: 0.1
+  invulnerable: 0
 --- !u!114 &114822140456940714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1012,19 +1019,8 @@ MonoBehaviour:
   collision_event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114713820995626356}
-        m_MethodName: EnvironmentCollision
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: EnvironmentCollision
+      - m_Target: {fileID: 114356212570094244}
+        m_MethodName: CollisionEvent
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1039,19 +1035,8 @@ MonoBehaviour:
   collider_event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114713820995626356}
-        m_MethodName: HazardCollision
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: HazardCollision
+      - m_Target: {fileID: 114356212570094244}
+        m_MethodName: TriggerEvent
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1162,9 +1147,9 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
+  m_SuspensionDistance: 0.19620001
   m_ForceAppPointDistance: 1.2015872
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -1191,9 +1176,9 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
+  m_SuspensionDistance: 0.19620001
   m_ForceAppPointDistance: 1.2015872
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -1220,9 +1205,9 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
+  m_SuspensionDistance: 0.19620001
   m_ForceAppPointDistance: 1.2015872
   m_Mass: 20
   m_WheelDampingRate: 0.25
@@ -1249,9 +1234,9 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 1000
+    damper: 999.99994
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
+  m_SuspensionDistance: 0.19620001
   m_ForceAppPointDistance: 1.2015872
   m_Mass: 20
   m_WheelDampingRate: 0.25

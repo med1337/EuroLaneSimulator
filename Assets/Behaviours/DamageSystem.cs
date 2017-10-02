@@ -15,18 +15,18 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] float invulnerability_opacity;
     [SerializeField] float invulnerability_variance;
     
-    private bool invulnerable;
+    public bool invulnerable;
 
 
-    public void EnvironmentCollision(Collision _other = null)
+    public void EnvironmentCollision()
     {
         DamageEffect(environment_effect_settings);
     }
 
 
-    public void HazardCollision(Collider _other = null)
+    public void HazardCollision()
     {
-        if (invulnerable || (_other != null && _other.tag != "Hazard"))
+        if (invulnerable)
             return;
 
         DamageEffect(hazard_effect_settings);
