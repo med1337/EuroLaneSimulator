@@ -80,7 +80,6 @@ public class LevelConstructor : MonoBehaviour
         // if this id the bottom right corner section
         if ((w == (city_width - 1) && h == 0))
         {
-            Debug.Log("Cheese");
             city_grid[h, w] = section_bottom_right_corner;
             return;
         }
@@ -133,13 +132,21 @@ public class LevelConstructor : MonoBehaviour
         int w = 0;
         int h = 0;
 
-        for (int i = 0; i < total_no_depots; i++)
+        int depot_count = 0;
+
+        while (depot_count < total_no_depots)
         {
-            h = Random.Range(3, city_height - 3);
+            // 1 and -1 to exclude Edge Sections
+            h = Random.Range(1, city_height - 1);
 
-            w = Random.Range(3, city_width - 3);
+            w = Random.Range(1, city_width - 1);
 
-            city_grid[h, w] = 1;
+            // if this section is not already a Depot
+            if (city_grid[h, w] != 1)
+            {
+                city_grid[h, w] = 1;
+                depot_count++;
+            }
         }
     }
 
@@ -199,11 +206,6 @@ public class LevelConstructor : MonoBehaviour
         {
             if (i == city_grid[h, w])
             {
-                if (i == 2)
-                {
-                    Debug.Log("Setting Bottom Right Corner");
-                }
-
                 Instantiate(edge_sections[i], section_pos, edge_sections[i].transform.rotation);
             }
         }
