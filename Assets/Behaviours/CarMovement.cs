@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour {
 
-    public int speed = 3;
-    private int despawnDistance = 100;
+    public int speed = 6;
+    private int despawnDistance = 400;
     public bool alive = true;
     Truck player; //player GO
 
@@ -28,17 +28,25 @@ public class CarMovement : MonoBehaviour {
         if (Vector3.Distance(transform.position, player.transform.position) > despawnDistance)
         {
             Destroy(this.gameObject);
-        }
+        }        
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (alive)
         {
+            //if ((collision.gameObject.tag == "Player") || (collision.gameObject.tag == "Hazard"))
             if (collision.gameObject.tag == "Player")
             {
-                alive = false;                
+                alive = false;      
             }
         }
-    }
+
+
+    }   
+    
+    public void SetSpeed(int spd)
+    {
+        speed = spd;
+    } 
 }

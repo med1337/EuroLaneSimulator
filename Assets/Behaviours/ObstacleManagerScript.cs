@@ -5,9 +5,10 @@ using UnityEngine;
 public class ObstacleManagerScript : MonoBehaviour
 {
     Truck player; //player GO
-    private int minSpawnTime = 3; //minimum time to next spawn
-    private int maxSpawnTime = 6; //maximum time to next spawn
-    private int spawnDistance = 200; //distance from player to spawn a car
+    private int minSpawnTime = 6; //minimum time to next spawn
+    private int maxSpawnTime = 10; //maximum time to next spawn
+    private float spawnMin = 200;
+    private float spawnMax = 400;
     public GameObject car; //car GO to spawn
 
     [SerializeField] CarRotation spawn_rotation;
@@ -23,9 +24,11 @@ public class ObstacleManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < spawnDistance)
-        {
-            if (!thing_queued)
+        float playerDistance = Vector3.Distance(transform.position, player.transform.position);
+               
+        if (!thing_queued)
+         {            
+            if ((playerDistance > spawnMin) && (playerDistance < spawnMax))
             {
                 int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
 
