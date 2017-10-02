@@ -21,12 +21,12 @@ public class ObjectiveManager : MonoBehaviour
     private float max_squared = 0;
     [SerializeField] private ObjectiveState objective_state = ObjectiveState.INITIAL_TRAILER_PICK_UP;//player starts with a trailer
 
-    [SerializeField] private Depot[] depots;
-    [SerializeField] private Depot last_depot_target = null;//will be a depot script instead
-    [SerializeField] private Depot current_depot_target = null;
+    private Depot[] depots;
+    private Depot last_depot_target = null;//will be a depot script instead
+    private Depot current_depot_target = null;
 
-    [SerializeField] private Transform last_waypoint = null;
-    [SerializeField] private Transform current_waypoint = null;//could be switched to trailer instead of depot
+    private Transform last_waypoint = null;
+    private Transform current_waypoint = null;//could be switched to trailer instead of depot
 
     private Trailer current_trailer = null;
 

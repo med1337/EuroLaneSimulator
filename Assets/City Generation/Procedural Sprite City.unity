@@ -547,6 +547,91 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &919852163 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1247029264915184, guid: 015c145811dc0744d9ecc392a7da9b6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1968127759}
+--- !u!82 &919852168
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919852163}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f9df8bffcf8ed1f43a5791e61933328b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.478
+  m_Pitch: 0.9
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 194
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!96 &1015961011 stripped
 TrailRenderer:
   m_PrefabParentObject: {fileID: 96856383567486980, guid: 40d05aead29aad744a2f8fe48f56f366,
@@ -658,11 +743,6 @@ MonoBehaviour:
   max_distance_from_last: 10000
   min_distance_from_last: 0
   objective_state: 0
-  depots: []
-  last_depot_target: {fileID: 0}
-  current_depot_target: {fileID: 0}
-  last_waypoint: {fileID: 0}
-  current_waypoint: {fileID: 0}
 --- !u!1 &1386631445
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,32 +971,32 @@ Prefab:
     - target: {fileID: 146381072582527044, guid: 015c145811dc0744d9ecc392a7da9b6b,
         type: 2}
       propertyPath: m_ForceAppPointDistance
-      value: 0.7425466
+      value: 0.74254626
       objectReference: {fileID: 0}
     - target: {fileID: 146014203930414786, guid: 015c145811dc0744d9ecc392a7da9b6b,
         type: 2}
       propertyPath: m_ForceAppPointDistance
-      value: 0.7425466
+      value: 0.74254626
       objectReference: {fileID: 0}
     - target: {fileID: 146813147262441854, guid: 015c145811dc0744d9ecc392a7da9b6b,
         type: 2}
       propertyPath: m_ForceAppPointDistance
-      value: 0.7425466
+      value: 0.74254626
       objectReference: {fileID: 0}
     - target: {fileID: 146194530269862350, guid: 015c145811dc0744d9ecc392a7da9b6b,
         type: 2}
       propertyPath: m_ForceAppPointDistance
-      value: 0.7425466
+      value: 0.74254626
       objectReference: {fileID: 0}
     - target: {fileID: 146228468838975250, guid: 015c145811dc0744d9ecc392a7da9b6b,
         type: 2}
       propertyPath: m_ForceAppPointDistance
-      value: 0.7425466
+      value: 0.74254626
       objectReference: {fileID: 0}
     - target: {fileID: 146827998505866592, guid: 015c145811dc0744d9ecc392a7da9b6b,
         type: 2}
       propertyPath: m_ForceAppPointDistance
-      value: 0.7425466
+      value: 0.74254626
       objectReference: {fileID: 0}
     - target: {fileID: 114351924657181170, guid: 015c145811dc0744d9ecc392a7da9b6b,
         type: 2}
@@ -982,6 +1062,26 @@ Prefab:
         type: 2}
       propertyPath: collider_event.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: HazardCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 146228468838975250, guid: 015c145811dc0744d9ecc392a7da9b6b,
+        type: 2}
+      propertyPath: m_SuspensionSpring.spring
+      value: 53911.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 146228468838975250, guid: 015c145811dc0744d9ecc392a7da9b6b,
+        type: 2}
+      propertyPath: m_SuspensionSpring.damper
+      value: 8625.795
+      objectReference: {fileID: 0}
+    - target: {fileID: 146381072582527044, guid: 015c145811dc0744d9ecc392a7da9b6b,
+        type: 2}
+      propertyPath: m_SuspensionSpring.spring
+      value: 53911.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 146381072582527044, guid: 015c145811dc0744d9ecc392a7da9b6b,
+        type: 2}
+      propertyPath: m_SuspensionSpring.damper
+      value: 8625.795
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 015c145811dc0744d9ecc392a7da9b6b, type: 2}

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static readonly int ROAD_SPEED_LIMIT = 20;
+    public static readonly int ROAD_SPEED_LIMIT = 35;
     public static bool restarting_scene;
     public static TempSceneRefs scene = new TempSceneRefs();
 
