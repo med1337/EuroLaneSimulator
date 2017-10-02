@@ -67,7 +67,6 @@ public class Truck : Vehicle
         {
             PossibleTrailer = other.GetComponentInParent<Trailer>();
         }
-        Debug.Log(other.name);
     }
 
     public void ProcessTrailer()
@@ -77,10 +76,22 @@ public class Truck : Vehicle
         if (AttachedTrailer != null)
         {
             AttachedTrailer = PossibleTrailer.DetachTrailer();
+
+            if (GameManager.scene.objective_manager != null)
+               GameManager.scene.objective_manager.DetachedTrailer();
+
+            if (GameManager.scene.distance_indicator != null)
+                GameManager.scene.distance_indicator.SetTrailerGraphic(false);//just in case
         }
         else if( PossibleTrailer!=AttachedTrailer)
         {
             AttachedTrailer = PossibleTrailer.AttachTrailer(MyRigidbody);
+
+            if (GameManager.scene.objective_manager != null)
+                GameManager.scene.objective_manager.AttachedTrailer();
+
+            if (GameManager.scene.distance_indicator != null)
+                GameManager.scene.distance_indicator.SetTrailerGraphic(true);//just in case
         }
     }
 

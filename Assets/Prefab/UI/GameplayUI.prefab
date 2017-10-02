@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 222729818453159262}
   - component: {fileID: 114794030982089570}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Trailer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1088,6 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance_slider: {fileID: 114968275695864410}
+  trailer_image: {fileID: 114794030982089570}
   player_transform: {fileID: 0}
   start_transform: {fileID: 0}
   end_transform: {fileID: 0}

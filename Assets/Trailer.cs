@@ -54,6 +54,9 @@ public class Trailer : Vehicle
 
     void OnJointBreak(float force)
     {
+        if (GameManager.scene.objective_manager != null)
+            GameManager.scene.objective_manager.DetachedTrailer();
+
         LegsGameObject.SetActive(true);
         Debug.Log(force.ToString());
         MyTruck.AttachedTrailer = null;
@@ -65,7 +68,7 @@ public class Trailer : Vehicle
         if (joint == null) return null;
         joint.connectedBody = truckRigidbody;
         joint.enableCollision = true;
-        //joint.breakForce = 100000;
+        joint.breakForce = 20000;
         joint.anchor = new Vector3(0, 0, 1);
         joint.axis = new Vector3(0, 1, 0);
         JointLimits limits = new JointLimits
