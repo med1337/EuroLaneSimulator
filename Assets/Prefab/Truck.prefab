@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 114351924657181170}
   - component: {fileID: 114486429583170950}
   - component: {fileID: 114858805559690814}
+  - component: {fileID: 114031970467396286}
   m_Layer: 8
   m_Name: Truck
   m_TagString: Player
@@ -602,7 +603,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247029264915184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 99.3, y: 0.44000006, z: 18}
+  m_LocalPosition: {x: 5.722766, y: 1, z: -27.699202}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4696973003124118}
@@ -842,8 +843,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.78, y: 1.4637758, z: 0.20000005}
-  m_Center: {x: 0, y: 0.11188789, z: 1.2007964e-15}
+  m_Size: {x: 0.78, y: 1.75, z: 0.20000005}
+  m_Center: {x: 0, y: -0.01, z: 1.2007964e-15}
 --- !u!81 &81205152636385178
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1362,6 +1363,30 @@ TrailRenderer:
     textureMode: 0
   m_MinVertexDistance: 0.3
   m_Autodestruct: 0
+--- !u!114 &114031970467396286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247029264915184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244f2ce9f48e064429ea3df8440f6ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fades:
+  - {fileID: 114993766072170982}
+  sprites:
+  - {fileID: 212954393123774996}
+  shakes:
+  - {fileID: 114877194329279412}
+  environment_effect_settings: {fileID: 11400000, guid: 3b35e139e1aac504993461c948087ba7,
+    type: 2}
+  hazard_effect_settings: {fileID: 11400000, guid: da2ec013d0d525346a689fa8ea104a93,
+    type: 2}
+  invulnerability_duration: 2
+  invulnerability_opacity: 0.5
+  invulnerability_variance: 0.1
 --- !u!114 &114041779718363678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1480,8 +1505,6 @@ MonoBehaviour:
   - {fileID: 114885927773373290}
   - {fileID: 114233932343475596}
   - {fileID: 114324472887989984}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114858805559690814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1496,6 +1519,17 @@ MonoBehaviour:
   collision_event:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114031970467396286}
+        m_MethodName: EnvironmentCollision
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: EnvironmentCollision
         m_Mode: 0
@@ -1512,6 +1546,17 @@ MonoBehaviour:
   collider_event:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 114031970467396286}
+        m_MethodName: HazardCollision
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: HazardCollision
         m_Mode: 0
@@ -1613,11 +1658,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 24999.998
-    damper: 4000
+    spring: 1293.586
+    damper: 206.97379
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7899417
+  m_ForceAppPointDistance: 0.7425468
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1642,11 +1687,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 24999.998
-    damper: 4000
+    spring: 1293.5854
+    damper: 206.97371
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7899417
+  m_ForceAppPointDistance: 0.7425468
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1671,11 +1716,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 24999.998
-    damper: 4000
+    spring: 53911.22
+    damper: 8625.795
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7899417
+  m_ForceAppPointDistance: 0.7425468
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1700,11 +1745,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 24999.998
-    damper: 4000
+    spring: 53911.22
+    damper: 8625.795
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7899417
+  m_ForceAppPointDistance: 0.7425468
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1729,11 +1774,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 24999.998
-    damper: 4000
+    spring: 19795.193
+    damper: 3167.231
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
-  m_ForceAppPointDistance: 0.7899417
+  m_ForceAppPointDistance: 0.7425468
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1758,11 +1803,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 24999.998
-    damper: 4000
+    spring: 19795.193
+    damper: 3167.231
     targetPosition: 0.5
   m_SuspensionDistance: 0.19620001
-  m_ForceAppPointDistance: 0.7899417
+  m_ForceAppPointDistance: 0.7425468
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1818,6 +1863,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212403558026322972
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1858,6 +1904,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212621232707534640
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1898,6 +1945,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212954393123774996
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1938,3 +1986,4 @@ SpriteRenderer:
   m_Size: {x: 0.78, y: 1.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1

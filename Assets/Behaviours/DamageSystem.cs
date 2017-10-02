@@ -18,15 +18,15 @@ public class DamageSystem : MonoBehaviour
     private bool invulnerable;
 
 
-    public void EnvironmentCollision(Collision _other)
+    public void EnvironmentCollision(Collision _other = null)
     {
         DamageEffect(environment_effect_settings);
     }
 
 
-    public void HazardCollision(Collider _other)
+    public void HazardCollision(Collider _other = null)
     {
-        if (invulnerable || _other.tag != "Hazard")
+        if (invulnerable || (_other != null && _other.tag != "Hazard"))
             return;
 
         DamageEffect(hazard_effect_settings);
@@ -90,7 +90,7 @@ public class DamageSystem : MonoBehaviour
 
     void OnCollisionEnter(Collision _other)
     {
-        Debug.Log(_other.gameObject.name);
+
     }
 
 }
