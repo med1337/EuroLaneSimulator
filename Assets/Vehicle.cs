@@ -93,7 +93,14 @@ public abstract class Vehicle : MonoBehaviour
         }
         else if (TipAngle >= AngleSpriteLevels[2])
         {
+            var joint = GetComponent<HingeJoint>();
+            if (joint)
+            {
+                joint.useLimits = true;
+            }
             MyRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
+
+   
 }

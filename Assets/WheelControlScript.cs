@@ -6,9 +6,9 @@ using UnityEngine;
 public class WheelControlScript : MonoBehaviour
 {
     public float motor;
-    public float steering;
-    public float braking;
-    public float reverse; 
+    private float steering;
+    private float braking;
+    private float reverse;
 
     public float SteeringAngle;
     public float BrakeForce;
@@ -25,14 +25,14 @@ public class WheelControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
-
-    void FixedUpdate()
-    {
         motor = MotorTorque * Input.GetAxis("Forward");
         steering = SteeringAngle * Input.GetAxis("Horizontal");
         braking = BrakeForce * Input.GetAxis("Brake");
         reverse = MotorTorque * Input.GetAxis("Reverse");
+    }
+
+    void FixedUpdate()
+    {
         if (reverse > 0)
         {
             motor = -reverse;
@@ -40,11 +40,7 @@ public class WheelControlScript : MonoBehaviour
 
         foreach (Axis axleInfo in AxlesList)
         {
-            if (motor != 0)
-            {
-                axleInfo.LeftCollider.motorTorque = 0.01f;
-                axleInfo.RightCollider.motorTorque = 0.01f;
-            }
+            
             if (axleInfo.Steering)
             {
                 axleInfo.LeftCollider.steerAngle = steering;
