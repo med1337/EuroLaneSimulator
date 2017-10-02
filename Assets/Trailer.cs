@@ -103,6 +103,7 @@ public class Trailer : Vehicle
         LegsGameObject.SetActive(true);
         Debug.Log(force.ToString());
         MyTruck.AttachedTrailer = null;
+        MyTruck = null;
     }
 
 
