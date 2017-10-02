@@ -40,7 +40,9 @@ public class WheelControlScript : MonoBehaviour
 
         foreach (Axis axleInfo in AxlesList)
         {
-            
+            if (axleInfo == null)
+                continue;
+
             if (axleInfo.Steering)
             {
                 axleInfo.LeftCollider.steerAngle = steering;

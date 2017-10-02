@@ -59,6 +59,8 @@ public class ObjectiveManager : MonoBehaviour
         last_waypoint = current_waypoint;
         current_depot_target = PickNewDepot();//find next optimal depot
 
+        if (current_depot_target == null)
+            return;
 
         if (GameManager.scene.player_truck.has_trailer)
         {
@@ -66,7 +68,6 @@ public class ObjectiveManager : MonoBehaviour
 
             current_waypoint = current_depot_target.transform;//set new depot as target
             current_depot_target.delivery_area.enabled = true;//allow it to check for delivery
-            GameManager.scene.distance_indicator.SetTrailerGraphic(true);
         }
         else
         {
@@ -82,7 +83,6 @@ public class ObjectiveManager : MonoBehaviour
             current_trailer.transform.position = current_depot_target.transform.position;//and set it as target
             current_waypoint = current_trailer.transform;
             current_depot_target.delivery_area.enabled = false;//in case for some reason it's enabled
-            GameManager.scene.distance_indicator.SetTrailerGraphic(false);//just in case
         }
 
         GameManager.scene.distance_indicator.SetRoute(last_waypoint, current_waypoint);
@@ -165,6 +165,9 @@ public class ObjectiveManager : MonoBehaviour
     {
         GameManager.scene.distance_indicator.SetTrailerGraphic(false);//should this be set from truck instead?
 
+        if (current_depot_target == null)
+            return;
+
         if (current_depot_target.trailer_delivered)//if trailer in depot
         {
             ObjectiveComplete("Completed Delivery");//job done
@@ -180,6 +183,9 @@ public class ObjectiveManager : MonoBehaviour
     public void AttachedTrailer()
     {
         GameManager.scene.distance_indicator.SetTrailerGraphic(true);
+
+        if (current_depot_target == null)
+            return;
 
         if (objective_state == ObjectiveState.RETRIEVING_LOST_TRAILER)//if retrieved lost trailer
         {

@@ -19,7 +19,7 @@ public class Depot : MonoBehaviour
 
     private void OnCollisionStay(Collision _collision)
     {
-        if (_collision.gameObject.CompareTag("Truck"))
+        if (_collision.gameObject.CompareTag("Trailer"))
             trailer_delivered = true;
 
         //Possible stretch goal: implement delivery accuracy
