@@ -48,7 +48,16 @@ public class TransactionUIElement : MonoBehaviour
     {
         string str = "";
 
-        str += _amount > 0 ? "+" : "-";
+        if (_amount > 0)
+        {
+            str += "+";
+            AudioManager.PlayOneShot("Cash_Gained");
+        }
+        else
+        {
+            str += "-";
+            AudioManager.PlayOneShot("Citation");
+        }
         str += "$" + Mathf.Abs(_amount).ToString();
 
         return str;
