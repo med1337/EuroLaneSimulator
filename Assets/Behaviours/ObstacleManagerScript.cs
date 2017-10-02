@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class ObstacleManagerScript : MonoBehaviour
 {
-    GameObject player; //player GO
+    Truck player; //player GO
     private int minSpawnTime = 3; //minimum time to next spawn
     private int maxSpawnTime = 6; //maximum time to next spawn
-    private int spawnDistance = 50; //distance from player to spawn a car
-    public List<GameObject> obstacles = new List<GameObject>(); //obstacle List
+    private int spawnDistance = 200; //distance from player to spawn a car
     public GameObject car; //car GO to spawn
 
-    public bool car_spawn_right = false;
-    public bool car_spawn_left = false;
-    public bool car_spawn_up = false;
-    public bool car_spawn_down = false;
+    [SerializeField] CarRotation spawn_rotation;
 
     private bool thing_queued;
 
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameManager.scene.player_truck;
     }
 
     // Update is called once per frame
@@ -46,24 +42,28 @@ public class ObstacleManagerScript : MonoBehaviour
 
         Vector3 spawnPoint = transform.position;
 
-        if (car_spawn_down)
+        Quaternion rot = new Quaternion();
+
+        switch(spawn_rotation)
         {
-            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 180, 0)));
+            case CarRotation.UP: 
+            rot = Quaternion.Euler(0, 0, 0);
+            break;
+
+            case CarRotation.DOWN: 
+            rot = Quaternion.Euler(0, 180, 0);
+            break;
+
+            case CarRotation.LEFT: 
+            rot = Quaternion.Euler(0, 270, 0);
+            break;
+
+            case CarRotation.RIGHT: 
+            rot = Quaternion.Euler(0, 90, 0);
+            break;
+
         }
 
-        else if (car_spawn_left)
-        {
-            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 270, 0)));
-        }
-
-        else if (car_spawn_right)
-        {
-            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 90, 0)));
-        }
-
-        else if (car_spawn_up)
-        {
-            obstacles.Add(Instantiate(car, spawnPoint, Quaternion.Euler(90, 0, 0)));
-        }
+        Instantiate(car, spawnPoint, rot);    
     }
 }
