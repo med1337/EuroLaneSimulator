@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum FineAmounts
+public enum TransactionTypes
 {
     COLLISION = -100,
-    SPEEDING = -50
+    SPEEDING = -50,
+    DELIVERY = 2000
 }
 
 public class MoneyPanel : MonoBehaviour

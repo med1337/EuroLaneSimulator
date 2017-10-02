@@ -36,7 +36,7 @@ public class Truck : Vehicle
 
         if (_other.gameObject.tag == "Hazard")
         {
-            GameManager.scene.money_panel.LogTransaction((int)FineAmounts.COLLISION, "Vehicle Collision");
+            GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.COLLISION, "Vehicle Collision");
         }
     }
 
@@ -47,7 +47,7 @@ public class Truck : Vehicle
         {
             if (Speed >= GameManager.ROAD_SPEED_LIMIT)
             {
-                GameManager.scene.money_panel.LogTransaction((int)FineAmounts.SPEEDING, "Speeding Violation");
+                GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.SPEEDING, "Speeding Violation");
             }
         }
         else if (_other.tag == "Hazard")
@@ -62,7 +62,7 @@ public class Truck : Vehicle
 
             damage_system.HazardCollision();
 
-            GameManager.scene.money_panel.LogTransaction((int)FineAmounts.COLLISION, "Vehicle Collision");
+            GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.COLLISION, "Vehicle Collision");
         }
     }
 

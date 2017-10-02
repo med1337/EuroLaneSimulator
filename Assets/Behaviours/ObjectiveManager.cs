@@ -125,7 +125,7 @@ public class ObjectiveManager : MonoBehaviour
         if (closest == null)
             return null;
 
-        closest.job_value = 100;//TODO calculate based on distance
+        closest.job_value = (int)TransactionTypes.DELIVERY;//TODO calculate based on distance
         closest.penalty_value = (int)(closest.job_value * 0.5f);
 
         return closest;

@@ -86,6 +86,9 @@ public class AudioManager : MonoBehaviour
         music_source = audio_parent.AddComponent<AudioSource>();
         sfx_source = audio_parent.AddComponent<AudioSource>();
 
+        music_source.volume = settings.music_volume;
+        sfx_source.volume = settings.sfx_volume;
+
         PlayRandomMusic();
     }
 
