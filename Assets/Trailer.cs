@@ -21,7 +21,7 @@ public class Trailer : Vehicle
     {
         if (MyTruck != null)
         {
-            MyTruck.damage_system.EnvironmentCollision();
+            MyTruck.CollisionEvent(_other);
         }
 
         damage_system.EnvironmentCollision();
@@ -36,12 +36,14 @@ public class Trailer : Vehicle
         }
         else if (_other.tag == "Hazard")
         {
+            Debug.Log("Trailer TriggerEvent");
+
             if (damage_system.invulnerable)
                 return;
 
             if (MyTruck != null)
             {
-                MyTruck.damage_system.HazardCollision();
+                MyTruck.TriggerEvent(_other);
             }
 
             damage_system.HazardCollision();

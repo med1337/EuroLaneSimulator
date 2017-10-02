@@ -21,7 +21,7 @@ public class CarCollisionAvoidance : MonoBehaviour {
     {
         int speed = 0;
 
-        if ((c.tag == "Hazard") || (c.tag == "Player"))
+        if ((c.tag == "Hazard") || (c.tag == "Player") || c.tag == "Trailer")
         {
             float distance = Vector3.Distance(transform.position, c.transform.position);
 
