@@ -1114,7 +1114,7 @@ GameObject:
   m_Layer: 0
   m_Name: Joe Depot Section 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1871,7 +1871,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1793224382872256}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -200, y: 0, z: 200}
+  m_LocalPosition: {x: 639.02423, y: 0.01, z: 1253.4332}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4517389189706824}
@@ -2475,7 +2475,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1089758014776072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.14, z: -0}
+  m_LocalPosition: {x: -0, y: -1.922, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4021537194291168}
@@ -2778,11 +2778,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1089758014776072}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.8147028, y: 0.38940662, z: 0.6293803}
-  m_Center: {x: -0.0649313, y: 0.23487043, z: -0.18531072}
+  m_Size: {x: 0.81470275, y: 0.3600135, z: 0.6293803}
+  m_Center: {x: -0.06493131, y: 0.017391788, z: -0.18531077}
 --- !u!65 &65055101318680934
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3389,7 +3389,7 @@ MonoBehaviour:
   job_value: 0
   penalty_value: 0
   trailer_delivered: 0
-  delivery_area: {fileID: 0}
+  delivery_area: {fileID: 65005685247013496}
 --- !u!114 &114388625528905916
 MonoBehaviour:
   m_ObjectHideFlags: 1

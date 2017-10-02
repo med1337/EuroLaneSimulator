@@ -51,9 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfab9652c2a1f364ca76a424e94baf56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
   car: {fileID: 1458846237605198, guid: 82efc9567b845334bb30afcaa2f23ae5, type: 2}
-  car_spawn_right: 0
-  car_spawn_left: 0
-  car_spawn_up: 0
-  car_spawn_down: 0
+  spawn_rotation: 0

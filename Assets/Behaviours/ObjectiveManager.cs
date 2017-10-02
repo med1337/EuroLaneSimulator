@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 [SerializeField]
@@ -15,20 +16,19 @@ public class ObjectiveManager : MonoBehaviour
 {
     [SerializeField] private float max_distance_from_last = 20;
     [SerializeField] private float min_distance_from_last = 10;
-    [SerializeField] private GameObject trailer_prefab = null;
 
     private float min_squared = 0;
     private float max_squared = 0;
-    private ObjectiveState objective_state = ObjectiveState.DELIVERING_TRAILER;//player starts with a trailer
+    [SerializeField] private ObjectiveState objective_state = ObjectiveState.INITIAL_TRAILER_PICK_UP;//player starts with a trailer
 
-    private Depot[] depots;
-    private Depot last_depot_target = null;//will be a depot script instead
-    private Depot current_depot_target = null;
+    [SerializeField] private Depot[] depots;
+    [SerializeField] private Depot last_depot_target = null;//will be a depot script instead
+    [SerializeField] private Depot current_depot_target = null;
 
-    private Transform last_waypoint = null;
-    private Transform current_waypoint = null;//could be switched to trailer instead of depot
+    [SerializeField] private Transform last_waypoint = null;
+    [SerializeField] private Transform current_waypoint = null;//could be switched to trailer instead of depot
 
-    private GameObject current_trailer = null;
+    private Trailer current_trailer = null;
 
     void Start ()
 	{
@@ -42,50 +42,58 @@ public class ObjectiveManager : MonoBehaviour
 	        return;
 	    }
 
+        SetPlayerStart();
+	}
 
-        GameObject player_spawn = new GameObject("Player Spawn");//create a starting point for start delivery
-	    player_spawn.transform.position = GameManager.scene.player_truck.transform.position;
-	    current_waypoint = player_spawn.transform;
-	    last_waypoint = current_waypoint;
-	    //TODO set current trailer to one spawned with player
+
+    private void SetPlayerStart()
+    {
+        current_depot_target = PickNewDepot();//find next optimal depot 
+        last_depot_target = current_depot_target;
+        current_waypoint = current_depot_target.transform;
+        last_waypoint = last_depot_target.transform;
+
+        if (GameManager.scene.player_trailer != null)
+            current_trailer = GameManager.scene.player_trailer;
 
         SetNewObjective();
-	}
+        GameManager.scene.player_truck.transform.position = current_waypoint.transform.position + new Vector3(5,0);
+    }
 
 
     public void SetNewObjective()
     {
         last_depot_target = current_depot_target;
-        last_waypoint = current_waypoint;
+        last_waypoint = last_depot_target.transform;
         current_depot_target = PickNewDepot();//find next optimal depot
 
         if (current_depot_target == null)
             return;
 
-        if (GameManager.scene.player_truck.has_trailer)
+        if (GameManager.scene.player_truck.AttachedTrailer != null)
         {
             objective_state = ObjectiveState.DELIVERING_TRAILER;//we must deliver it
-
             current_waypoint = current_depot_target.transform;//set new depot as target
             current_depot_target.delivery_area.enabled = true;//allow it to check for delivery
         }
         else
         {
             objective_state = ObjectiveState.INITIAL_TRAILER_PICK_UP;
-
-            if (trailer_prefab == null)
-            {
-                Debug.LogError("Trailer prefab not set!");
-                return;
-            }
-
-            current_trailer = Instantiate(trailer_prefab);//spawn trailer at depot
-            current_trailer.transform.position = current_depot_target.transform.position;//and set it as target
-            current_waypoint = current_trailer.transform;
+            MoveTrailerToDepot();
             current_depot_target.delivery_area.enabled = false;//in case for some reason it's enabled
         }
 
-        GameManager.scene.distance_indicator.SetRoute(last_waypoint, current_waypoint);
+        GameManager.scene.distance_indicator.SetRoute(current_waypoint, last_waypoint);
+    }
+
+
+    private void MoveTrailerToDepot()
+    {
+        if (current_trailer == null)
+            return;
+
+        current_trailer.ResetPosition(current_depot_target.transform);
+        current_waypoint = current_trailer.transform;
     }
 
 
@@ -104,7 +112,7 @@ public class ObjectiveManager : MonoBehaviour
             if (depot == current_depot_target || depot == last_depot_target)
                 continue;
 
-            if (closest == null)//make sure we at least get something TODO find a better solution
+            if (closest == null)
                 closest = depot;
 
             if (current_dist < distance && current_dist >= min_squared && current_dist <= max_squared)//if not within range and not closer than last, skip
@@ -136,12 +144,16 @@ public class ObjectiveManager : MonoBehaviour
         if (current_depot_target != null)
         {
             current_depot_target.delivery_area.enabled = false;
+            current_depot_target.trailer_delivered = false;
             GameManager.scene.money_panel.LogTransaction(current_depot_target.job_value, _win_reason);
         }
 
         if (last_depot_target != null)
-            last_depot_target.delivery_area.enabled = false;//just in case
-           
+        {
+            last_depot_target.delivery_area.enabled = false; //just in case
+            last_depot_target.trailer_delivered = false; //just in case
+        }
+
         SetNewObjective();
     }
 
@@ -151,11 +163,15 @@ public class ObjectiveManager : MonoBehaviour
         if (current_depot_target != null)
         {
             current_depot_target.delivery_area.enabled = false;
+            current_depot_target.trailer_delivered = false;
             GameManager.scene.money_panel.LogTransaction(current_depot_target.penalty_value, _fail_reason);
         }
 
         if (last_depot_target != null)
-            last_depot_target.delivery_area.enabled = false;//just in case
+        {
+            last_depot_target.delivery_area.enabled = false; //just in case
+            last_depot_target.trailer_delivered = false; //just in case
+        }
 
         SetNewObjective();         
     }
@@ -175,7 +191,7 @@ public class ObjectiveManager : MonoBehaviour
         }
 
         current_waypoint = current_trailer.transform;//trailer lost, set as destination
-        GameManager.scene.distance_indicator.SetRoute(last_waypoint, current_waypoint);//update indicator
+        GameManager.scene.distance_indicator.SetRoute(current_waypoint, last_waypoint);//update indicator
         objective_state = ObjectiveState.RETRIEVING_LOST_TRAILER;
     }
 
@@ -191,7 +207,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             objective_state = ObjectiveState.DELIVERING_TRAILER;
             current_waypoint = current_depot_target.transform;//set depot back as target
-            GameManager.scene.distance_indicator.SetRoute(last_waypoint, current_waypoint);
+            GameManager.scene.distance_indicator.SetRoute(current_waypoint, last_waypoint);
             return;
         }
 

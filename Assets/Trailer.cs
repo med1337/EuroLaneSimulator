@@ -10,16 +10,22 @@ public class Trailer : Vehicle
     public Text CargoValText;
     public GameObject LegsGameObject;
     public Truck MyTruck;
+    [SerializeField] List<TrailRenderer> trails = new List<TrailRenderer>();
+    private Quaternion start_rotation;
+
     void OnMouseClick()
     {
         CargoValue -= 1337;
     }
 
+
     // Use this for initialization
     public override void Start()
     {
+        start_rotation = transform.rotation;
         base.Start();
     }
+
 
     // Update is called once per frame
     public override void Update()
@@ -29,6 +35,7 @@ public class Trailer : Vehicle
 
         base.Update();
     }
+
 
     private void UpdateCargoValueText()
     {
@@ -41,16 +48,16 @@ public class Trailer : Vehicle
         CargoValText.text = "$" + s;
     }
 
+
     public override void FixedUpdate()
     {
-
-
         if (MyTruck != null)
         {
             base.FixedUpdate();
 
         }
     }
+
 
     void OnJointBreak(float force)
     {
@@ -61,6 +68,7 @@ public class Trailer : Vehicle
         Debug.Log(force.ToString());
         MyTruck.AttachedTrailer = null;
     }
+
 
     public Trailer AttachTrailer(Rigidbody truckRigidbody)
     {
@@ -96,6 +104,7 @@ public class Trailer : Vehicle
         return this;
     }
 
+
     public Trailer DetachTrailer()
     {
         var x = GetComponent<HingeJoint>();
@@ -103,5 +112,28 @@ public class Trailer : Vehicle
         LegsGameObject.SetActive(true);
         MyTruck = null;
         return null;
+    }
+
+
+    public void ResetPosition(Transform _transform)
+    {
+        transform.position = _transform.position + new Vector3(0, 2);
+        transform.rotation = start_rotation;
+        ClearTrails();
+    }
+
+
+    private void ClearTrails()
+    {
+        if (trails == null)
+            return;
+
+        foreach (TrailRenderer trail in trails)
+        {
+            if (trail == null)
+                continue;
+
+            trail.Clear();
+        }
     }
 }

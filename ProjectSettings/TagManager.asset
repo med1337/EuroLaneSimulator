@@ -8,6 +8,7 @@ TagManager:
   - Hazard
   - Floor
   - Intersection
+  - Trailer
   layers:
   - Default
   - TransparentFX

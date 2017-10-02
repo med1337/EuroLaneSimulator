@@ -8,16 +8,10 @@ public class Depot : MonoBehaviour
     [HideInInspector] public int job_value = 0;
     [HideInInspector] public int penalty_value = 0;
     [HideInInspector] public bool trailer_delivered = false;
-    [HideInInspector] public BoxCollider delivery_area = null;
+    public BoxCollider delivery_area = null;
 
 
-    void Start()
-    {
-        delivery_area = GetComponent<BoxCollider>();
-    }
-
-
-    private void OnCollisionStay(Collision _collision)
+    private void OnTriggerStay(Collider _collision)
     {
         if (_collision.gameObject.CompareTag("Trailer"))
             trailer_delivered = true;
