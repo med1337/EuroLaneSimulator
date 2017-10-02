@@ -59,7 +59,7 @@ public abstract class Vehicle : MonoBehaviour
         {
             CurrentSprite.sprite = TippingSpritesList[2];
         }
-        else if (TipAngle >= 89)
+        else if (TipAngle >= AngleSpriteLevels[2])
         {
             CurrentSprite.sprite = TippingSpritesList[3];
         }
@@ -79,19 +79,19 @@ public abstract class Vehicle : MonoBehaviour
     {
         TipAngle = Vector3.Angle(transform.up, Vector3.up);
         var dirAngle = Vector3.Angle(transform.right, Vector3.up);
-        if (dirAngle >= 89)
+        if (dirAngle >= AngleSpriteLevels[2])
         {
             CurrentSprite.flipX = false;
         }
-        else if (dirAngle <= 89)
+        else if (dirAngle <= AngleSpriteLevels[2])
         {
             CurrentSprite.flipX = true;
         }
-        if (TipAngle > 4 && TipAngle < 30)
+        if (TipAngle > AngleSpriteLevels[1] && TipAngle < 30)
         {
             MyRigidbody.AddForceAtPosition(Vector3.up * TipAngle * _currentTipForce, Vector3.zero);
         }
-        else if (TipAngle >= 89)
+        else if (TipAngle >= AngleSpriteLevels[2])
         {
             MyRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }

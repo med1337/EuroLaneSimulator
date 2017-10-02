@@ -109,7 +109,7 @@ MonoBehaviour:
   truck: {fileID: 0}
   base_zoom: 29.09
   additional_zoom: 10
-  lead_factor: 0.05
+  lead_factor: 0.1
 --- !u!124 &124661543828849720
 Behaviour:
   m_ObjectHideFlags: 1

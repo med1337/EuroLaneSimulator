@@ -25,9 +25,10 @@ public class Truck : Vehicle
         var localSpeed = transform.InverseTransformDirection(MyRigidbody.velocity);
         Speed = localSpeed.z;
         Speed *= 2.237f;
+        Speed /= 2;
         if (SpeedText != null)
         {
-            var speedText = (int) Speed + " MPH";
+            var speedText = (int)Speed + " MPH";
             SpeedText.text = speedText;
         }
     }

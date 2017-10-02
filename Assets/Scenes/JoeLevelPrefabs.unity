@@ -419,11 +419,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50debfaffda14bd4e8fd0363dcb21518, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &894328382 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4865648399675970, guid: 50debfaffda14bd4e8fd0363dcb21518,
-    type: 2}
-  m_PrefabInternal: {fileID: 894328381}
 --- !u!1001 &1134749072
 Prefab:
   m_ObjectHideFlags: 0
@@ -466,6 +461,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72c6e3fdf6313b543b5922a3a2c27c24, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1295582622 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114440348316302200, guid: 50debfaffda14bd4e8fd0363dcb21518,
+    type: 2}
+  m_PrefabInternal: {fileID: 894328381}
+  m_Script: {fileID: 11500000, guid: 76e105008a46bd64093ea586d81da9ab, type: 3}
 --- !u!1 &1494896190
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc455880c475ec47821681534d52388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameObjecTransform: {fileID: 894328382}
+  cam: {fileID: 1956766727}
+  truck: {fileID: 1295582622}
+  base_zoom: 29.09
+  additional_zoom: 5
+  lead_factor: 0.1
 --- !u!81 &1956766724
 AudioListener:
   m_ObjectHideFlags: 0
