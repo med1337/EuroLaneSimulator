@@ -297,11 +297,11 @@ MonoBehaviour:
   - {fileID: 1800792478485268, guid: 3368627ebb9fa524a99eb85fe548fab5, type: 2}
   - {fileID: 1629556838546780, guid: e6325439d2a41ce4b86d298750bbea34, type: 2}
   - {fileID: 1097525686909086, guid: 970b6cd2b2bd69d498844790ff6c31be, type: 2}
-  - {fileID: 1585834917805042, guid: 55e06e48d6f07394386639bb83463d6f, type: 2}
-  - {fileID: 1585834917805042, guid: 55e06e48d6f07394386639bb83463d6f, type: 2}
-  - {fileID: 1585834917805042, guid: 55e06e48d6f07394386639bb83463d6f, type: 2}
-  - {fileID: 1585834917805042, guid: 55e06e48d6f07394386639bb83463d6f, type: 2}
-  - {fileID: 1585834917805042, guid: 55e06e48d6f07394386639bb83463d6f, type: 2}
+  - {fileID: 1983680462987422, guid: a5ff533ea4106d54c91286be18efac7f, type: 2}
+  - {fileID: 1567957615360504, guid: 33183afc1ee5d3e4ab9f762b4f99f560, type: 2}
+  - {fileID: 1812747309952450, guid: 9359456772825484d80a943a4469a9df, type: 2}
+  - {fileID: 1697266580765078, guid: 7f1483d81fbbea141b1bdc40f548c88b, type: 2}
+  - {fileID: 1894449324106782, guid: 9b90ea1da5662744ab1869978a5f55db, type: 2}
   city_width: 5
   city_height: 5
   total_no_depots: 0

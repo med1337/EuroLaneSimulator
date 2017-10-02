@@ -71,7 +71,7 @@ public class LevelConstructor : MonoBehaviour
         }
 
         // if this id is a bottom across section
-        if ((w != 0 && w != city_width) && h == 0)
+        if ((w != 0 && w != city_width - 1) && h == 0)
         {
             city_grid[h, w] = section_bottom_across;
             return;
