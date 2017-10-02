@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 114486429583170950}
   - component: {fileID: 114858805559690814}
   - component: {fileID: 114031970467396286}
+  - component: {fileID: 82867017976060694}
   m_Layer: 8
   m_Name: Truck
   m_TagString: Player
@@ -881,6 +882,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654727195496242}
   m_Enabled: 1
+--- !u!82 &82867017976060694
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247029264915184}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f9df8bffcf8ed1f43a5791e61933328b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.478
+  m_Pitch: 0.9
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 194
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92334110127205982
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1488,6 +1569,10 @@ MonoBehaviour:
   SpeedLimit: 40
   Speed: 0
   has_trailer: 1
+  engine_audio_source: {fileID: 82867017976060694}
+  pitch_to_speed_reduction: 8
+  minimum_pitch: 0.9
+  maximum_pitch: 1.9
 --- !u!114 &114393010305114148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1667,8 +1752,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 1293.5852
-    damper: 206.97363
+    spring: 1293.5828
+    damper: 206.97325
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
   m_ForceAppPointDistance: 0.74254626
@@ -1696,8 +1781,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.08
   m_SuspensionSpring:
-    spring: 1293.5753
-    damper: 206.97205
+    spring: 1293.5822
+    damper: 206.97314
     targetPosition: 0.5
   m_SuspensionDistance: 0.1962
   m_ForceAppPointDistance: 0.74254626

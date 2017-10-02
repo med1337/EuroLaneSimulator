@@ -17,6 +17,13 @@ public class Truck : Vehicle
     private float _timer = 0.0f;
     [HideInInspector] public bool has_trailer = true;
 
+    [Space]
+    [Header("Engine Audio")]
+    [SerializeField] private AudioSource engine_audio_source;
+    [SerializeField] private float pitch_to_speed_reduction = 8;
+    [SerializeField] private float minimum_pitch = 0.9f;
+    [SerializeField] private float maximum_pitch = 1.9f;
+
 
     public void CollisionEvent(Collision _other)
     {
@@ -82,6 +89,13 @@ public class Truck : Vehicle
             var speedText = (int) Speed + " MPH";
             SpeedText.text = speedText;
         }
+
+        if (engine_audio_source == null)
+            return;
+
+        float pitch = Speed / pitch_to_speed_reduction;
+        engine_audio_source.pitch = Mathf.Clamp(pitch, minimum_pitch, maximum_pitch);
+
     }
 
     public override void FixedUpdate()
@@ -117,7 +131,7 @@ public class Truck : Vehicle
     {
         _timer = 0.0f;
         //MyRigidbody.constraints=RigidbodyConstraints.FreezeAll;
-        if (AttachedTrailer != null)
+        if (AttachedTrailer != null)//detaching trailer
         {
             AttachedTrailer = PossibleTrailer.DetachTrailer();
 
@@ -126,18 +140,23 @@ public class Truck : Vehicle
 
             if (GameManager.scene.distance_indicator != null)
                 GameManager.scene.distance_indicator.SetTrailerGraphic(false);//just in case
+            return;
         }
-        else if( PossibleTrailer!=AttachedTrailer)
-        {
-            AttachedTrailer = PossibleTrailer.AttachTrailer(MyRigidbody);
 
-            if (GameManager.scene.objective_manager != null)
-                GameManager.scene.objective_manager.AttachedTrailer();
+        if (PossibleTrailer == AttachedTrailer)//else check for attach
+            return;
 
-            if (GameManager.scene.distance_indicator != null)
-                GameManager.scene.distance_indicator.SetTrailerGraphic(true);//just in case
-        }
+        AttachedTrailer = PossibleTrailer.AttachTrailer(MyRigidbody);
+
+        AudioManager.PlayOneShot("Trailer_Connected");
+
+        if (GameManager.scene.objective_manager != null)
+            GameManager.scene.objective_manager.AttachedTrailer();
+
+        if (GameManager.scene.distance_indicator != null)
+            GameManager.scene.distance_indicator.SetTrailerGraphic(true);//just in case
     }
+
 
     void OnTriggerExit(Collider other)
     {
