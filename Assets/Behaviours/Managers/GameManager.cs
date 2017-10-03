@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<Sprite> carSprites_ = new List<Sprite>();
     [SerializeField] GameObject car_prefab_;
 
+
+    public static List<AudioClip> carHorns { get { return instance.carHorns_; } }
+
+    [SerializeField] List<AudioClip> carHorns_ = new List<AudioClip>();
+
     private AudioSource player_horn;
 
     void Awake()

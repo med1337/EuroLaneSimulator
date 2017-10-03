@@ -736,6 +736,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
+        type: 2}
+      propertyPath: carHorns_.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
+        type: 2}
+      propertyPath: car_horns_.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4560023789623232, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -768,6 +778,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
+        type: 2}
+      propertyPath: carHorns_.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 601d899f8913c28498df6841c4bdc4ca, type: 3}
+    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
+        type: 2}
+      propertyPath: carHorns_.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 48adf57e5ba2fa74db0c62f99d06b31f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1, type: 2}
   m_IsPrefabParent: 0
