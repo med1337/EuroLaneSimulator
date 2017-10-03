@@ -8,9 +8,13 @@ public class GameManager : MonoBehaviour
     public static readonly int ROAD_SPEED_LIMIT = 35;
     public static bool restarting_scene;
     public static TempSceneRefs scene = new TempSceneRefs();
+    public static List<Sprite> carSprites { get { return instance.carSprites_; } }
+    public static GameObject car_prefab { get { return instance.car_prefab_; } }
 
     private static GameManager instance;
-    
+
+    [SerializeField] List<Sprite> carSprites_ = new List<Sprite>();
+    [SerializeField] GameObject car_prefab_;
 
     void Awake()
     {

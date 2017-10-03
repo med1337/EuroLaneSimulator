@@ -9,6 +9,8 @@ public class CarMovement : MonoBehaviour {
     public bool alive = true;
     Truck player; //player GO
 
+    public SpriteRenderer carSprite;
+
     // Use this for initialization
     void Start ()
     {

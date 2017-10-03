@@ -9,7 +9,6 @@ public class ObstacleManagerScript : MonoBehaviour
     private int maxSpawnTime = 10; //maximum time to next spawn
     private float spawnMin = 200;
     private float spawnMax = 400;
-    public GameObject car; //car GO to spawn
     public int maxSpawns = 5;
 
     List<CarMovement> current_cars = new List<CarMovement>();
@@ -74,6 +73,14 @@ public class ObstacleManagerScript : MonoBehaviour
             break;
 
         }
-        current_cars.Add(Instantiate(car, spawnPoint, rot).GetComponent<CarMovement>());    
+
+        GameObject clone = Instantiate(GameManager.car_prefab, spawnPoint, rot);
+        CarMovement car = clone.GetComponent<CarMovement>();
+
+        Sprite random_sprite = GameManager.carSprites[Random.Range(0, GameManager.carSprites.Count)];
+
+        car.carSprite.sprite = random_sprite;
+
+        current_cars.Add(car);
     }
 }
