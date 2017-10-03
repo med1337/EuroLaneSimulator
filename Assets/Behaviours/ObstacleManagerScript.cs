@@ -10,6 +10,9 @@ public class ObstacleManagerScript : MonoBehaviour
     private float spawnMin = 200;
     private float spawnMax = 400;
     public GameObject car; //car GO to spawn
+    public int maxSpawns = 5;
+
+    List<CarMovement> current_cars = new List<CarMovement>();
 
     [SerializeField] CarRotation spawn_rotation;
 
@@ -24,17 +27,22 @@ public class ObstacleManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        current_cars.RemoveAll(elem => elem == null);    
+
         float playerDistance = Vector3.Distance(transform.position, player.transform.position);
                
         if (!thing_queued)
-         {            
-            if ((playerDistance > spawnMin) && (playerDistance < spawnMax))
+         {       
+            if (current_cars.Count < maxSpawns)
             {
-                int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
+                if ((playerDistance > spawnMin) && (playerDistance < spawnMax))
+                {
+                    int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
 
-                Invoke("SpawnObstacle", randomSpawn);
+                    Invoke("SpawnObstacle", randomSpawn);
 
-                thing_queued = true;
+                    thing_queued = true;
+                }
             }
         }
     }
@@ -66,7 +74,6 @@ public class ObstacleManagerScript : MonoBehaviour
             break;
 
         }
-
-        Instantiate(car, spawnPoint, rot);    
+        current_cars.Add(Instantiate(car, spawnPoint, rot).GetComponent<CarMovement>());    
     }
 }

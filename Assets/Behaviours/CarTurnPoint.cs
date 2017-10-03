@@ -15,6 +15,8 @@ public class CarTurnPoint : MonoBehaviour
     [SerializeField] CarRotation ingress_rotation;
     [SerializeField] float turn_chance;
 
+    public bool turnRight = false;
+
 
     void OnTriggerEnter(Collider _other)
     {
@@ -26,8 +28,20 @@ public class CarTurnPoint : MonoBehaviour
         if (_other.transform.rotation.eulerAngles.y != (int)ingress_rotation)
             return;
 
-        if (car.alive && Random.Range(1, 100) <= turn_chance)
+        
+
+
+        if (turnRight)
+        {
+            if (car.alive && Random.Range(1, 100) <= turn_chance)
+            _other.transform.Rotate(Vector3.up * 90);
+        }
+
+        else
+        {
+            if (car.alive && Random.Range(1, 100) <= turn_chance)
             _other.transform.Rotate(Vector3.up * -90);
+        }
     }
 
 }
