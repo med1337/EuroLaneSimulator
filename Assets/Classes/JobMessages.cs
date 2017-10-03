@@ -81,7 +81,7 @@ public class JobMessages
         "This isn't what I ordered at all! Oh well, I'm sure I'll find a use for it. Thanks anyway.",
         "A speedy delivery by today's standards. Good job.",
         "Who are you? Oh, hey. Thanks for the goods. Keep up the good work!",
-        "What time do you call this? It was suppost to be here three weeks ago? Oh well thanks anyway.",
+        "What time do you call this? It was supposed to be here three weeks ago? Oh well thanks anyway.",
         "Well well well, look who it is... Wait? Who are you again? Just leave it there.",
         "Thanks for the delivery. I'll be out in a minute. Or two... Don't wait for me.",
         "Awesome. Thanks for that. I'm surprised you managed to get here, what with the radiation and all."
