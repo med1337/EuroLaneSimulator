@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,10 @@ public class UImanager : MonoBehaviour
     public bool gameStart;
     public CanvasGroup GameOverCanvas;
     public CanvasGroup StartGameCanvas;
-    public int moneyStat;
+    
+    [SerializeField]
+    private Text money;
+
 
     // Use this for initialization
     void Start()
@@ -23,26 +27,28 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("b"))
-        {
-            gameOver = true;
-        }
-        if (gameOver)
-        {
-            Debug.Log("UI Recognises Game Over");
-            GameOverCanvas.gameObject.SetActive(true);
-        }
-        if (gameStart)
-        {
-            Debug.Log("UI calls game start.");
-            StartGameCanvas.gameObject.SetActive(true);
-        }
         checkForInput();
     }
 
 
     public void checkForInput()
     {
+        if (Input.GetKeyDown("b"))
+        {
+            gameOver = true;
+        }
+        if (gameOver)
+        {
+            GameOverCanvas.gameObject.SetActive(true);
+            if (money != null)
+            {
+                money.text = GameManager.scene.money_panel.money.ToString();
+            }
+        }
+        if (gameStart)
+        {
+            StartGameCanvas.gameObject.SetActive(true);
+        }
         //start game
         if (gameStart && Input.GetButton("Submit"))
         {
