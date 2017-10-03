@@ -27,30 +27,32 @@ public class UImanager : MonoBehaviour
         {
             gameOver = true;
         }
-        if (gameOver == true)
+        if (gameOver)
         {
             Debug.Log("UI Recognises Game Over");
             GameOverCanvas.gameObject.SetActive(true);
         }
-        if (gameStart == true)
+        if (gameStart)
         {
             Debug.Log("UI calls game start.");
             StartGameCanvas.gameObject.SetActive(true);
         }
         checkForInput();
     }
+
+
     public void checkForInput()
     {
         //start game
-        if (gameStart == true && Input.GetKeyDown("a"))
+        if (gameStart && Input.GetButton("Submit"))
         {
             gameStart = false;
             StartGameCanvas.gameObject.SetActive(false);
         }
-        if (gameOver == true && Input.GetKeyDown("a"))
+        if (gameOver && Input.GetButton("Submit"))
         {
             gameOver = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.GameReset();
         }
     }
 }

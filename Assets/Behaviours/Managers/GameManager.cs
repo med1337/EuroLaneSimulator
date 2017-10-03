@@ -67,6 +67,12 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public static void GameReset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
     void OnLevelWasLoaded(int _level)
     {
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -155,42 +155,42 @@ Prefab:
     - target: {fileID: 146060513037979116, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146060513037979116, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 146541612473003606, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146541612473003606, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 146978180103132932, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146978180103132932, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 146227336471156520, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146227336471156520, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 114833059883554344, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
@@ -384,7 +384,7 @@ Prefab:
     - target: {fileID: 224771664075091316, guid: e940f285f6850b1459e2eabe6702c18c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.733
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224771664075091316, guid: e940f285f6850b1459e2eabe6702c18c,
         type: 2}
@@ -440,6 +440,16 @@ Prefab:
       propertyPath: lower_arrow_threshold
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 224900391005023704, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.733
+      objectReference: {fileID: 0}
+    - target: {fileID: 224900391005023704, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114333715780976046, guid: e940f285f6850b1459e2eabe6702c18c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e940f285f6850b1459e2eabe6702c18c, type: 2}
@@ -470,6 +480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1367398134}
+  - {fileID: 409511222}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -539,6 +550,51 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1968127759}
   m_Script: {fileID: 11500000, guid: e211fd287f25e4041b7040cf10134f71, type: 3}
+--- !u!1 &409511220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 409511222}
+  - component: {fileID: 409511221}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &409511221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409511220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2d23cd01e3bd447940a2e41f1f908d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: 0
+  gameStart: 0
+  GameOverCanvas: {fileID: 1285576907}
+  StartGameCanvas: {fileID: 938639640}
+  moneyStat: 0
+--- !u!4 &409511222
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409511220}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 914.5771, y: 0.91461176, z: 898.8744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 177294471}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &865115843
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +623,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &938639640 stripped
+CanvasGroup:
+  m_PrefabParentObject: {fileID: 225698428895661376, guid: e940f285f6850b1459e2eabe6702c18c,
+    type: 2}
+  m_PrefabInternal: {fileID: 32506401}
 --- !u!96 &1015961011 stripped
 TrailRenderer:
   m_PrefabParentObject: {fileID: 96856383567486980, guid: 40d05aead29aad744a2f8fe48f56f366,
@@ -629,6 +690,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97df95db58e417d4496e3c9b34607bca, type: 2}
   m_IsPrefabParent: 0
+--- !u!225 &1285576907 stripped
+CanvasGroup:
+  m_PrefabParentObject: {fileID: 225723313200445090, guid: e940f285f6850b1459e2eabe6702c18c,
+    type: 2}
+  m_PrefabInternal: {fileID: 32506401}
 --- !u!114 &1334230810 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114713820995626356, guid: 40d05aead29aad744a2f8fe48f56f366,
@@ -736,16 +802,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
-        type: 2}
-      propertyPath: carHorns_.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
-        type: 2}
-      propertyPath: car_horns_.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4560023789623232, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -778,16 +834,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
-        type: 2}
-      propertyPath: carHorns_.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 601d899f8913c28498df6841c4bdc4ca, type: 3}
-    - target: {fileID: 114698096789558700, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1,
-        type: 2}
-      propertyPath: carHorns_.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 48adf57e5ba2fa74db0c62f99d06b31f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1, type: 2}
   m_IsPrefabParent: 0
