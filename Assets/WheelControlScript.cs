@@ -16,6 +16,7 @@ public class WheelControlScript : MonoBehaviour
 
     public float MotorTorque;
     public List<Axis> AxlesList;
+    public bool FreezeControls;
 
     // Use this for initialization
     void Start()
@@ -25,10 +26,13 @@ public class WheelControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        motor = MotorTorque * Input.GetAxis("Forward");
-        steering = SteeringAngle * Input.GetAxis("Horizontal");
-        braking = BrakeForce * Input.GetAxis("Brake");
-        reverse = MotorTorque * Input.GetAxis("Reverse");
+        if (!FreezeControls)
+        {
+            motor = MotorTorque * Input.GetAxis("Forward");
+            steering = SteeringAngle * Input.GetAxis("Horizontal");
+            braking = BrakeForce * Input.GetAxis("Brake");
+            reverse = MotorTorque * Input.GetAxis("Reverse");
+        }
     }
 
     void FixedUpdate()
@@ -56,5 +60,10 @@ public class WheelControlScript : MonoBehaviour
             axleInfo.LeftCollider.brakeTorque = braking;
             axleInfo.RightCollider.brakeTorque = braking;
         }
+    }
+
+    public void AttachBrake()
+    {
+        braking = 1000;
     }
 }

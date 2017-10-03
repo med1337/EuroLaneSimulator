@@ -78,25 +78,25 @@ public class Truck : Vehicle
             }
             else
             {
-                QueueAttachment = true;
-                _timer = 0;
-            }
-        }
-        if (QueueAttachment)
-        {
-            _timer += Time.deltaTime;
-            if (Math.Abs(TipAngle) < 0.001f && Math.Abs(Speed) < 1)
-            {
-                _timer = 0;
+                GetComponentInChildren<WheelControlScript>().AttachBrake();
                 ProcessTrailer();
-                QueueAttachment = false;
-            }
-            if (_timer >= AttachDelay)
-            {
-                _timer = 0;
-                QueueAttachment = false;
             }
         }
+        //if (QueueAttachment)
+        //{
+        //    _timer += Time.deltaTime;
+        //    if (Math.Abs(TipAngle) < 0.001f && Math.Abs(Speed) < 1)
+        //    {
+        //        _timer = 0;
+        //        ProcessTrailer();
+        //        QueueAttachment = false;
+        //    }
+        //    if (_timer >= AttachDelay)
+        //    {
+        //        _timer = 0;
+        //        QueueAttachment = false;
+        //    }
+        //}
         CheckSpeed();
         base.Update();
     }
