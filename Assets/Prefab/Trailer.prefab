@@ -51,8 +51,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4354818374476398}
-  - component: {fileID: 65524219286186214}
   - component: {fileID: 65961783422158860}
+  - component: {fileID: 65103338664356282}
   m_Layer: 9
   m_Name: BoxColliders
   m_TagString: Trailer
@@ -542,6 +542,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!65 &65103338664356282
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089217088899342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 1.2757593, z: 0.2798857}
+  m_Center: {x: 0, y: -0.5421207, z: 0.009577259}
 --- !u!65 &65182241378347834
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -554,18 +566,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.44885033, z: 0.26406035}
   m_Center: {x: 0, y: -0.32872614, z: 0.36796984}
---- !u!65 &65524219286186214
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089217088899342}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.77, y: 1.5484436, z: 0.20000005}
-  m_Center: {x: 0, y: -0.3287624, z: 1.2329496e-15}
 --- !u!65 &65621258333393536
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -588,8 +588,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76874375, y: 2.2985492, z: 0.4792358}
-  m_Center: {x: 0.00062807405, y: 0.047215592, z: -0.36943486}
+  m_Size: {x: 0.66, y: 2.36, z: 0.46888176}
+  m_Center: {x: 0, y: -8.407598e-16, z: -0.3655596}
 --- !u!96 &96171191860034170
 TrailRenderer:
   serializedVersion: 2
@@ -953,6 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TipAngle: 0
+  Dead: 0
   CurrentSprite: {fileID: 212477322295329782}
   TippingSpritesList:
   - {fileID: 21300008, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
@@ -1071,6 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RigidBody: {fileID: 54673711152476342}
   RbadjustVector3: {x: 0, y: 0, z: 0}
+  Adjust: 1
 --- !u!114 &114883980860173612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1147,10 +1149,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 999.99994
+    damper: 1000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620001
-  m_ForceAppPointDistance: 1.2015872
+  m_SuspensionDistance: 0.19620003
+  m_ForceAppPointDistance: 0.93231565
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1176,10 +1178,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 999.99994
+    damper: 1000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620001
-  m_ForceAppPointDistance: 1.2015872
+  m_SuspensionDistance: 0.19620003
+  m_ForceAppPointDistance: 0.93231565
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1205,10 +1207,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 999.99994
+    damper: 1000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620001
-  m_ForceAppPointDistance: 1.2015872
+  m_SuspensionDistance: 0.19620003
+  m_ForceAppPointDistance: 0.93231565
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1234,10 +1236,10 @@ WheelCollider:
   m_Radius: 0.08
   m_SuspensionSpring:
     spring: 6249.9995
-    damper: 999.99994
+    damper: 1000
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620001
-  m_ForceAppPointDistance: 1.2015872
+  m_SuspensionDistance: 0.19620003
+  m_ForceAppPointDistance: 0.93231565
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1293,7 +1295,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!212 &212477322295329782
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1334,4 +1335,3 @@ SpriteRenderer:
   m_Size: {x: 0.78, y: 1.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1

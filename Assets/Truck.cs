@@ -4,8 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Truck : Vehicle
 {
+    struct InputControls
+    {
+        public float motor;
+        public float steering;
+        public float braking;
+        public bool attach;
+        public bool frozen;
+    }
+
+    private InputControls myInputControls;
+
     public DamageSystem damage_system;
 
     public WheelControlScript WheelControlScript;
@@ -16,6 +28,10 @@ public class Truck : Vehicle
     public float Speed;
     private float AttachDelay = 0.5f;
     private float _timer = 0.0f;
+    private float _freezeTimer;
+    private float _attachmentDuration = 1.0f;
+    private float _failTimer = 0.0f;
+
     [HideInInspector] public bool has_trailer = true;
     public bool QueueAttachment { get; set; }
 
@@ -24,8 +40,12 @@ public class Truck : Vehicle
     [SerializeField] private float minimum_pitch = 0.9f;
     [SerializeField] private float maximum_pitch = 1.9f;
 
+    [Header("Drive settings")] [SerializeField] private float _steeringAngle;
+    [SerializeField] private float _brakeForce;
+    [SerializeField] private float _motorTorque;
 
-    public void CollisionEvent(Collision _other)
+
+    public void CollisionEvent(Collision other)
     {
         if (AttachedTrailer != null)
         {
@@ -34,7 +54,7 @@ public class Truck : Vehicle
 
         damage_system.EnvironmentCollision();
 
-        if (_other.gameObject.tag == "Hazard")
+        if (other.gameObject.tag == "Hazard")
         {
             GameManager.scene.money_panel.LogTransaction((int) TransactionTypes.COLLISION, "Vehicle Collision");
         }
@@ -66,37 +86,58 @@ public class Truck : Vehicle
         }
     }
 
+    private void GetButtons()
+    {
+        myInputControls.attach = Input.GetButtonUp("Attach");
+    }
+
+    private void UpdateControls()
+    {
+        GetButtons();
+
+        if (myInputControls.frozen)
+        {
+            _freezeTimer += Time.deltaTime;
+
+            if (!(_freezeTimer >= _attachmentDuration)) return;
+
+            myInputControls.frozen = false;
+            _freezeTimer = 0;
+            return;
+        }
+
+
+        var reverse = _motorTorque * Input.GetAxis("Reverse");
+        if (reverse > 0)
+        {
+            myInputControls.motor = -reverse;
+        }
+        else
+        {
+            myInputControls.motor = _motorTorque * Input.GetAxis("Forward");
+        }
+
+        myInputControls.steering = _steeringAngle * Input.GetAxis("Horizontal");
+        myInputControls.braking = _brakeForce * Input.GetAxis("Brake");
+    }
 
     // Update is called once per frame
     public override void Update()
     {
-        if (Input.GetButtonUp("Attach"))
+        //get controls
+        UpdateControls();
+
+        //process attach button delay
+        if (_timer < AttachDelay)
         {
-            if (AttachedTrailer)
-            {
-                ProcessTrailer();
-            }
-            else
-            {
-                GetComponentInChildren<WheelControlScript>().AttachBrake();
-                ProcessTrailer();
-            }
+            _timer += Time.deltaTime;
         }
-        //if (QueueAttachment)
-        //{
-        //    _timer += Time.deltaTime;
-        //    if (Math.Abs(TipAngle) < 0.001f && Math.Abs(Speed) < 1)
-        //    {
-        //        _timer = 0;
-        //        ProcessTrailer();
-        //        QueueAttachment = false;
-        //    }
-        //    if (_timer >= AttachDelay)
-        //    {
-        //        _timer = 0;
-        //        QueueAttachment = false;
-        //    }
-        //}
+        if ((myInputControls.attach && _timer >= AttachDelay) || QueueAttachment)
+        {
+            _timer = 0.0f;
+            ProcessTrailer();
+        }
+
         CheckSpeed();
         base.Update();
     }
@@ -132,57 +173,80 @@ public class Truck : Vehicle
         {
             MyRigidbody.velocity = MyRigidbody.velocity.normalized * SpeedLimit;
         }
-        if (_timer < AttachDelay)
+        foreach (var axise in AxlesList)
         {
-            _timer += Time.fixedDeltaTime;
+            axise.UpdateParameters(myInputControls.motor, myInputControls.steering, myInputControls.braking);
         }
-        else
-        {
-            if (MyRigidbody.constraints == RigidbodyConstraints.FreezeAll)
-            {
-                MyRigidbody.constraints = RigidbodyConstraints.None;
-            }
-        }
-
         base.FixedUpdate();
     }
 
-    void OnTriggerEnter(Collider other)
+    public void AttachTrailer()
     {
-        if (other.name == "AttachTrigger")
+        //put a brake
+        myInputControls.frozen = true;
+        myInputControls.braking = 1000;
+        PossibleTrailer.transform.rotation.Set(transform.rotation.x, PossibleTrailer.transform.rotation.y,
+            transform.rotation.z, PossibleTrailer.transform.rotation.w);
+
+        if (Math.Abs(TipAngle) < 0.1f && Math.Abs(Speed) < 1.0f && Math.Abs(PossibleTrailer.TipAngle) < 5 )
         {
-            PossibleTrailer = other.GetComponentInParent<Trailer>();
+            AttachedTrailer = PossibleTrailer.AttachTrailer(MyRigidbody);
+            QueueAttachment = false;
+            _failTimer = 0;
+            AudioManager.PlayOneShot("Trailer_Connected");
+
+            if (GameManager.scene.objective_manager != null)
+                GameManager.scene.objective_manager.AttachedTrailer();
+
+            if (GameManager.scene.distance_indicator != null)
+                GameManager.scene.distance_indicator.SetTrailerGraphic(true); //just in case
         }
+        else
+        {
+            _failTimer += Time.deltaTime;
+            if (_failTimer > 1)
+            {
+                QueueAttachment = false;
+            }
+            else
+            {
+                QueueAttachment = true;
+            }
+        }
+    }
+
+    public void DetachTrailer()
+    {
+        AttachedTrailer = PossibleTrailer.DetachTrailer();
+
+        AudioManager.PlayOneShot("Trailer_Disonnected");
+
+        if (GameManager.scene.objective_manager != null)
+            GameManager.scene.objective_manager.DetachedTrailer();
+
+        if (GameManager.scene.distance_indicator != null)
+            GameManager.scene.distance_indicator.SetTrailerGraphic(false); //just in case
     }
 
     public void ProcessTrailer()
     {
-        _timer = 0.0f;
-        //MyRigidbody.constraints=RigidbodyConstraints.FreezeAll;
-        if (AttachedTrailer != null) //detaching trailer
+        if (AttachedTrailer)
         {
-            AttachedTrailer = PossibleTrailer.DetachTrailer();
-
-            if (GameManager.scene.objective_manager != null)
-                GameManager.scene.objective_manager.DetachedTrailer();
-
-            if (GameManager.scene.distance_indicator != null)
-                GameManager.scene.distance_indicator.SetTrailerGraphic(false); //just in case
-            return;
+            DetachTrailer();
+        }
+        else if (PossibleTrailer)
+        {
+            AttachTrailer();
         }
 
-        if (PossibleTrailer == AttachedTrailer) //else check for attach
-            return;
 
-        AttachedTrailer = PossibleTrailer.AttachTrailer(MyRigidbody);
-
-        AudioManager.PlayOneShot("Trailer_Connected");
-
-        if (GameManager.scene.objective_manager != null)
-            GameManager.scene.objective_manager.AttachedTrailer();
-
-        if (GameManager.scene.distance_indicator != null)
-            GameManager.scene.distance_indicator.SetTrailerGraphic(true); //just in case
+        //else
+        //{
+        //    if (MyRigidbody.constraints == RigidbodyConstraints.FreezeAll)
+        //    {
+        //        MyRigidbody.constraints = RigidbodyConstraints.None;
+        //    }
+        //}
     }
 
 
@@ -191,6 +255,14 @@ public class Truck : Vehicle
         if (other.name == "AttachTrigger")
         {
             PossibleTrailer = null;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "AttachTrigger")
+        {
+            PossibleTrailer = other.GetComponentInParent<Trailer>();
         }
     }
 }

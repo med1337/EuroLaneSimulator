@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
@@ -14,7 +15,9 @@ public class Trailer : Vehicle
     public Truck MyTruck;
     [SerializeField] List<TrailRenderer> trails = new List<TrailRenderer>();
     private Quaternion start_rotation;
-
+    private float _timer;
+    private float _jointBreakDelay = 3.0f;
+    private HingeJoint joint;
 
 
     public void CollisionEvent(Collision _other)
@@ -32,7 +35,6 @@ public class Trailer : Vehicle
     {
         if (_other.tag == "Intersection")
         {
-
         }
         else if (_other.tag == "Hazard")
         {
@@ -89,11 +91,14 @@ public class Trailer : Vehicle
 
     public override void FixedUpdate()
     {
-        if (MyTruck != null)
+        _timer += Time.fixedDeltaTime;
+        if (_timer >= _jointBreakDelay && joint != null)
         {
-            base.FixedUpdate();
-
+            if (joint.breakForce == 2000000)
+                joint.breakForce = 20000;
         }
+
+        base.FixedUpdate();
     }
 
 
@@ -108,11 +113,11 @@ public class Trailer : Vehicle
 
     public Trailer AttachTrailer(Rigidbody truckRigidbody)
     {
-        HingeJoint joint = gameObject.AddComponent(typeof(HingeJoint)) as HingeJoint;
+        joint = gameObject.AddComponent(typeof(HingeJoint)) as HingeJoint;
         if (joint == null) return null;
         joint.connectedBody = truckRigidbody;
         joint.enableCollision = true;
-        joint.breakForce = 20000;
+        joint.breakForce = 2000000;
         joint.anchor = new Vector3(0, 0, 1);
         joint.axis = new Vector3(0, 1, 0);
         JointLimits limits = new JointLimits
@@ -126,15 +131,17 @@ public class Trailer : Vehicle
         joint.limits = limits;
 
         MyTruck = truckRigidbody.GetComponent<Truck>();
-
-        foreach(var child in GetComponentsInChildren<Axis>())
+        foreach (var child in GetComponentsInChildren<Axis>())
         {
             child.LeftCollider.motorTorque = 0.01f;
             child.RightCollider.motorTorque = 0.01f;
         }
 
-         joint.autoConfigureConnectedAnchor = false;
+        joint.autoConfigureConnectedAnchor = false;
         joint.connectedAnchor = new Vector3(0, 0, -0.5733331f);
+
+        _timer = 0;
+
 
         LegsGameObject.SetActive(false);
         return this;

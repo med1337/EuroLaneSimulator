@@ -10,21 +10,29 @@ public abstract class Vehicle : MonoBehaviour
 
     //change this value to adjust ease of tipping
     protected readonly float _baseTipLiftForce = 0.025f;
+
     protected float _currentTipForce;
 
     private float s;
 
     private bool _flipped;
     private bool _rotated;
+    public bool Dead;
+    protected bool attached;
+    protected Vehicle attaVehicle;
+    float dirAngle;
 
     [Header("Sprites, do not use more than 4 atm")] public SpriteRenderer CurrentSprite;
     public List<Sprite> TippingSpritesList;
     private float[] AngleSpriteLevels = {2.5f, 5, 89};
 
+    protected Axis[] AxlesList;
+
 
     public virtual void Start()
     {
         MyRigidbody = GetComponent<Rigidbody>();
+        AxlesList = GetComponentsInChildren<Axis>();
     }
 
     public virtual void Update()
@@ -78,7 +86,7 @@ public abstract class Vehicle : MonoBehaviour
     public virtual void FixedUpdate()
     {
         TipAngle = Vector3.Angle(transform.up, Vector3.up);
-        var dirAngle = Vector3.Angle(transform.right, Vector3.up);
+        dirAngle = Vector3.Angle(transform.right, Vector3.up);
         if (dirAngle >= AngleSpriteLevels[2])
         {
             CurrentSprite.flipX = false;
@@ -98,9 +106,13 @@ public abstract class Vehicle : MonoBehaviour
             {
                 joint.useLimits = true;
             }
+
+            transform.rotation.Set(0, transform.rotation.y, 0, 0);
+            MyRigidbody.maxAngularVelocity = 0;
             MyRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            Dead = true;
         }
     }
 
-   
+    public float TipAngle2 { get; set; }
 }

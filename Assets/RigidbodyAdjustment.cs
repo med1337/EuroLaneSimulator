@@ -6,17 +6,21 @@ public class RigidbodyAdjustment : MonoBehaviour
 {
     public Rigidbody RigidBody;
     public Vector3 RbadjustVector3;
+    public bool Adjust;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    RigidBody.centerOfMass = RbadjustVector3;
-	}
+    // Use this for initialization
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Adjust)
+        {
+            RigidBody.centerOfMass = RbadjustVector3;
+        }
+    }
 
     void OnDrawGizmosSelected()
     {
