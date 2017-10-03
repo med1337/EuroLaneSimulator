@@ -14,6 +14,7 @@ public class JobMessages
         "'Bout time you showed up. I need you to take this trailer of ",
         "This might be an odd request, but could you bring this trailer of ",
         "This might be explosive, but could you take this trailer of ",
+        "Ah, you're here. Could you take this trailer of "
     };
 
     public static string[] cargo_types =
@@ -49,7 +50,12 @@ public class JobMessages
         "Soap",
         "Orange Juice",
         "CD Keys",
-        "Lost USB Sticks"
+        "Lost USB Sticks",
+        "Nose Clippers",
+        "Bounty Bars",
+        "Coconut Shells",
+        "Meal Deals",
+        "Sour Wine Gums"
     };
 
     public static string[] pickup_message_suffixes =
@@ -62,7 +68,10 @@ public class JobMessages
         " to the Depot as safely as possible, I need it in tip top condition.",
         " to the Depot by yesterday.",
         " to the Depot. I'd do it myself, but I'm babysitting.",
-        " to my house, no wait.. the Depot. I meant the Depot."
+        " to my house, no wait.. the Depot. I meant the Depot.",
+        " to the Depot. Now get out of here, I'm busy playing SlotDrop.",
+        " to the Secret Depot. You know the place, right?",
+        " to the usual place. It's right by the uh... cargo containers? I forget."
     };
 
 
