@@ -651,7 +651,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247029264915184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 92.71, y: 0.93, z: 13.52}
+  m_LocalPosition: {x: 92.64, y: 0.93, z: 17.31}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4696973003124118}
@@ -1597,6 +1597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steering: 0
   Motor: 1
+  Handbrake: 1
   LeftCollider: {fileID: 146827998505866592}
   RightCollider: {fileID: 146813147262441854}
 --- !u!114 &114324472887989984
@@ -1612,6 +1613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steering: 0
   Motor: 1
+  Handbrake: 1
   LeftCollider: {fileID: 146014203930414786}
   RightCollider: {fileID: 146194530269862350}
 --- !u!114 &114351924657181170
@@ -1800,6 +1802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steering: 1
   Motor: 1
+  Handbrake: 0
   LeftCollider: {fileID: 146228468838975250}
   RightCollider: {fileID: 146381072582527044}
 --- !u!114 &114993766072170982

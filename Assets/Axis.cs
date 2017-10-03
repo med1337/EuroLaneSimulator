@@ -6,11 +6,12 @@ public class Axis : MonoBehaviour
 {
     public bool Steering;
     public bool Motor;
+    public bool Handbrake;
 
     private float _motor;
     private float _braking;
     private float _steering;
-    
+    private float _handbrake;
 
 
     public WheelCollider LeftCollider;
@@ -33,15 +34,18 @@ public class Axis : MonoBehaviour
     {
     }
 
-    public void UpdateParameters(float motor, float steering, float braking)
+    public void UpdateParameters(float motor, float steering, float braking, float handbrake)
     {
         _motor = motor;
         _steering = steering;
         _braking = braking;
+        _handbrake = handbrake;
     }
 
     void FixedUpdate()
     {
+        LeftCollider.brakeTorque = _braking;
+        RightCollider.brakeTorque = _braking;
         if (Steering)
         {
             LeftCollider.steerAngle = _steering;
@@ -52,7 +56,10 @@ public class Axis : MonoBehaviour
             LeftCollider.motorTorque = _motor;
             RightCollider.motorTorque = _motor;
         }
-        LeftCollider.brakeTorque = _braking;
-        RightCollider.brakeTorque = _braking;
+        if (Handbrake)
+        {
+            LeftCollider.brakeTorque = _handbrake;
+            RightCollider.brakeTorque = _handbrake;
+        }
     }
 }

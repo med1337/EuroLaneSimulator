@@ -13,6 +13,7 @@ public class Truck : Vehicle
         public float steering;
         public float braking;
         public bool attach;
+        public float handbrake;
         public bool frozen;
     }
 
@@ -89,6 +90,15 @@ public class Truck : Vehicle
     private void GetButtons()
     {
         myInputControls.attach = Input.GetButtonUp("Attach");
+        if (Input.GetButton("Handbrake"))
+        {
+            myInputControls.handbrake = _brakeForce;
+        }
+        else
+        {
+            myInputControls.handbrake = 0;
+        }
+        Debug.Log(myInputControls.handbrake);
     }
 
     private void UpdateControls()
@@ -107,18 +117,23 @@ public class Truck : Vehicle
         }
 
 
+        myInputControls.braking = _brakeForce * Input.GetAxis("Brake");
         var reverse = _motorTorque * Input.GetAxis("Reverse");
-        if (reverse > 0)
+        myInputControls.motor = _motorTorque * Input.GetAxis("Forward");
+        if (reverse > 0 && Speed > 0)
+        {
+            myInputControls.braking = _brakeForce;
+        }
+        else if (myInputControls.motor > 0 && Speed < 0)
+        {
+            myInputControls.braking = _brakeForce;
+        }
+        else if (reverse > 0)
         {
             myInputControls.motor = -reverse;
         }
-        else
-        {
-            myInputControls.motor = _motorTorque * Input.GetAxis("Forward");
-        }
 
         myInputControls.steering = _steeringAngle * Input.GetAxis("Horizontal");
-        myInputControls.braking = _brakeForce * Input.GetAxis("Brake");
     }
 
     // Update is called once per frame
@@ -175,7 +190,8 @@ public class Truck : Vehicle
         }
         foreach (var axise in AxlesList)
         {
-            axise.UpdateParameters(myInputControls.motor, myInputControls.steering, myInputControls.braking);
+            axise.UpdateParameters(myInputControls.motor, myInputControls.steering, myInputControls.braking,
+                myInputControls.handbrake);
         }
         base.FixedUpdate();
     }
@@ -188,7 +204,7 @@ public class Truck : Vehicle
         PossibleTrailer.transform.rotation.Set(transform.rotation.x, PossibleTrailer.transform.rotation.y,
             transform.rotation.z, PossibleTrailer.transform.rotation.w);
 
-        if (Math.Abs(TipAngle) < 0.1f && Math.Abs(Speed) < 1.0f && Math.Abs(PossibleTrailer.TipAngle) < 5 )
+        if (Math.Abs(TipAngle) < 0.1f && Math.Abs(Speed) < 1.0f && Math.Abs(PossibleTrailer.TipAngle) < 5)
         {
             AttachedTrailer = PossibleTrailer.AttachTrailer(MyRigidbody);
             QueueAttachment = false;
