@@ -79,6 +79,10 @@ public class ObstacleManagerScript : MonoBehaviour
 
         Sprite random_sprite = GameManager.carSprites[Random.Range(0, GameManager.carSprites.Count)];
 
+        AudioClip random_honk = GameManager.carHorns[Random.Range(0, GameManager.carHorns.Count)];
+
+        car.gameObject.GetComponentInChildren<AudioSource>().clip = random_honk;
+
         car.carSprite.sprite = random_sprite;
 
         current_cars.Add(car);
