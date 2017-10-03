@@ -23,7 +23,7 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown("b"))
+        if (Input.GetKeyDown("b"))
         {
             gameOver = true;
         }
