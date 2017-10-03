@@ -34,15 +34,11 @@ public class CarCollisionAvoidance : MonoBehaviour {
                 case 7:
                 case 6:
                 case 5:
-                    speed = 4;
-                    break;
-
                 case 4:
+                    speed = 3;
+                    break;
                 case 3:
                 case 2:
-                    speed = 2;
-                    break;
-
                 case 1:
                 case 0:
                     speed = 0;
