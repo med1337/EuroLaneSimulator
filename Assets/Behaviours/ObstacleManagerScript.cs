@@ -26,7 +26,13 @@ public class ObstacleManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        current_cars.RemoveAll(elem => elem == null);    
+        current_cars.RemoveAll(elem => elem == null);
+
+        if (player == null)
+            player = GameManager.scene.player_truck;
+
+        if (player == null)
+            return;
 
         float playerDistance = Vector3.Distance(transform.position, player.transform.position);
                
@@ -78,6 +84,10 @@ public class ObstacleManagerScript : MonoBehaviour
         CarMovement car = clone.GetComponent<CarMovement>();
 
         Sprite random_sprite = GameManager.carSprites[Random.Range(0, GameManager.carSprites.Count)];
+
+        AudioClip random_honk = GameManager.carHorns[Random.Range(0, GameManager.carHorns.Count)];
+
+        car.gameObject.GetComponentInChildren<AudioSource>().clip = random_honk;
 
         car.carSprite.sprite = random_sprite;
 

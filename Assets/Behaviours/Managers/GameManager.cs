@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<Sprite> carSprites_ = new List<Sprite>();
     [SerializeField] GameObject car_prefab_;
 
+
+    public static List<AudioClip> carHorns { get { return instance.carHorns_; } }
+
+    [SerializeField] List<AudioClip> carHorns_ = new List<AudioClip>();
+
     private AudioSource player_horn;
 
     void Awake()
@@ -59,6 +64,12 @@ public class GameManager : MonoBehaviour
             player_horn.Stop();
         }
 
+    }
+
+
+    public static void GameReset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 
