@@ -6,10 +6,14 @@ public class CarCollisionAvoidance : MonoBehaviour {
 
     CarMovement parentScript;
 
-	// Use this for initialization
-	void Start ()
+    private AudioSource horn;
+
+    // Use this for initialization
+    void Start ()
     {
         parentScript = transform.parent.gameObject.GetComponent<CarMovement>();
+
+        horn = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -51,6 +55,21 @@ public class CarCollisionAvoidance : MonoBehaviour {
 
 
             parentScript.SetSpeed(speed);
+        }
+    }
+
+    // Vehicle Horns
+    private void OnTriggerEnter(Collider other)
+    {
+       if(other.tag == "Player" || other.tag == "Hazard")
+        {
+            int honk_chance = Random.Range(0, 10);
+
+            if(honk_chance < 1)
+            {
+                horn.Play();
+            }
+
         }
     }
 

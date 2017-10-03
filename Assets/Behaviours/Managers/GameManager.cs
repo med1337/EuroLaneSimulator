@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<Sprite> carSprites_ = new List<Sprite>();
     [SerializeField] GameObject car_prefab_;
 
+    private AudioSource player_horn;
+
     void Awake()
     {
         if (instance == null)
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        player_horn = GetComponent<AudioSource>();
     }
 
 
@@ -44,6 +48,17 @@ public class GameManager : MonoBehaviour
             AudioManager.StopAllSFX();
             SceneManager.LoadScene(0);
         }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            player_horn.Play();
+        }
+
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            player_horn.Stop();
+        }
+
     }
 
 
