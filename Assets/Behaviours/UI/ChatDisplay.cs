@@ -19,7 +19,7 @@ public class ChatDisplay : MonoBehaviour
     private bool typing;
 
 
-    public void DisplayPickupMessage()
+    public string DisplayPickupMessage()
     {
         string prefix = JobMessages.pickup_message_prefixes[Random.Range(0,
             JobMessages.pickup_message_prefixes.Length)];
@@ -31,6 +31,8 @@ public class ChatDisplay : MonoBehaviour
             JobMessages.pickup_message_suffixes.Length)];
 
         PrepForDisplay(prefix + cargo + suffix);
+
+        return cargo;
     }
 
     
