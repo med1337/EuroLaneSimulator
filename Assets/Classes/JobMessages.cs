@@ -7,7 +7,7 @@ public class JobMessages
     public static string[] pickup_message_prefixes =
     {
         "Oi, I need you to take this trailer full of ",
-        "Could you take take this trailer of ",
+        "Could you take this trailer of ",
         "Take this trailer containing "
     };
 

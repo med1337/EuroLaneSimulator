@@ -48,6 +48,7 @@ public class UImanager : MonoBehaviour
         {
             gameStart = false;
             StartGameCanvas.gameObject.SetActive(false);
+            GameManager.scene.objective_manager.enabled = true;
         }
         if (gameOver && Input.GetButton("Submit"))
         {

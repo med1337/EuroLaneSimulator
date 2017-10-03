@@ -6,38 +6,73 @@ public struct TempSceneRefs
 {
     public ChatDisplay chat_display
     {
-        get { return chat_display_ ?? (chat_display_ = GameObject.FindObjectOfType<ChatDisplay>()); }
+        get
+        {
+            if (chat_display_ == null)
+                chat_display_ = GameObject.FindObjectOfType<ChatDisplay>();
 
+            return chat_display_;
+        }
     }
 
 
     public ObjectiveManager objective_manager
     {
-        get { return objective_manager_ ?? (objective_manager_ = GameObject.FindObjectOfType<ObjectiveManager>()); }
+        get
+        {
+            if (objective_manager_ == null)
+                objective_manager_ = GameObject.FindObjectOfType<ObjectiveManager>();
+
+            return objective_manager_;
+        }
     }
 
 
     public DistanceIndicator distance_indicator
     {
-        get { return distance_indicator_ ?? (distance_indicator_ = GameObject.FindObjectOfType<DistanceIndicator>()); }
+        get
+        {
+            if (distance_indicator_ == null)
+                distance_indicator_ = GameObject.FindObjectOfType<DistanceIndicator>();
+
+            return distance_indicator_;
+        }
     }
 
 
     public MoneyPanel money_panel
     {
-        get { return money_panel_ ?? (money_panel_ = GameObject.FindObjectOfType<MoneyPanel>()); }
+        get
+        {
+            if (money_panel_ == null)
+                money_panel_ = GameObject.FindObjectOfType<MoneyPanel>();
+
+            return money_panel_;
+        }
     }
 
 
     public Truck player_truck
     {
-        get { return player_truck_ ?? (player_truck_ = GameObject.FindObjectOfType<Truck>()); }
+        get
+        {
+            if (player_truck_ == null)
+                player_truck_ = GameObject.FindObjectOfType<Truck>();
+
+            return player_truck_;
+        }
     }
 
 
     public Trailer player_trailer
     {
-        get { return player_trailer_ ?? (player_trailer_ = GameObject.FindObjectOfType<Trailer>()); }
+        get
+        {
+            if (player_trailer_ == null)
+                player_trailer_ = GameObject.FindObjectOfType<Trailer>();
+
+            return player_trailer_;
+        }
     }
 
 
