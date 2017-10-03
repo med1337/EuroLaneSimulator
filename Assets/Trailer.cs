@@ -105,6 +105,7 @@ public class Trailer : Vehicle
     void OnJointBreak(float force)
     {
         LegsGameObject.SetActive(true);
+        GameManager.scene.objective_manager.DetachedTrailer(false);
         Debug.Log(force.ToString());
         MyTruck.AttachedTrailer = null;
         MyTruck = null;

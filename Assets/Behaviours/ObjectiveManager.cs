@@ -160,14 +160,14 @@ public class ObjectiveManager : MonoBehaviour
     }
 
 
-    public void DetachedTrailer()
+    public void DetachedTrailer(bool _intentional)
     {
         GameManager.scene.distance_indicator.SetTrailerGraphic(false);//should this be set from truck instead?
 
         if (current_depot_target == null)
             return;
 
-        if (current_depot_target.trailer_delivered)//if trailer in depot
+        if (current_depot_target.trailer_delivered && _intentional)//if trailer in depot
         {
             ObjectiveComplete("Completed Delivery");//job done
             return;

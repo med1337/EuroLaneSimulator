@@ -222,7 +222,7 @@ public class Truck : Vehicle
         AudioManager.PlayOneShot("Trailer_Disonnected");
 
         if (GameManager.scene.objective_manager != null)
-            GameManager.scene.objective_manager.DetachedTrailer();
+            GameManager.scene.objective_manager.DetachedTrailer(true);
 
         if (GameManager.scene.distance_indicator != null)
             GameManager.scene.distance_indicator.SetTrailerGraphic(false); //just in case
