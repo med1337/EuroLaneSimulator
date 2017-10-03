@@ -174,7 +174,7 @@ public class LevelConstructor : MonoBehaviour
                     // Grid section
                     if (city_grid[h, w] == 0)
                     {
-                        Debug.Log(city_grid[h, w]);
+                        //Debug.Log(city_grid[h, w]);
                         Instantiate(standard_sections[random_standard_section], section_pos, standard_sections[random_standard_section].transform.rotation);
                     }
 

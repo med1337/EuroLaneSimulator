@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarCollisionAvoidance : MonoBehaviour {
-
+public class CarCollisionAvoidance : MonoBehaviour
+{
     CarMovement parentScript;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         parentScript = transform.parent.gameObject.GetComponent<CarMovement>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
     void OnTriggerStay(Collider c)
     {
@@ -25,7 +25,7 @@ public class CarCollisionAvoidance : MonoBehaviour {
         {
             float distance = Vector3.Distance(transform.position, c.transform.position);
 
-            switch ((int)distance)
+            switch ((int) distance)
             {
                 case 7:
                 case 6:
@@ -49,8 +49,8 @@ public class CarCollisionAvoidance : MonoBehaviour {
                     break;
             }
 
-
-            parentScript.SetSpeed(speed);
+            if (parentScript != null)
+                parentScript.SetSpeed(speed);
         }
     }
 

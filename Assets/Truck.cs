@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,10 +17,9 @@ public class Truck : Vehicle
     private float AttachDelay = 0.5f;
     private float _timer = 0.0f;
     [HideInInspector] public bool has_trailer = true;
+    public bool QueueAttachment { get; set; }
 
-    [Space]
-    [Header("Engine Audio")]
-    [SerializeField] private AudioSource engine_audio_source;
+    [Space] [Header("Engine Audio")] [SerializeField] private AudioSource engine_audio_source;
     [SerializeField] private float pitch_to_speed_reduction = 8;
     [SerializeField] private float minimum_pitch = 0.9f;
     [SerializeField] private float maximum_pitch = 1.9f;
@@ -36,7 +36,7 @@ public class Truck : Vehicle
 
         if (_other.gameObject.tag == "Hazard")
         {
-            GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.COLLISION, "Vehicle Collision");
+            GameManager.scene.money_panel.LogTransaction((int) TransactionTypes.COLLISION, "Vehicle Collision");
         }
     }
 
@@ -47,7 +47,7 @@ public class Truck : Vehicle
         {
             if (Speed >= GameManager.ROAD_SPEED_LIMIT)
             {
-                GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.SPEEDING, "Speeding Violation");
+                GameManager.scene.money_panel.LogTransaction((int) TransactionTypes.SPEEDING, "Speeding Violation");
             }
         }
         else if (_other.tag == "Hazard")
@@ -62,7 +62,7 @@ public class Truck : Vehicle
 
             damage_system.HazardCollision();
 
-            GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.COLLISION, "Vehicle Collision");
+            GameManager.scene.money_panel.LogTransaction((int) TransactionTypes.COLLISION, "Vehicle Collision");
         }
     }
 
@@ -72,11 +72,35 @@ public class Truck : Vehicle
     {
         if (Input.GetButtonUp("Attach"))
         {
-            ProcessTrailer();
+            if (AttachedTrailer)
+            {
+                ProcessTrailer();
+            }
+            else
+            {
+                QueueAttachment = true;
+                _timer = 0;
+            }
+        }
+        if (QueueAttachment)
+        {
+            _timer += Time.deltaTime;
+            if (Math.Abs(TipAngle) < 0.001f && Math.Abs(Speed) < 1)
+            {
+                _timer = 0;
+                ProcessTrailer();
+                QueueAttachment = false;
+            }
+            if (_timer >= AttachDelay)
+            {
+                _timer = 0;
+                QueueAttachment = false;
+            }
         }
         CheckSpeed();
         base.Update();
     }
+
 
     private void CheckSpeed()
     {
@@ -85,6 +109,10 @@ public class Truck : Vehicle
         Speed *= 2.237f;
         Speed /= 2;
 
+        if (Mathf.Abs(Speed) < 0.1f)
+        {
+            Speed = 0;
+        }
         if (SpeedText != null)
         {
             var speedText = (int) Speed + " MPH";
@@ -96,7 +124,6 @@ public class Truck : Vehicle
 
 
         engine_audio_source.pitch = CustomMath.Map(Speed, 0, SpeedLimit, minimum_pitch, maximum_pitch);
-
     }
 
     public override void FixedUpdate()
@@ -113,7 +140,7 @@ public class Truck : Vehicle
         {
             if (MyRigidbody.constraints == RigidbodyConstraints.FreezeAll)
             {
-                MyRigidbody.constraints=RigidbodyConstraints.None;
+                MyRigidbody.constraints = RigidbodyConstraints.None;
             }
         }
 
@@ -132,19 +159,19 @@ public class Truck : Vehicle
     {
         _timer = 0.0f;
         //MyRigidbody.constraints=RigidbodyConstraints.FreezeAll;
-        if (AttachedTrailer != null)//detaching trailer
+        if (AttachedTrailer != null) //detaching trailer
         {
             AttachedTrailer = PossibleTrailer.DetachTrailer();
 
             if (GameManager.scene.objective_manager != null)
-               GameManager.scene.objective_manager.DetachedTrailer();
+                GameManager.scene.objective_manager.DetachedTrailer();
 
             if (GameManager.scene.distance_indicator != null)
-                GameManager.scene.distance_indicator.SetTrailerGraphic(false);//just in case
+                GameManager.scene.distance_indicator.SetTrailerGraphic(false); //just in case
             return;
         }
 
-        if (PossibleTrailer == AttachedTrailer)//else check for attach
+        if (PossibleTrailer == AttachedTrailer) //else check for attach
             return;
 
         AttachedTrailer = PossibleTrailer.AttachTrailer(MyRigidbody);
@@ -155,7 +182,7 @@ public class Truck : Vehicle
             GameManager.scene.objective_manager.AttachedTrailer();
 
         if (GameManager.scene.distance_indicator != null)
-            GameManager.scene.distance_indicator.SetTrailerGraphic(true);//just in case
+            GameManager.scene.distance_indicator.SetTrailerGraphic(true); //just in case
     }
 
 
@@ -166,7 +193,4 @@ public class Truck : Vehicle
             PossibleTrailer = null;
         }
     }
-
-
-   
 }
