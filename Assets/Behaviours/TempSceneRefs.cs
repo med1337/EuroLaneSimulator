@@ -4,6 +4,13 @@ using UnityEngine;
 
 public struct TempSceneRefs
 {
+    public ChatDisplay chat_display
+    {
+        get { return chat_display_ ?? (chat_display_ = GameObject.FindObjectOfType<ChatDisplay>()); }
+
+    }
+
+
     public ObjectiveManager objective_manager
     {
         get { return objective_manager_ ?? (objective_manager_ = GameObject.FindObjectOfType<ObjectiveManager>()); }
@@ -39,4 +46,5 @@ public struct TempSceneRefs
     private DistanceIndicator distance_indicator_;
     private Truck player_truck_;
     private Trailer player_trailer_;
+    private ChatDisplay chat_display_;
 }

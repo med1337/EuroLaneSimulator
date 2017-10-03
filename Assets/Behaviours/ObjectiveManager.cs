@@ -71,6 +71,8 @@ public class ObjectiveManager : MonoBehaviour
             objective_state = ObjectiveState.DELIVERING_TRAILER;//we must deliver it
             current_waypoint = current_depot_target.transform;//set new depot as target
             current_depot_target.delivery_area.enabled = true;//allow it to check for delivery
+
+            GameManager.scene.chat_display.DisplayPickupMessage();
         }
         else
         {
@@ -125,6 +127,8 @@ public class ObjectiveManager : MonoBehaviour
             current_depot_target.delivery_area.enabled = false;
             current_depot_target.trailer_delivered = false;
             GameManager.scene.money_panel.LogTransaction(current_depot_target.job_value, _win_reason);
+
+            GameManager.scene.chat_display.DisplayDeliveryMessage();
         }
 
         if (last_depot_target != null)
