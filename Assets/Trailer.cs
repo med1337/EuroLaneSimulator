@@ -20,6 +20,7 @@ public class Trailer : Vehicle
     private HingeJoint joint;
     private bool already_dead = false;
 
+
     public void CollisionEvent(Collision _other)
     {
         if (MyTruck != null)
@@ -55,7 +56,7 @@ public class Trailer : Vehicle
 
     void OnMouseClick()
     {
-        CargoValue -= 1337;
+        //CargoValue -= 1337;
     }
 
 
@@ -73,7 +74,7 @@ public class Trailer : Vehicle
         if (Dead && !already_dead)
         {
             already_dead = true;
-            Invoke("TriggerNewObjective", 5);
+            Invoke("TriggerNewObjective", 6);
         }
 
         if (!Dead)
