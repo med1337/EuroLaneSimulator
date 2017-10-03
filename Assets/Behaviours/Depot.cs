@@ -15,8 +15,6 @@ public class Depot : MonoBehaviour
     {
         if (_collision.gameObject.CompareTag("Trailer"))
             trailer_delivered = true;
-
-        //Possible stretch goal: implement delivery accuracy
     }
 
 

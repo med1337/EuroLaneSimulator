@@ -84,6 +84,7 @@ public class Truck : Vehicle
         Speed = localSpeed.z;
         Speed *= 2.237f;
         Speed /= 2;
+
         if (SpeedText != null)
         {
             var speedText = (int) Speed + " MPH";
@@ -93,8 +94,8 @@ public class Truck : Vehicle
         if (engine_audio_source == null)
             return;
 
-        float pitch = Speed / pitch_to_speed_reduction;
-        engine_audio_source.pitch = Mathf.Clamp(pitch, minimum_pitch, maximum_pitch);
+
+        engine_audio_source.pitch = Map(Speed, 0, SpeedLimit, minimum_pitch, maximum_pitch);
 
     }
 
@@ -164,5 +165,11 @@ public class Truck : Vehicle
         {
             PossibleTrailer = null;
         }
+    }
+
+
+    float Map(float value, float i_start, float i_stop, float o_start, float o_stop)
+    {
+        return o_start + (o_stop - o_start) * ((value - i_start) / (i_stop - i_start));
     }
 }
