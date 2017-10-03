@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static readonly int ROAD_SPEED_LIMIT = 35;
+    public static readonly int ROAD_SPEED_LIMIT = 30;
     public static bool restarting_scene;
     public static TempSceneRefs scene = new TempSceneRefs();
+    public static List<Sprite> carSprites { get { return instance.carSprites_; } }
+    public static GameObject car_prefab { get { return instance.car_prefab_; } }
 
     private static GameManager instance;
-    
+
+    [SerializeField] List<Sprite> carSprites_ = new List<Sprite>();
+    [SerializeField] GameObject car_prefab_;
+
+    private AudioSource player_horn;
 
     void Awake()
     {
@@ -22,6 +28,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        player_horn = GetComponent<AudioSource>();
     }
 
 
@@ -40,6 +48,17 @@ public class GameManager : MonoBehaviour
             AudioManager.StopAllSFX();
             SceneManager.LoadScene(0);
         }
+
+        if (Input.GetButtonDown("Horn"))
+        {
+            player_horn.Play();
+        }
+
+        if (Input.GetButtonUp("Horn"))
+        {
+            player_horn.Stop();
+        }
+
     }
 
 

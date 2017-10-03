@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4560023789623232}
   - component: {fileID: 114698096789558700}
+  - component: {fileID: 82044616834930938}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -70,6 +71,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82044616834930938
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404393328732270}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4d61d3dc5bebd7e49b82aea4d60ab558, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114572488020606222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,8 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82c14c2c114ded4f8bd2b3a7527f09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music_volume: 0.25
-  sfx_volume: 0.5
   settings_: {fileID: 11400000, guid: 2bb2b02fcc0895e499647f7659f8c0ad, type: 2}
 --- !u!114 &114698096789558700
 MonoBehaviour:
@@ -95,3 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2230ef265eb32484593208001ad79203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carSprites_:
+  - {fileID: 21300000, guid: b366b6defe8b98040bb16f8b8f6cd2b5, type: 3}
+  - {fileID: 21300002, guid: b366b6defe8b98040bb16f8b8f6cd2b5, type: 3}
+  - {fileID: 21300004, guid: b366b6defe8b98040bb16f8b8f6cd2b5, type: 3}
+  - {fileID: 21300006, guid: b366b6defe8b98040bb16f8b8f6cd2b5, type: 3}
+  - {fileID: 21300008, guid: b366b6defe8b98040bb16f8b8f6cd2b5, type: 3}
+  - {fileID: 21300010, guid: b366b6defe8b98040bb16f8b8f6cd2b5, type: 3}
+  car_prefab_: {fileID: 1458846237605198, guid: 82efc9567b845334bb30afcaa2f23ae5,
+    type: 2}

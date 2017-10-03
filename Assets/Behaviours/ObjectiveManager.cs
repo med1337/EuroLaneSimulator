@@ -108,6 +108,9 @@ public class ObjectiveManager : MonoBehaviour
             break;
         }
 
+        if (closest == null)
+            closest = last_depot_target;
+
         closest.job_value = (int)TransactionTypes.DELIVERY;//TODO calculate based on distance
         closest.penalty_value = (int)(closest.job_value * 0.5f);
 
