@@ -90,6 +90,7 @@ public class Trailer : Vehicle
 
     private void TriggerNewObjective()
     {
+        GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.FAILED_DELIVERY, "Failed Delivery");
         GameManager.scene.objective_manager.SetNewObjective();
         GameManager.scene.chat_display.DisplayJobFailedMessage();
     }
