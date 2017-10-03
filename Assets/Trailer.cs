@@ -182,8 +182,9 @@ public class Trailer : Vehicle
     {
         Dead = false;
         base.MyRigidbody.constraints = RigidbodyConstraints.None;
-        transform.position = _transform.position + new Vector3(0, 1);
+        transform.position = _transform.position + new Vector3(0, 2);
         transform.rotation = start_rotation;
+        MyRigidbody.maxAngularVelocity = 7;
         ClearTrails();
     }
 

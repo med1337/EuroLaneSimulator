@@ -21,6 +21,7 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private ObjectiveState objective_state = ObjectiveState.INITIAL_TRAILER_PICK_UP;//player starts with a trailer
     [SerializeField] private float play_time = 5 * 60;
     [SerializeField] private Text time_display;
+    [SerializeField] private Text current_cargo;
 
     private CountdownTimer timer = new CountdownTimer();
 
@@ -99,7 +100,12 @@ public class ObjectiveManager : MonoBehaviour
             current_waypoint = current_depot_target.transform;//set new depot as target
             current_depot_target.delivery_area.enabled = true;//allow it to check for delivery
 
-            GameManager.scene.chat_display.DisplayPickupMessage();
+            string cargo_message = GameManager.scene.chat_display.DisplayPickupMessage();
+
+            if (current_cargo != null)
+            {
+                current_cargo.text = "Current Cargo:\n" + cargo_message;
+            }
         }
         else
         {
