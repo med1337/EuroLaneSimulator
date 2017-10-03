@@ -155,6 +155,10 @@ public class ObjectiveManager : MonoBehaviour
 
     private void ObjectiveComplete(string _win_reason = "")
     {
+        if (current_cargo != null)
+            current_cargo.text = "Current Cargo:";
+
+
         if (current_depot_target != null)
         {
             current_depot_target.delivery_area.enabled = false;
