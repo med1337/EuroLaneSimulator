@@ -7,6 +7,7 @@ public enum TransactionTypes
 {
     COLLISION = -100,
     SPEEDING = -50,
+    FAILED_DELIVERY = -1000,
     DELIVERY = 2000
 }
 

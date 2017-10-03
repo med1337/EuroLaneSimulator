@@ -13,7 +13,7 @@ public class JobMessages
         "Hey, the last guy didn't make it. Can you take this trailer of ",
         "'Bout time you showed up. I need you to take this trailer of ",
         "This might be an odd request, but could you bring this trailer of ",
-        "This might be explosive, but could you take this trailer of ",
+        "This might be dangerous, but could you take this trailer of ",
         "Ah, you're here. Could you take this trailer of "
     };
 
@@ -74,7 +74,6 @@ public class JobMessages
         " to the usual place. It's right by the uh... cargo containers? I forget."
     };
 
-
     public static string[] delivery_messages =
     {
         "Grand! Thanks for this, it will come in real handy.",
@@ -82,10 +81,21 @@ public class JobMessages
         "This isn't what I ordered at all! Oh well, I'm sure I'll find a use for it. Thanks anyway.",
         "A speedy delivery by today's standards. Good job.",
         "Who are you? Oh, hey. Thanks for the goods. Keep up the good work!",
-        "What time do you call this? It was suppost to be here three weeks ago? Oh well thanks anyway.",
+        "What time do you call this? It was supposed to be here three weeks ago? Oh well thanks anyway.",
         "Well well well, look who it is... Wait? Who are you again? Just leave it there.",
         "Thanks for the delivery. I'll be out in a minute. Or two... Don't wait for me.",
         "Awesome. Thanks for that. I'm surprised you managed to get here, what with the radiation and all."
+    };
+
+    public static string[] job_fail_messages =
+    {
+        "You wrecked the cargo! Damn, that's not going to go down well with my investors.",
+        "How did you manage that?! Oh well, I don't think anyone needed it anyway.",
+        "You flipped the trailer.. Can't say I'm surprised.",
+        "I thought I told you to deliver the trailer, not tip it!",
+        "Uhh, just pretend no one saw that. Drive away, quick!",
+        "Oh boy I can't wait for this trailer to arrive... Oh.. you flipped it. Nevermind.",
+        "That was some expensive cargo! I think... Insurance should cover it. I hope."
     };
 
 }

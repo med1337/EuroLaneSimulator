@@ -18,6 +18,7 @@ public class Trailer : Vehicle
     private float _timer;
     private float _jointBreakDelay = 3.0f;
     private HingeJoint joint;
+    private bool already_dead = false;
 
 
     public void CollisionEvent(Collision _other)
@@ -55,7 +56,7 @@ public class Trailer : Vehicle
 
     void OnMouseClick()
     {
-        CargoValue -= 1337;
+        //CargoValue -= 1337;
     }
 
 
@@ -70,10 +71,28 @@ public class Trailer : Vehicle
     // Update is called once per frame
     public override void Update()
     {
+        if (Dead && !already_dead)
+        {
+            already_dead = true;
+            Invoke("TriggerNewObjective", 6);
+        }
+
+        if (!Dead)
+            already_dead = false;
+
+
         if (CargoValText != null)
             UpdateCargoValueText();
 
         base.Update();
+    }
+
+
+    private void TriggerNewObjective()
+    {
+        GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.FAILED_DELIVERY, "Failed Delivery");
+        GameManager.scene.objective_manager.SetNewObjective();
+        GameManager.scene.chat_display.DisplayJobFailedMessage();
     }
 
 
@@ -161,6 +180,8 @@ public class Trailer : Vehicle
 
     public void ResetPosition(Transform _transform)
     {
+        Dead = false;
+        base.MyRigidbody.constraints = RigidbodyConstraints.None;
         transform.position = _transform.position + new Vector3(0, 1);
         transform.rotation = start_rotation;
         ClearTrails();

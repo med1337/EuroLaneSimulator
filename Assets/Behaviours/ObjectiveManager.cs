@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 
 [SerializeField]
 public enum ObjectiveState
@@ -17,6 +19,10 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private float max_distance_from_last = 20;
     [SerializeField] private float min_distance_from_last = 10;
     [SerializeField] private ObjectiveState objective_state = ObjectiveState.INITIAL_TRAILER_PICK_UP;//player starts with a trailer
+    [SerializeField] private float play_time = 5 * 60;
+    [SerializeField] private Text time_display;
+
+    private CountdownTimer timer = new CountdownTimer();
 
     private Depot[] depots;
     private Depot last_depot_target = null;//will be a depot script instead
@@ -30,6 +36,7 @@ public class ObjectiveManager : MonoBehaviour
     void Start ()
 	{
 	    depots = FindObjectsOfType<Depot>();
+        timer.InitCountDownTimer(play_time);
 
 	    if (GameManager.scene.player_truck == null)
 	    {
@@ -40,6 +47,26 @@ public class ObjectiveManager : MonoBehaviour
 
         SetPlayerStart();
 	}
+
+
+    void Update()
+    {
+        if (time_display != null)
+        {
+            System.TimeSpan t = System.TimeSpan.FromSeconds(Mathf.Clamp(timer.current_time, 0, Mathf.Infinity));
+            time_display.text = string.Format("{0:00}:{1:00}", t.Minutes, t.Seconds);
+        }
+
+        if (timer.UpdateTimer())
+            Invoke("TriggerGameOver", 5);
+    }
+
+
+    private void TriggerGameOver()
+    {
+        GameManager.GameOver();
+    }
+
 
 
     private void SetPlayerStart()

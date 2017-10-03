@@ -139,6 +139,10 @@ public class Truck : Vehicle
     // Update is called once per frame
     public override void Update()
     {
+        if (Dead)
+            Invoke("TriggerGameOver", 5);
+
+
         //get controls
         UpdateControls();
 
@@ -155,6 +159,12 @@ public class Truck : Vehicle
 
         CheckSpeed();
         base.Update();
+    }
+
+
+    private void TriggerGameOver()
+    {
+        GameManager.GameOver();
     }
 
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -67,6 +68,13 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public static void GameOver()
+    {
+        Time.timeScale = 0;
+        GameManager.scene.ui_manager.gameOver = true;
+    }
+
+
     public static void GameReset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -75,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int _level)
     {
-
+        Time.timeScale = 1;
     }
 
 
