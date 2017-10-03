@@ -42,12 +42,12 @@ public class UImanager : MonoBehaviour
     public void checkForInput()
     {
         //start game
-        if (gameStart == true && Input.GetKeyDown("a"))
+        if (gameStart == true && Input.GetKeyDown("a") || gameStart == true && Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             gameStart = false;
             StartGameCanvas.gameObject.SetActive(false);
         }
-        if (gameOver == true && Input.GetKeyDown("a"))
+        if (gameOver == true && Input.GetKeyDown("a") || gameOver == true && Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             gameOver = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
