@@ -18,9 +18,6 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private float min_distance_from_last = 10;
     [SerializeField] private ObjectiveState objective_state = ObjectiveState.INITIAL_TRAILER_PICK_UP;//player starts with a trailer
 
-    private float min_squared = 0;
-    private float max_squared = 0;
-
     private Depot[] depots;
     private Depot last_depot_target = null;//will be a depot script instead
     private Depot current_depot_target = null;
@@ -33,7 +30,6 @@ public class ObjectiveManager : MonoBehaviour
     void Start ()
 	{
 	    depots = FindObjectsOfType<Depot>();
-        CalculateDistanceSquares();
 
 	    if (GameManager.scene.player_truck == null)
 	    {
@@ -100,42 +96,22 @@ public class ObjectiveManager : MonoBehaviour
     public Depot PickNewDepot()
     {
         Depot closest = null;
-        float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
-        CalculateDistanceSquares();
+
+        depots.Shuffle();
 
         foreach (Depot depot in depots)
         {
-            Vector3 diff = depot.transform.position - position;
-            float current_dist = diff.sqrMagnitude;
-
             if (depot == current_depot_target || depot == last_depot_target)
                 continue;
 
-            if (closest == null)
-                closest = depot;
-
-            if (current_dist < distance && current_dist >= min_squared && current_dist <= max_squared)//if not within range and not closer than last, skip
-            {
-                closest = depot;
-                distance = current_dist;
-            }
+            closest = depot;
+            break;
         }
-
-        if (closest == null)
-            return null;
 
         closest.job_value = (int)TransactionTypes.DELIVERY;//TODO calculate based on distance
         closest.penalty_value = (int)(closest.job_value * 0.5f);
 
         return closest;
-    }
-
-
-    private void CalculateDistanceSquares()
-    {
-        min_squared = min_distance_from_last * min_distance_from_last;
-        max_squared = max_distance_from_last * max_distance_from_last;
     }
 
 
@@ -218,4 +194,27 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
+
+   
+
+}
+
+
+public static class IListExtensions
+{
+    /// <summary>
+    /// Shuffles the element order of the specified list.
+    /// </summary>
+    public static void Shuffle<T>(this IList<T> ts)
+    {
+        var count = ts.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i)
+        {
+            var r = UnityEngine.Random.Range(i, count);
+            var tmp = ts[i];
+            ts[i] = ts[r];
+            ts[r] = tmp;
+        }
+    }
 }
