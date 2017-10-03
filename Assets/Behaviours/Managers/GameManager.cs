@@ -49,12 +49,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetButtonDown("Horn"))
         {
             player_horn.Play();
         }
 
-        if (Input.GetKeyUp(KeyCode.H))
+        if (Input.GetButtonUp("Horn"))
         {
             player_horn.Stop();
         }
