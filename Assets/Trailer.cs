@@ -153,7 +153,7 @@ public class Trailer : Vehicle
 
     public void ResetPosition(Transform _transform)
     {
-        transform.position = _transform.position + new Vector3(0, 2);
+        transform.position = _transform.position + new Vector3(0, 1);
         transform.rotation = start_rotation;
         ClearTrails();
     }
