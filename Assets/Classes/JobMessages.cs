@@ -8,7 +8,12 @@ public class JobMessages
     {
         "Oi, I need you to take this trailer full of ",
         "Could you take this trailer of ",
-        "Take this trailer containing "
+        "Take this trailer containing ",
+        "Bring this trailer of ",
+        "Hey, the last guy didn't make it. Can you take this trailer of ",
+        "'Bout time you showed up. I need you to take this trailer of ",
+        "This might be an odd request, but could you bring this trailer of ",
+        "This might be explosive, but could you take this trailer of ",
     };
 
     public static string[] cargo_types =
@@ -41,7 +46,10 @@ public class JobMessages
         "Bowling Balls",
         "Bananas",
         "Used Socks",
-        "Soap"
+        "Soap",
+        "Orange Juice",
+        "CD Keys",
+        "Lost USB Sticks"
     };
 
     public static string[] pickup_message_suffixes =
@@ -52,7 +60,9 @@ public class JobMessages
         " to the Depot. There's a swarm of people here asking for it!",
         " to the Depot, and be discrete about it, if you could.",
         " to the Depot as safely as possible, I need it in tip top condition.",
-        " to the Depot by yesterday."
+        " to the Depot by yesterday.",
+        " to the Depot. I'd do it myself, but I'm babysitting.",
+        " to my house, no wait.. the Depot. I meant the Depot."
     };
 
 
@@ -63,8 +73,10 @@ public class JobMessages
         "This isn't what I ordered at all! Oh well, I'm sure I'll find a use for it. Thanks anyway.",
         "A speedy delivery by today's standards. Good job.",
         "Who are you? Oh, hey. Thanks for the goods. Keep up the good work!",
-        "What time do you call this? it was suppost to be here three weeks ago? Oh well thanks anyway.",
-        "Well well well, look who it is... Wait? who are you again? Just leave it there."
+        "What time do you call this? It was suppost to be here three weeks ago? Oh well thanks anyway.",
+        "Well well well, look who it is... Wait? Who are you again? Just leave it there.",
+        "Thanks for the delivery. I'll be out in a minute. Or two... Don't wait for me.",
+        "Awesome. Thanks for that. I'm surprised you managed to get here, what with the radiation and all."
     };
 
 }
