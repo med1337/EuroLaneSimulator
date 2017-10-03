@@ -18,7 +18,7 @@ public class Trailer : Vehicle
     private float _timer;
     private float _jointBreakDelay = 3.0f;
     private HingeJoint joint;
-
+    private bool already_dead = false;
 
     public void CollisionEvent(Collision _other)
     {
@@ -70,8 +70,14 @@ public class Trailer : Vehicle
     // Update is called once per frame
     public override void Update()
     {
-        if (Dead)
+        if (Dead && !already_dead)
+        {
+            already_dead = true;
             Invoke("TriggerNewObjective", 5);
+        }
+
+        if (!Dead)
+            already_dead = false;
 
 
         if (CargoValText != null)
@@ -172,6 +178,7 @@ public class Trailer : Vehicle
     public void ResetPosition(Transform _transform)
     {
         Dead = false;
+        base.MyRigidbody.constraints = RigidbodyConstraints.None;
         transform.position = _transform.position + new Vector3(0, 1);
         transform.rotation = start_rotation;
         ClearTrails();
