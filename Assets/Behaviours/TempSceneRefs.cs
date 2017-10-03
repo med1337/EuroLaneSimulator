@@ -52,6 +52,19 @@ public struct TempSceneRefs
     }
 
 
+
+    public UImanager ui_manager
+    {
+        get
+        {
+            if (ui_manager_ == null)
+                ui_manager_ = GameObject.FindObjectOfType<UImanager>();
+
+            return ui_manager_;
+        }
+    }
+
+
     public Truck player_truck
     {
         get
@@ -75,7 +88,7 @@ public struct TempSceneRefs
         }
     }
 
-
+    private UImanager ui_manager_;
     private MoneyPanel money_panel_;
     private ObjectiveManager objective_manager_;
     private DistanceIndicator distance_indicator_;

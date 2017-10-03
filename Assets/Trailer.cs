@@ -70,10 +70,20 @@ public class Trailer : Vehicle
     // Update is called once per frame
     public override void Update()
     {
+        if (Dead)
+            Invoke("TriggerNewObjective", 5);
+
+
         if (CargoValText != null)
             UpdateCargoValueText();
 
         base.Update();
+    }
+
+
+    private void TriggerNewObjective()
+    {
+        GameManager.scene.objective_manager.SetNewObjective();
     }
 
 
@@ -161,6 +171,7 @@ public class Trailer : Vehicle
 
     public void ResetPosition(Transform _transform)
     {
+        Dead = false;
         transform.position = _transform.position + new Vector3(0, 1);
         transform.rotation = start_rotation;
         ClearTrails();

@@ -81,4 +81,5 @@ public class UImanager : MonoBehaviour
         }
         highestscoreText.text = highestScore.ToString();
     }
+
 }
