@@ -50,5 +50,13 @@ public class CarMovement : MonoBehaviour {
     public void SetSpeed(int spd)
     {
         speed = spd;
-    } 
+    }
+
+    void OnBecameInvisible()
+    {
+        if (!alive)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

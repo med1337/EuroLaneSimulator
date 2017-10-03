@@ -51,6 +51,7 @@ public class CarCollisionAvoidance : MonoBehaviour {
 
 
             parentScript.SetSpeed(speed);
+
         }
     }
 

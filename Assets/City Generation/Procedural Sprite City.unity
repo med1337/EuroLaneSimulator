@@ -279,7 +279,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40d05aead29aad744a2f8fe48f56f366, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &55076622
+--- !u!1001 &147998503
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -376,6 +376,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114741868362539880, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: player_transform
+      value: 
+      objectReference: {fileID: 1922972905}
+    - target: {fileID: 114741868362539880, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: arrow_indicator
+      value: 
+      objectReference: {fileID: 391357330}
     - target: {fileID: 224900391005023704, guid: e940f285f6850b1459e2eabe6702c18c,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -416,16 +426,11 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114741868362539880, guid: e940f285f6850b1459e2eabe6702c18c,
+    - target: {fileID: 224472190794225934, guid: e940f285f6850b1459e2eabe6702c18c,
         type: 2}
-      propertyPath: player_transform
-      value: 
-      objectReference: {fileID: 1922972905}
-    - target: {fileID: 114741868362539880, guid: e940f285f6850b1459e2eabe6702c18c,
-        type: 2}
-      propertyPath: arrow_indicator
-      value: 
-      objectReference: {fileID: 391357330}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e940f285f6850b1459e2eabe6702c18c, type: 2}
   m_IsPrefabParent: 0
@@ -433,7 +438,7 @@ Prefab:
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114688918332182284, guid: e940f285f6850b1459e2eabe6702c18c,
     type: 2}
-  m_PrefabInternal: {fileID: 55076622}
+  m_PrefabInternal: {fileID: 147998503}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &279917075
 GameObject:
@@ -605,12 +610,7 @@ Transform:
 CanvasGroup:
   m_PrefabParentObject: {fileID: 225698428895661376, guid: e940f285f6850b1459e2eabe6702c18c,
     type: 2}
-  m_PrefabInternal: {fileID: 55076622}
---- !u!224 &963218546 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224537033210862584, guid: e940f285f6850b1459e2eabe6702c18c,
-    type: 2}
-  m_PrefabInternal: {fileID: 55076622}
+  m_PrefabInternal: {fileID: 147998503}
 --- !u!96 &1015961011 stripped
 TrailRenderer:
   m_PrefabParentObject: {fileID: 96856383567486980, guid: 40d05aead29aad744a2f8fe48f56f366,
@@ -677,12 +677,12 @@ Prefab:
 CanvasGroup:
   m_PrefabParentObject: {fileID: 225723313200445090, guid: e940f285f6850b1459e2eabe6702c18c,
     type: 2}
-  m_PrefabInternal: {fileID: 55076622}
+  m_PrefabInternal: {fileID: 147998503}
 --- !u!114 &1326808804 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114099793550736108, guid: e940f285f6850b1459e2eabe6702c18c,
     type: 2}
-  m_PrefabInternal: {fileID: 55076622}
+  m_PrefabInternal: {fileID: 147998503}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1334230810 stripped
 MonoBehaviour:
@@ -874,80 +874,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1968127759}
   m_Script: {fileID: 11500000, guid: 244f2ce9f48e064429ea3df8440f6ff2, type: 3}
---- !u!1 &1854968693
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1854968694}
-  - component: {fileID: 1854968696}
-  - component: {fileID: 1854968695}
-  m_Layer: 5
-  m_Name: Timer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1854968694
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1854968693}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 963218546}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.9, y: -0.5}
-  m_SizeDelta: {x: -21.7, y: -22.7}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1854968695
+--- !u!114 &1854968695 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1854968693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114441925279657252, guid: e940f285f6850b1459e2eabe6702c18c,
+    type: 2}
+  m_PrefabInternal: {fileID: 147998503}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 0216d9ab1c73e644a8142e2b01cdf3af, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 00:00
---- !u!222 &1854968696
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1854968693}
 --- !u!114 &1922972902 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114351924657181170, guid: 015c145811dc0744d9ecc392a7da9b6b,
@@ -963,7 +895,7 @@ Transform:
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114723313027729808, guid: e940f285f6850b1459e2eabe6702c18c,
     type: 2}
-  m_PrefabInternal: {fileID: 55076622}
+  m_PrefabInternal: {fileID: 147998503}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1968127759
 Prefab:

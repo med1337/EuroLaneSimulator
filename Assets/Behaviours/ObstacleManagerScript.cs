@@ -32,22 +32,17 @@ public class ObstacleManagerScript : MonoBehaviour
             player = GameManager.scene.player_truck;
 
         if (player == null)
-            return;
-
-        float playerDistance = Vector3.Distance(transform.position, player.transform.position);
+            return;        
                
         if (!thing_queued)
          {       
             if (current_cars.Count < maxSpawns)
-            {
-                if ((playerDistance > spawnMin) && (playerDistance < spawnMax))
-                {
-                    int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
+            {                
+                int randomSpawn = Random.Range(minSpawnTime, maxSpawnTime);
 
-                    Invoke("SpawnObstacle", randomSpawn);
+                Invoke("SpawnObstacle", randomSpawn);
 
-                    thing_queued = true;
-                }
+                thing_queued = true;
             }
         }
     }
@@ -56,41 +51,46 @@ public class ObstacleManagerScript : MonoBehaviour
     {
         thing_queued = false;
 
-        Vector3 spawnPoint = transform.position;
+        float playerDistance = Vector3.Distance(transform.position, player.transform.position);
 
-        Quaternion rot = new Quaternion();
-
-        switch(spawn_rotation)
+        if ((playerDistance > spawnMin) && (playerDistance < spawnMax))
         {
-            case CarRotation.UP: 
-            rot = Quaternion.Euler(0, 0, 0);
-            break;
+            Vector3 spawnPoint = transform.position;
 
-            case CarRotation.DOWN: 
-            rot = Quaternion.Euler(0, 180, 0);
-            break;
+            Quaternion rot = new Quaternion();
 
-            case CarRotation.LEFT: 
-            rot = Quaternion.Euler(0, 270, 0);
-            break;
+            switch (spawn_rotation)
+            {
+                case CarRotation.UP:
+                    rot = Quaternion.Euler(0, 0, 0);
+                    break;
 
-            case CarRotation.RIGHT: 
-            rot = Quaternion.Euler(0, 90, 0);
-            break;
+                case CarRotation.DOWN:
+                    rot = Quaternion.Euler(0, 180, 0);
+                    break;
 
+                case CarRotation.LEFT:
+                    rot = Quaternion.Euler(0, 270, 0);
+                    break;
+
+                case CarRotation.RIGHT:
+                    rot = Quaternion.Euler(0, 90, 0);
+                    break;
+
+            }
+
+            GameObject clone = Instantiate(GameManager.car_prefab, spawnPoint, rot);
+            CarMovement car = clone.GetComponent<CarMovement>();
+
+            Sprite random_sprite = GameManager.carSprites[Random.Range(0, GameManager.carSprites.Count)];
+
+            AudioClip random_honk = GameManager.carHorns[Random.Range(0, GameManager.carHorns.Count)];
+
+            car.gameObject.GetComponentInChildren<AudioSource>().clip = random_honk;
+
+            car.carSprite.sprite = random_sprite;
+
+            current_cars.Add(car);
         }
-
-        GameObject clone = Instantiate(GameManager.car_prefab, spawnPoint, rot);
-        CarMovement car = clone.GetComponent<CarMovement>();
-
-        Sprite random_sprite = GameManager.carSprites[Random.Range(0, GameManager.carSprites.Count)];
-
-        AudioClip random_honk = GameManager.carHorns[Random.Range(0, GameManager.carHorns.Count)];
-
-        car.gameObject.GetComponentInChildren<AudioSource>().clip = random_honk;
-
-        car.carSprite.sprite = random_sprite;
-
-        current_cars.Add(car);
     }
 }
