@@ -2,7 +2,7 @@
 
 public class ArrowLookAtTarget : MonoBehaviour
 {
-    private GameObject target;
+    private Transform target;
 
 	// Update is called once per frame
 	void Update ()
@@ -10,7 +10,7 @@ public class ArrowLookAtTarget : MonoBehaviour
         // If we have a valid target, uppdate
         if (target != null)
         {
-            transform.LookAt(target.transform);
+            transform.LookAt(target);
         }
 	}
 
@@ -27,7 +27,7 @@ public class ArrowLookAtTarget : MonoBehaviour
     }
 
 
-    public void SetTarget(GameObject new_target)
+    public void SetTarget(Transform new_target)
     {
         target = new_target;
     }

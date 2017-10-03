@@ -95,7 +95,7 @@ public class Truck : Vehicle
             return;
 
 
-        engine_audio_source.pitch = Map(Speed, 0, SpeedLimit, minimum_pitch, maximum_pitch);
+        engine_audio_source.pitch = CustomMath.Map(Speed, 0, SpeedLimit, minimum_pitch, maximum_pitch);
 
     }
 
@@ -168,8 +168,5 @@ public class Truck : Vehicle
     }
 
 
-    float Map(float value, float i_start, float i_stop, float o_start, float o_stop)
-    {
-        return o_start + (o_stop - o_start) * ((value - i_start) / (i_stop - i_start));
-    }
+   
 }
