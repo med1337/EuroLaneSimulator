@@ -30,8 +30,7 @@ public class ChatDisplay : MonoBehaviour
         string suffix = JobMessages.pickup_message_suffixes[Random.Range(0,
             JobMessages.pickup_message_suffixes.Length)];
 
-        current_message = prefix + cargo + suffix;
-        PrepForDisplay();
+        PrepForDisplay(prefix + cargo + suffix);
     }
 
     
@@ -40,13 +39,23 @@ public class ChatDisplay : MonoBehaviour
         string text = JobMessages.delivery_messages[Random.Range(0,
             JobMessages.delivery_messages.Length)];
 
-        current_message = text;
-        PrepForDisplay();
+        PrepForDisplay(text);
     }
 
 
-    void PrepForDisplay()
+    public void DisplayJobFailedMessage()
     {
+        string text = JobMessages.job_fail_messages[Random.Range(0,
+            JobMessages.job_fail_messages.Length)];
+
+        PrepForDisplay(text);
+    }
+
+
+    void PrepForDisplay(string _text)
+    {
+        current_message = _text;
+
         chat_panel.SetActive(true);
         chat_text.text = "";
         character_index = 0;
