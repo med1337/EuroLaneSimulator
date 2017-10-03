@@ -27,7 +27,21 @@ public class JobMessages
         "85\" Touch-Screen Televisions",
         "Glitter Paint",
         "Christmas Crackers",
-        "Half-eaten Blueberries"
+        "Half-eaten Blueberries",
+        "Fireworks",
+        "Lightsabers",
+        "Odds and Ends",
+        "Loo Rolls",
+        "Half Melted Easter Eggs",
+        "Orks",
+        "Catapults",
+        "Broken Eggs",
+        "Portal Guns",
+        "'Just for Men' hair dyes",
+        "Bowling Balls",
+        "Bananas",
+        "Used Socks",
+        "Soap"
     };
 
     public static string[] pickup_message_suffixes =
@@ -36,7 +50,9 @@ public class JobMessages
         " to the Depot as quickly as possible, I don't mind if it gets banged about a bit.",
         " to the Depot. I need it for ... reasons.",
         " to the Depot. There's a swarm of people here asking for it!",
-        " to the Depot, and be discrete about it, if you could."
+        " to the Depot, and be discrete about it, if you could.",
+        " to the Depot as safely as possible, I need it in tip top condition.",
+        " to the Depot by yesterday."
     };
 
 
@@ -46,7 +62,9 @@ public class JobMessages
         "Appreciate the drop-off. A bit late, but I'll handle the paperwork.",
         "This isn't what I ordered at all! Oh well, I'm sure I'll find a use for it. Thanks anyway.",
         "A speedy delivery by today's standards. Good job.",
-        "Who are you? Oh, hey. Thanks for the goods. Keep up the good work!"
+        "Who are you? Oh, hey. Thanks for the goods. Keep up the good work!",
+        "What time do you call this? it was suppost to be here three weeks ago? Oh well thanks anyway.",
+        "Well well well, look who it is... Wait? who are you again? Just leave it there."
     };
 
 }
