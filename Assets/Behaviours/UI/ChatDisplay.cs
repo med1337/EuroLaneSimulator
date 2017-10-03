@@ -61,6 +61,8 @@ public class ChatDisplay : MonoBehaviour
         character_index = 0;
         timer = 0;
         typing = true;
+
+        CancelInvoke();
     }
 
 

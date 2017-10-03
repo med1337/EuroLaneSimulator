@@ -90,6 +90,7 @@ public class Trailer : Vehicle
     private void TriggerNewObjective()
     {
         GameManager.scene.objective_manager.SetNewObjective();
+        GameManager.scene.chat_display.DisplayJobFailedMessage();
     }
 
 
