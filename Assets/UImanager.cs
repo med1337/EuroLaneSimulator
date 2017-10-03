@@ -14,6 +14,12 @@ public class UImanager : MonoBehaviour
     
     [SerializeField]
     private Text money;
+    [SerializeField]
+    private Text highestscoreText;
+
+    private int previousScore;
+    private int currentScore;
+    private int highestScore;
 
 
     // Use this for initialization
@@ -21,6 +27,7 @@ public class UImanager : MonoBehaviour
     {
         gameStart = true;
         gameOver = false;
+        currentScore = 0;
         GameOverCanvas.gameObject.SetActive(false);
     }
 
@@ -39,11 +46,14 @@ public class UImanager : MonoBehaviour
         }
         if (gameOver)
         {
-            GameOverCanvas.gameObject.SetActive(true);
             if (money != null)
             {
                 money.text = GameManager.scene.money_panel.money.ToString();
+                currentScore = GameManager.scene.money_panel.money;
+                calculateHighestScore();
             }
+            GameOverCanvas.gameObject.SetActive(true);
+
         }
         if (gameStart)
         {
@@ -53,6 +63,7 @@ public class UImanager : MonoBehaviour
         if (gameStart && Input.GetButton("Submit"))
         {
             gameStart = false;
+            currentScore = 0;
             StartGameCanvas.gameObject.SetActive(false);
             GameManager.scene.objective_manager.enabled = true;
         }
@@ -60,6 +71,14 @@ public class UImanager : MonoBehaviour
         {
             gameOver = false;
             GameManager.GameReset();
+        }
+    }
+    public void calculateHighestScore()
+    {
+        if (currentScore >= highestScore)
+        {
+            highestScore = currentScore;
+            highestscoreText.text = highestScore.ToString();
         }
     }
 }
