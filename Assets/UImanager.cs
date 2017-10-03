@@ -78,7 +78,7 @@ public class UImanager : MonoBehaviour
         if (currentScore >= highestScore)
         {
             highestScore = currentScore;
-            highestscoreText.text = highestScore.ToString();
         }
+        highestscoreText.text = highestScore.ToString();
     }
 }
