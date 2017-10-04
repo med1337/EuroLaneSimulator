@@ -9,8 +9,6 @@ public class Trailer : Vehicle
 {
     public DamageSystem damage_system;
 
-    public int cargo_value = (int)TransactionTypes.DELIVERY;
-    public Text cargo_value_text;
     public GameObject LegsGameObject;
     public Truck MyTruck;
     [SerializeField] List<TrailRenderer> trails = new List<TrailRenderer>();
@@ -30,17 +28,10 @@ public class Trailer : Vehicle
 
         if (_other.gameObject.tag != "Floor")
         {
-            DamageCargo();
+            GameManager.scene.objective_manager.ReduceJobValue();
         }
 
         damage_system.EnvironmentCollision();
-    }
-
-
-    public void DamageCargo()
-    {
-        if (cargo_value > 0)
-            cargo_value -= 50;
     }
 
 
@@ -61,7 +52,7 @@ public class Trailer : Vehicle
                 MyTruck.TriggerEvent(_other);
             }
 
-            DamageCargo();
+            GameManager.scene.objective_manager.ReduceJobValue();
             damage_system.HazardCollision();
         }
     }
@@ -87,9 +78,6 @@ public class Trailer : Vehicle
         if (!Dead)
             already_dead = false;
 
-        if (cargo_value_text != null)
-            UpdateCargoValueText();
-
         base.Update();
     }
 
@@ -99,18 +87,6 @@ public class Trailer : Vehicle
         GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.FAILED_DELIVERY, "Failed Delivery");
         GameManager.scene.objective_manager.SetNewObjective();
         GameManager.scene.chat_display.DisplayJobFailedMessage();
-    }
-
-
-    private void UpdateCargoValueText()
-    {
-        var f = new NumberFormatInfo
-        {
-            NumberGroupSeparator = " ",
-            NumberDecimalDigits = 0
-        };
-        var s = cargo_value.ToString("n", f);
-        cargo_value_text.text = "$ " + s;
     }
 
 
@@ -191,7 +167,6 @@ public class Trailer : Vehicle
         transform.position = _transform.position + new Vector3(0, 2);
         transform.rotation = start_rotation;
         MyRigidbody.maxAngularVelocity = 7;
-        cargo_value = 1;
         ClearTrails();
     }
 
