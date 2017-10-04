@@ -1851,7 +1851,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!146 &146194530269862350
 WheelCollider:
@@ -1880,7 +1880,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!146 &146228468838975250
 WheelCollider:
@@ -1967,7 +1967,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!146 &146827998505866592
 WheelCollider:
@@ -1996,7 +1996,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!212 &212347625529413906
 SpriteRenderer:
@@ -2038,6 +2038,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212377792347881230
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -2070,7 +2071,7 @@ SpriteRenderer:
   m_SortingLayerID: -869344605
   m_SortingLayer: 2
   m_SortingOrder: 31
-  m_Sprite: {fileID: 21300000, guid: e59e31e1ec787d54c8be8e488200a8b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87e876cba9705df40969265a31f4acfc, type: 3}
   m_Color: {r: 0, g: 0.95862055, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2078,6 +2079,7 @@ SpriteRenderer:
   m_Size: {x: 0.78, y: 1.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212403558026322972
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -2118,6 +2120,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212621232707534640
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -2158,6 +2161,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!212 &212954393123774996
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -2198,3 +2202,4 @@ SpriteRenderer:
   m_Size: {x: 0.78, y: 1.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
