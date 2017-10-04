@@ -155,42 +155,42 @@ Prefab:
     - target: {fileID: 146060513037979116, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146060513037979116, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 146541612473003606, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146541612473003606, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 146978180103132932, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146978180103132932, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 146227336471156520, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionSpring.damper
-      value: 999.99994
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 146227336471156520, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 114833059883554344, guid: 40d05aead29aad744a2f8fe48f56f366,
         type: 2}
@@ -325,6 +325,8 @@ MonoBehaviour:
   - {fileID: 1606812205224308, guid: 0e8af90616c385747bf3a5ab0120ee70, type: 2}
   depot_sections:
   - {fileID: 1793224382872256, guid: e6187eee60e508a49b5f18f6aee2e48c, type: 2}
+  - {fileID: 1018996543629326, guid: 28dede0ec179b2841bbda7dc8515bfe4, type: 2}
+  - {fileID: 1445617416575798, guid: 4d1920cf95ba0724387a684f54f20b9c, type: 2}
   edge_sections:
   - {fileID: 1284067333268402, guid: 3368627ebb9fa524a99eb85fe548fab5, type: 2}
   - {fileID: 1275028264231406, guid: e6325439d2a41ce4b86d298750bbea34, type: 2}
