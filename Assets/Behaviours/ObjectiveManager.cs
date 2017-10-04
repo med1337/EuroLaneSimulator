@@ -85,6 +85,9 @@ public class ObjectiveManager : MonoBehaviour
 
     public void ReduceJobValue()
     {
+        if (objective_state != ObjectiveState.DELIVERING_TRAILER)
+            return;
+
         shake_job_value.Shake(5, 0.4f);
         fade.FadeColor(Color.red, Color.green, 0.5f);
 
