@@ -417,7 +417,7 @@ Prefab:
     - target: {fileID: 114633979025023366, guid: d043b5d5b2d60b04aad72d8710fd37a2,
         type: 2}
       propertyPath: play_time
-      value: 300
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 114633979025023366, guid: d043b5d5b2d60b04aad72d8710fd37a2,
         type: 2}
