@@ -22,6 +22,12 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private float play_time = 5 * 60;
     [SerializeField] private Text time_display;
     [SerializeField] private Text current_cargo;
+    [SerializeField] private Text job_value_text;
+    [SerializeField] private ShakeModule shake_job_value;
+    [SerializeField] private float collision_penalty = 10;
+    [SerializeField] private float min_payout = 500;
+    [SerializeField] private float max_payout = 3000;
+    [SerializeField] private float current_payout = 0;
 
     private CountdownTimer timer = new CountdownTimer();
 
@@ -52,6 +58,13 @@ public class ObjectiveManager : MonoBehaviour
 
     void Update()
     {
+        if (objective_state == ObjectiveState.DELIVERING_TRAILER)
+        {
+            current_payout -= Time.deltaTime;
+            current_payout = Mathf.Clamp(current_payout, min_payout, max_payout);
+            job_value_text.text = ((int)current_payout).ToString();
+        }
+
         if (time_display != null)
         {
             System.TimeSpan t = System.TimeSpan.FromSeconds(Mathf.Clamp(timer.current_time, 0, Mathf.Infinity));
@@ -68,6 +81,14 @@ public class ObjectiveManager : MonoBehaviour
         GameManager.GameOver();
     }
 
+
+    public void ReduceJobValue()
+    {
+        shake_job_value.Shake(0.3f, 0.3f);
+        current_payout -= collision_penalty;
+        current_payout = Mathf.Clamp(current_payout, min_payout, max_payout);
+        job_value_text.text = current_payout.ToString();
+    }
 
 
     private void SetPlayerStart()
@@ -99,6 +120,9 @@ public class ObjectiveManager : MonoBehaviour
             objective_state = ObjectiveState.DELIVERING_TRAILER;//we must deliver it
             current_waypoint = current_depot_target.transform;//set new depot as target
             current_depot_target.delivery_area.enabled = true;//allow it to check for delivery
+
+            current_payout = max_payout;
+            job_value_text.text = current_payout.ToString();
 
             string cargo_message = GameManager.scene.chat_display.DisplayPickupMessage();
 
@@ -158,12 +182,11 @@ public class ObjectiveManager : MonoBehaviour
         if (current_cargo != null)
             current_cargo.text = "Current Cargo:";
 
-
         if (current_depot_target != null)
         {
             current_depot_target.delivery_area.enabled = false;
             current_depot_target.trailer_delivered = false;
-            GameManager.scene.money_panel.LogTransaction(current_depot_target.job_value, _win_reason);
+            GameManager.scene.money_panel.LogTransaction((int)current_payout, _win_reason);
 
             GameManager.scene.chat_display.DisplayDeliveryMessage();
         }
@@ -173,6 +196,9 @@ public class ObjectiveManager : MonoBehaviour
             last_depot_target.delivery_area.enabled = false; //just in case
             last_depot_target.trailer_delivered = false; //just in case
         }
+
+        current_payout = 0;
+        job_value_text.text = current_payout.ToString();
 
         SetNewObjective();
     }
@@ -237,10 +263,6 @@ public class ObjectiveManager : MonoBehaviour
             SetNewObjective();//find new depot delivery point
         }
     }
-
-
-   
-
 }
 
 
