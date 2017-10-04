@@ -24,6 +24,7 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private Text current_cargo;
     [SerializeField] private Text job_value_text;
     [SerializeField] private ShakeModule shake_job_value;
+    [SerializeField] private FadableGraphic fade;
     [SerializeField] private float collision_penalty = 10;
     [SerializeField] private float min_payout = 500;
     [SerializeField] private float max_payout = 3000;
@@ -84,7 +85,9 @@ public class ObjectiveManager : MonoBehaviour
 
     public void ReduceJobValue()
     {
-        shake_job_value.Shake(0.3f, 0.3f);
+        shake_job_value.Shake(5, 0.4f);
+        fade.FadeColor(Color.red, Color.green, 0.5f);
+
         current_payout -= collision_penalty;
         current_payout = Mathf.Clamp(current_payout, min_payout, max_payout);
         job_value_text.text = ((int)current_payout).ToString();

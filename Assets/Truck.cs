@@ -78,7 +78,7 @@ public class Truck : Vehicle
         if (AttachedTrailer != null)
         {
             AttachedTrailer.damage_system.EnvironmentCollision();
-            AttachedTrailer.DamageCargo();
+            GameManager.scene.objective_manager.ReduceJobValue();
         }
 
         damage_system.EnvironmentCollision();
@@ -106,7 +106,7 @@ public class Truck : Vehicle
             if (AttachedTrailer != null)
             {
                 AttachedTrailer.damage_system.HazardCollision();
-                AttachedTrailer.DamageCargo();
+                GameManager.scene.objective_manager.ReduceJobValue();
             }
 
             damage_system.HazardCollision();

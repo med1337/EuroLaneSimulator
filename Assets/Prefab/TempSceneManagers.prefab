@@ -130,3 +130,13 @@ MonoBehaviour:
   max_distance_from_last: 10000
   min_distance_from_last: 0
   objective_state: 0
+  play_time: 300
+  time_display: {fileID: 0}
+  current_cargo: {fileID: 0}
+  job_value_text: {fileID: 0}
+  shake_job_value: {fileID: 0}
+  fade: {fileID: 0}
+  collision_penalty: 10
+  min_payout: 500
+  max_payout: 3000
+  current_payout: 0

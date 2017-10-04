@@ -67,7 +67,7 @@ public class JobMessages
         "Hopes and Dreams",
         "Unicorn Tears",
         "Magic Beans",
-        "Power Glove"
+        "Power Gloves"
     };
 
     public static string[] pickup_message_suffixes =
