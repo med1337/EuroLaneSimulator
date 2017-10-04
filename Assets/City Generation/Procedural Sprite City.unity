@@ -276,6 +276,11 @@ Prefab:
       propertyPath: trails.Array.data[3]
       value: 
       objectReference: {fileID: 1015961011}
+    - target: {fileID: 114356212570094244, guid: 40d05aead29aad744a2f8fe48f56f366,
+        type: 2}
+      propertyPath: cargo_value_bar
+      value: 
+      objectReference: {fileID: 1703635940}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40d05aead29aad744a2f8fe48f56f366, type: 2}
   m_IsPrefabParent: 0
@@ -558,7 +563,7 @@ GameObject:
   - component: {fileID: 1386631447}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,6 +659,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18c6a0ab6d1d49e44bef2ea13f7b71b1, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1703635940 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114839580230483676, guid: e940f285f6850b1459e2eabe6702c18c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2030462770}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1720678083
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +963,31 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537033210862584, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.9000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 224304688141708810, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.054992676
+      objectReference: {fileID: 0}
+    - target: {fileID: 224161969376730908, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.0000916
+      objectReference: {fileID: 0}
+    - target: {fileID: 224206574426090334, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.34994507
+      objectReference: {fileID: 0}
+    - target: {fileID: 224206574426090334, guid: e940f285f6850b1459e2eabe6702c18c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.100364685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e940f285f6850b1459e2eabe6702c18c, type: 2}

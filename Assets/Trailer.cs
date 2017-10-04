@@ -9,8 +9,8 @@ public class Trailer : Vehicle
 {
     public DamageSystem damage_system;
 
-    public int CargoValue = 100000;
-    public Text CargoValText;
+    public float CargoValue = 1;
+    public Image cargo_value_bar;
     public GameObject LegsGameObject;
     public Truck MyTruck;
     [SerializeField] List<TrailRenderer> trails = new List<TrailRenderer>();
@@ -28,7 +28,20 @@ public class Trailer : Vehicle
             MyTruck.CollisionEvent(_other);
         }
 
+        if (_other.gameObject.tag != "Floor")
+        {
+            Debug.Log(_other.gameObject.name + " " + _other.gameObject.tag);
+            DamageCargo();
+        }
+
         damage_system.EnvironmentCollision();
+    }
+
+
+    public void DamageCargo()
+    {
+        if (CargoValue > 0)
+            CargoValue -= 0.05f;
     }
 
 
@@ -49,14 +62,9 @@ public class Trailer : Vehicle
                 MyTruck.TriggerEvent(_other);
             }
 
+            DamageCargo();
             damage_system.HazardCollision();
         }
-    }
-
-
-    void OnMouseClick()
-    {
-        //CargoValue -= 1337;
     }
 
 
@@ -80,9 +88,8 @@ public class Trailer : Vehicle
         if (!Dead)
             already_dead = false;
 
-
-        if (CargoValText != null)
-            UpdateCargoValueText();
+        if (cargo_value_bar != null)
+            cargo_value_bar.fillAmount = CargoValue;
 
         base.Update();
     }
@@ -104,7 +111,7 @@ public class Trailer : Vehicle
             NumberDecimalDigits = 0
         };
         var s = CargoValue.ToString("n", f);
-        CargoValText.text = "$" + s;
+        //CargoValText.text = "$" + s;
     }
 
 
@@ -185,6 +192,7 @@ public class Trailer : Vehicle
         transform.position = _transform.position + new Vector3(0, 2);
         transform.rotation = start_rotation;
         MyRigidbody.maxAngularVelocity = 7;
+        CargoValue = 1;
         ClearTrails();
     }
 

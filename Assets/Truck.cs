@@ -73,16 +73,17 @@ public class Truck : Vehicle
     [SerializeField] private float _motorTorque;
 
 
-    public void CollisionEvent(Collision other)
+    public void CollisionEvent(Collision _other)
     {
         if (AttachedTrailer != null)
         {
             AttachedTrailer.damage_system.EnvironmentCollision();
+            AttachedTrailer.DamageCargo();
         }
 
         damage_system.EnvironmentCollision();
 
-        if (other.gameObject.tag == "Hazard")
+        if (_other.gameObject.tag == "Hazard")
         {
             GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.COLLISION, "Vehicle Collision");
         }
@@ -105,6 +106,7 @@ public class Truck : Vehicle
             if (AttachedTrailer != null)
             {
                 AttachedTrailer.damage_system.HazardCollision();
+                AttachedTrailer.DamageCargo();
             }
 
             damage_system.HazardCollision();
@@ -200,7 +202,6 @@ public class Truck : Vehicle
         {
             myInputControls.handbrake = 0;
         }
-        Debug.Log(myInputControls.handbrake);
     }
 
     private void UpdateControls()

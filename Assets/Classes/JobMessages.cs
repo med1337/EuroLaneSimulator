@@ -12,9 +12,9 @@ public class JobMessages
         "Bring this trailer of ",
         "Hey, the last guy didn't make it. Can you take this trailer of ",
         "'Bout time you showed up. I need you to take this trailer of ",
-        "This might be an odd request, but could you bring this trailer of ",
+        "This might be an odd request, but could you bring this trailer full of ",
         "This might be dangerous, but could you take this trailer of ",
-        "Ah, you're here. Could you take this trailer of "
+        "Ah, you're here. Could you take this half-full trailer of "
     };
 
     public static string[] cargo_types =
@@ -30,7 +30,7 @@ public class JobMessages
         "Bottlecaps",
         "E.T. Cartridges",
         "Fancy Chairs",
-        "85\" Touch-Screen Televisions",
+        "85\" Touch-Screen TVs",
         "Glitter Paint",
         "Christmas Crackers",
         "Half-eaten Blueberries",
