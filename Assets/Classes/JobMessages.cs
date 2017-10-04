@@ -14,7 +14,11 @@ public class JobMessages
         "'Bout time you showed up. I need you to take this trailer of ",
         "This might be an odd request, but could you bring this trailer full of ",
         "This might be dangerous, but could you take this trailer of ",
-        "Ah, you're here. Could you take this half-full trailer of "
+        "Ah, you're here. Could you take this half-full trailer of ",
+        "Wonderful, could you take this trailer full of ",
+        "Are you the new driver? I need you to deliver this trailer of ",
+        "Good morning! Or is it afternoon? Anyway, take this trailer containing ",
+        "What a wonderful day for a drive! Could you bring this trailer of "
     };
 
     public static string[] cargo_types =
@@ -67,7 +71,8 @@ public class JobMessages
         "Hopes and Dreams",
         "Unicorn Tears",
         "Magic Beans",
-        "Power Gloves"
+        "Power Gloves",
+        "Wet Concrete"
     };
 
     public static string[] pickup_message_suffixes =
@@ -83,7 +88,11 @@ public class JobMessages
         " to my house, no wait.. the Depot. I meant the Depot.",
         " to the Depot. Now get out of here, I'm busy playing SlotDrop.",
         " to the Secret Depot. You know the place, right?",
-        " to the usual place. It's right by the uh... cargo containers? I forget."
+        " to the usual place. It's right by the uh... cargo containers? I forget.",
+        " to the spot where we put stuff. I'm sure it's got a name..",
+        " to the Depot as soon as you can, I'm starving!",
+        " to the Depot. I need to give my niece something for her birthday.",
+        " to the beach. On second thought, it might be safer to take it to the Depot."
     };
 
     public static string[] delivery_messages =
@@ -96,7 +105,10 @@ public class JobMessages
         "What time do you call this? It was supposed to be here three weeks ago? Oh well thanks anyway.",
         "Well well well, look who it is... Late as usual. Just leave it there.",
         "Thanks for the delivery. I'll be out in a minute. Or two... Don't wait for me.",
-        "Awesome. Thanks for that. I'm surprised you managed to get here, what with the radiation and all."
+        "Awesome. Thanks for that. I'm surprised you managed to get here, what with the radiation and all.",
+        "Fantastic! I can't wait to show this to the kids.",
+        "9.. 8.. 7.. 6.. Ah, there you are! You didn't have long left. Thanks for the delivery.",
+        "Hmm.. I probably shouldn't give you full payment for this, but I will, because I'm nice."
     };
 
     public static string[] job_fail_messages =
@@ -107,7 +119,7 @@ public class JobMessages
         "I thought I told you to deliver the trailer, not tip it!",
         "Uhh, just pretend no one saw that. Drive away, quick!",
         "Oh boy I can't wait for this trailer to arrive... Oh.. you flipped it. Nevermind.",
-        "That was some expensive cargo! I think... Insurance should cover it. I hope."
+        "That was some expensive cargo! Darn. Insurance should cover it, I hope."
     };
 
 }
