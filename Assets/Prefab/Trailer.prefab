@@ -1168,7 +1168,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 3
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!146 &146227336471156520
 WheelCollider:
@@ -1197,7 +1197,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 3
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!146 &146541612473003606
 WheelCollider:
@@ -1226,7 +1226,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 3
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!146 &146978180103132932
 WheelCollider:
@@ -1255,7 +1255,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 3
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!212 &212383028847311114
 SpriteRenderer:

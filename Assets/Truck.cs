@@ -4,6 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Manufacturer
+{
+    DAF = 0,
+    IVECO,
+    MAN,
+    MERCEDES,
+    RENAULT,
+    SCANIA,
+    VOLVO,
+    LEO
+}
+
+public enum SteeringInfo
+{
+    AWD = 0,
+    FWD = 1,
+    RWD = 2
+}
+
+public struct TruckParameters
+{
+    public float _steeringAngle;
+    public float _brakeForce;
+    public float _motorTorque;
+}
 
 public class Truck : Vehicle
 {
@@ -17,6 +42,8 @@ public class Truck : Vehicle
         public bool frozen;
     }
 
+    public Manufacturer TruckManufacturer;
+    public TruckParameters MyTruckParameters;
     private InputControls myInputControls;
 
     public DamageSystem damage_system;
@@ -57,10 +84,9 @@ public class Truck : Vehicle
 
         if (other.gameObject.tag == "Hazard")
         {
-            GameManager.scene.money_panel.LogTransaction((int) TransactionTypes.COLLISION, "Vehicle Collision");
+            GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.COLLISION, "Vehicle Collision");
         }
     }
-
 
     public void TriggerEvent(Collider _other)
     {
@@ -68,7 +94,7 @@ public class Truck : Vehicle
         {
             if (Speed >= GameManager.ROAD_SPEED_LIMIT)
             {
-                GameManager.scene.money_panel.LogTransaction((int) TransactionTypes.SPEEDING, "Speeding Violation");
+                GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.SPEEDING, "Speeding Violation");
             }
         }
         else if (_other.tag == "Hazard")
@@ -83,7 +109,83 @@ public class Truck : Vehicle
 
             damage_system.HazardCollision();
 
-            GameManager.scene.money_panel.LogTransaction((int) TransactionTypes.COLLISION, "Vehicle Collision");
+            GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.COLLISION, "Vehicle Collision");
+        }
+    }
+
+    public override void Start()
+    {
+        base.Start();
+        switch (TruckManufacturer)
+        {
+            case Manufacturer.DAF:
+                MyTruckParameters._motorTorque = 360;
+                MyTruckParameters._brakeForce = 300;
+                MyTruckParameters._steeringAngle = 60;
+                MyRigidbody.mass = 1000;
+                break;
+            case Manufacturer.IVECO:
+                MyTruckParameters._motorTorque = 400;
+                MyTruckParameters._brakeForce = 300;
+                MyTruckParameters._steeringAngle = 60;
+                MyRigidbody.mass = 1100;
+                break;
+            case Manufacturer.MAN:
+                MyTruckParameters._motorTorque = 450;
+                MyTruckParameters._brakeForce = 300;
+                MyTruckParameters._steeringAngle = 60;
+                MyRigidbody.mass = 1200;
+                break;
+            case Manufacturer.MERCEDES:
+
+                MyTruckParameters._motorTorque = 480;
+                MyTruckParameters._brakeForce = 300;
+                MyTruckParameters._steeringAngle = 60;
+                MyRigidbody.mass = 1300;
+                break;
+            case Manufacturer.RENAULT:
+                MyTruckParameters._motorTorque = 500;
+                MyTruckParameters._brakeForce = 300;
+                MyTruckParameters._steeringAngle = 60;
+                MyRigidbody.mass = 1400;
+                break;
+            case Manufacturer.SCANIA:
+                MyTruckParameters._motorTorque = 550;
+                MyTruckParameters._brakeForce = 300;
+                MyTruckParameters._steeringAngle = 60;
+                MyRigidbody.mass = 1500;
+                break;
+            case Manufacturer.VOLVO:
+                MyTruckParameters._motorTorque = 600;
+                MyTruckParameters._brakeForce = 300;
+                MyTruckParameters._steeringAngle = 60;
+                MyRigidbody.mass = 1600;
+                break;
+
+            case Manufacturer.LEO:
+                var ax = SteeringInfo.RWD;
+                MyTruckParameters._motorTorque = 500;
+                MyTruckParameters._brakeForce = 400;
+                MyTruckParameters._steeringAngle = 75;
+                MyRigidbody.mass = 750;
+                //for (var index = 0; index < AxlesList.Length; index++)
+                //{
+                //    AxlesList[index].Motor = false;
+                //    if (index > 0 && ax == SteeringInfo.RWD)
+                //    {
+                //        AxlesList[index].Motor = true;
+                //    }
+                //    var axise = AxlesList[index];
+                for (var index = 1; index < AxlesList.Length; index++)
+                {
+                    var axise = AxlesList[index];
+                    WheelFrictionCurve x = axise.LeftCollider.sidewaysFriction;
+                    x.stiffness = 1;
+                    axise.LeftCollider.sidewaysFriction = x;
+                    axise.RightCollider.sidewaysFriction = x;
+                }
+                //}
+                break;
         }
     }
 
@@ -92,7 +194,7 @@ public class Truck : Vehicle
         myInputControls.attach = Input.GetButtonUp("Attach");
         if (Input.GetButton("Handbrake"))
         {
-            myInputControls.handbrake = _brakeForce;
+            myInputControls.handbrake = MyTruckParameters._brakeForce;
         }
         else
         {
@@ -117,23 +219,23 @@ public class Truck : Vehicle
         }
 
 
-        myInputControls.braking = _brakeForce * Input.GetAxis("Brake");
-        var reverse = _motorTorque * Input.GetAxis("Reverse");
-        myInputControls.motor = _motorTorque * Input.GetAxis("Forward");
+        myInputControls.braking = MyTruckParameters._brakeForce * Input.GetAxis("Brake");
+        var reverse = MyTruckParameters._motorTorque * Input.GetAxis("Reverse");
+        myInputControls.motor = MyTruckParameters._motorTorque * Input.GetAxis("Forward");
         if (reverse > 0 && Speed > 0)
         {
-            myInputControls.braking = _brakeForce;
+            myInputControls.braking = MyTruckParameters._brakeForce;
         }
         else if (myInputControls.motor > 0 && Speed < 0)
         {
-            myInputControls.braking = _brakeForce;
+            myInputControls.braking = MyTruckParameters._brakeForce;
         }
         else if (reverse > 0)
         {
             myInputControls.motor = -reverse;
         }
 
-        myInputControls.steering = _steeringAngle * Input.GetAxis("Horizontal");
+        myInputControls.steering = MyTruckParameters._steeringAngle * Input.GetAxis("Horizontal");
     }
 
     // Update is called once per frame
@@ -181,7 +283,7 @@ public class Truck : Vehicle
         }
         if (SpeedText != null)
         {
-            var speedText = (int) Speed + " MPH";
+            var speedText = (int)Speed + " MPH";
             SpeedText.text = speedText;
         }
 
@@ -189,7 +291,7 @@ public class Truck : Vehicle
             return;
 
 
-        engine_audio_source.pitch = CustomMath.Map(Speed, 0, SpeedLimit, minimum_pitch, maximum_pitch);
+        engine_audio_source.pitch = CustomMath.Map(Mathf.Abs(Speed), 0, SpeedLimit, minimum_pitch, maximum_pitch);
     }
 
     public override void FixedUpdate()
