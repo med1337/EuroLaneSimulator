@@ -87,7 +87,7 @@ public class ObjectiveManager : MonoBehaviour
         shake_job_value.Shake(0.3f, 0.3f);
         current_payout -= collision_penalty;
         current_payout = Mathf.Clamp(current_payout, min_payout, max_payout);
-        job_value_text.text = current_payout.ToString();
+        job_value_text.text = ((int)current_payout).ToString();
     }
 
 
