@@ -38,15 +38,15 @@ public class JobMessages
         "Lightsabers",
         "Odds and Ends",
         "Loo Rolls",
-        "Half Melted Easter Eggs",
+        "Easter Eggs",
         "Orks",
         "Catapults",
         "Broken Eggs",
         "Portal Guns",
-        "'Just for Men' hair dyes",
+        "Red Hair Dye",
         "Bowling Balls",
         "Bananas",
-        "Used Socks",
+        "Odd Socks",
         "Soap",
         "Orange Juice",
         "CD Keys",
@@ -58,7 +58,12 @@ public class JobMessages
         "Sour Wine Gums",
         "Cocktail Umbrellas",
         "Cheese Sticks",
-        "Bulk Buy Economy Plungers"
+        "Economy Plungers",
+        "Massage Coupons",
+        "Baguettes",
+        "Football Hoodies",
+        "Oversized Pencils",
+        "Used Underwear"
     };
 
     public static string[] pickup_message_suffixes =
