@@ -84,7 +84,6 @@ public class Trailer : Vehicle
 
     private void TriggerNewObjective()
     {
-        GameManager.scene.money_panel.LogTransaction((int)TransactionTypes.FAILED_DELIVERY, "Failed Delivery");
         GameManager.scene.objective_manager.SetNewObjective();
         GameManager.scene.chat_display.DisplayJobFailedMessage();
     }
@@ -162,11 +161,14 @@ public class Trailer : Vehicle
 
     public void ResetPosition(Transform _transform)
     {
+        MyRigidbody.velocity = Vector3.zero;
+        MyRigidbody.maxAngularVelocity = 7;
+
         Dead = false;
         base.MyRigidbody.constraints = RigidbodyConstraints.None;
         transform.position = _transform.position + new Vector3(0, 2);
         transform.rotation = start_rotation;
-        MyRigidbody.maxAngularVelocity = 7;
+
         ClearTrails();
     }
 

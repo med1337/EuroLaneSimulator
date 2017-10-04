@@ -108,12 +108,17 @@ public class ObjectiveManager : MonoBehaviour
             current_trailer = GameManager.scene.player_trailer;
 
         SetNewObjective();
-        GameManager.scene.player_truck.transform.position = current_waypoint.transform.position + new Vector3(5,0);
+        GameManager.scene.player_truck.ResetPosition(current_waypoint.transform.position + new Vector3(5, 0));
     }
 
 
     public void SetNewObjective()
     {
+        if (job_value_text != null)
+            job_value_text.text = 0.ToString();
+
+        ResetCargoText();
+
         last_depot_target = current_depot_target;
         last_waypoint = last_depot_target.transform;
         current_depot_target = PickNewDepot();//find next optimal depot
@@ -185,8 +190,7 @@ public class ObjectiveManager : MonoBehaviour
 
     private void ObjectiveComplete(string _win_reason = "")
     {
-        if (current_cargo != null)
-            current_cargo.text = "Current Cargo:";
+        ResetCargoText();
 
         if (current_depot_target != null)
         {
@@ -207,6 +211,13 @@ public class ObjectiveManager : MonoBehaviour
         job_value_text.text = current_payout.ToString();
 
         SetNewObjective();
+    }
+
+
+    void ResetCargoText()
+    {
+        if (current_cargo != null)
+            current_cargo.text = "Current Cargo:";
     }
 
 

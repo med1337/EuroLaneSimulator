@@ -1636,6 +1636,13 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
   - {fileID: 21300006, guid: 350cc5b7bb1ec6e4faab9fe5cf531cbc, type: 3}
   TruckManufacturer: 0
+  trails:
+  - {fileID: 96220407219732270}
+  - {fileID: 96092051142665948}
+  - {fileID: 96167168878540272}
+  - {fileID: 96288867777293692}
+  - {fileID: 96791617969231556}
+  - {fileID: 96834287122061894}
   damage_system: {fileID: 114031970467396286}
   WheelControlScript: {fileID: 114768857597393038}
   SpeedText: {fileID: 0}

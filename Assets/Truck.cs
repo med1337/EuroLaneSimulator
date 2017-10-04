@@ -45,6 +45,7 @@ public class Truck : Vehicle
     public Manufacturer TruckManufacturer;
     public TruckParameters MyTruckParameters;
     private InputControls myInputControls;
+    public List<TrailRenderer> trails;
 
     public DamageSystem damage_system;
 
@@ -190,6 +191,30 @@ public class Truck : Vehicle
                 break;
         }
     }
+
+
+    public void ResetPosition(Vector3 _position)
+    {
+        transform.position = _position;
+
+        ClearTrails();
+    }
+
+
+    private void ClearTrails()
+    {
+        if (trails == null)
+            return;
+
+        foreach (TrailRenderer trail in trails)
+        {
+            if (trail == null)
+                continue;
+
+            trail.Clear();
+        }
+    }
+
 
     private void GetButtons()
     {

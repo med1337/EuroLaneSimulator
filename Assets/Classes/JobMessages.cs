@@ -94,7 +94,7 @@ public class JobMessages
         "A speedy delivery by today's standards. Good job.",
         "Who are you? Oh, hey. Thanks for the goods. Keep up the good work!",
         "What time do you call this? It was supposed to be here three weeks ago? Oh well thanks anyway.",
-        "Well well well, look who it is... Wait? Who are you again? Just leave it there.",
+        "Well well well, look who it is... Late as usual. Just leave it there.",
         "Thanks for the delivery. I'll be out in a minute. Or two... Don't wait for me.",
         "Awesome. Thanks for that. I'm surprised you managed to get here, what with the radiation and all."
     };
