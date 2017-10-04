@@ -30,7 +30,6 @@ public class Trailer : Vehicle
 
         if (_other.gameObject.tag != "Floor")
         {
-            Debug.Log(_other.gameObject.name + " " + _other.gameObject.tag);
             DamageCargo();
         }
 
