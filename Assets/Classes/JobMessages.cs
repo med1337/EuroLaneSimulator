@@ -55,7 +55,10 @@ public class JobMessages
         "Bounty Bars",
         "Coconut Shells",
         "Meal Deals",
-        "Sour Wine Gums"
+        "Sour Wine Gums",
+        "Cocktail Umbrellas",
+        "Cheese Sticks",
+        "Bulk Buy Economy Plungers"
     };
 
     public static string[] pickup_message_suffixes =
