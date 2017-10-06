@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 65944357787755356}
   m_Layer: 0
   m_Name: TrafficBarrierH1
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 65397007443857728}
   m_Layer: 0
   m_Name: TrafficBarrierV2
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 65063928887729190}
   m_Layer: 0
   m_Name: TrafficBarrierH2
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 65364294315461080}
   m_Layer: 0
   m_Name: TrafficBarrierV1
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,8 +97,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1280141246909518}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 300.3, y: 3.2, z: 319.5}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.6, y: 20.700003, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4268699207681516}
@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525516905853452}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -8.7, y: -2.04, z: -25.8}
+  m_LocalPosition: {x: -12.99, y: 3, z: -26.64}
   m_LocalScale: {x: 1, y: 5.71192, z: 14.128559}
   m_Children: []
   m_Father: {fileID: 4139602586660206}
@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282067905473250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.71, y: -2.04, z: 5.24}
+  m_LocalPosition: {x: -38.45, y: 3, z: 4.06}
   m_LocalScale: {x: 1, y: 5.711915, z: 7.012999}
   m_Children: []
   m_Father: {fileID: 4139602586660206}
@@ -141,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470729923070274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.03, y: -2.04, z: -4.4}
+  m_LocalPosition: {x: 31.11, y: 3, z: -4.4}
   m_LocalScale: {x: 1, y: 5.71192, z: 7.013}
   m_Children: []
   m_Father: {fileID: 4139602586660206}
@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385790215817836}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 9.340027, y: -2.04, z: 25.8}
+  m_LocalPosition: {x: 9.340027, y: 3, z: 24.62}
   m_LocalScale: {x: 1, y: 5.71192, z: 13.109473}
   m_Children: []
   m_Father: {fileID: 4139602586660206}
@@ -167,7 +167,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470729923070274}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -179,7 +179,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525516905853452}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -191,7 +191,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385790215817836}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -203,7 +203,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282067905473250}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ede35ae53110f04fabc5f5aed89c92c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  V1: {fileID: 65364294315461080}
-  V2: {fileID: 65397007443857728}
-  H1: {fileID: 65944357787755356}
-  H2: {fileID: 65063928887729190}
+  V1: {fileID: 1525516905853452}
+  V2: {fileID: 1385790215817836}
+  H1: {fileID: 1282067905473250}
+  H2: {fileID: 1470729923070274}

@@ -5,10 +5,10 @@ using UnityEngine;
 public class TrafficLight : MonoBehaviour {
 
 
-    public BoxCollider V1;
-    public BoxCollider V2;
-    public BoxCollider H1;
-    public BoxCollider H2;
+    public GameObject V1;
+    public GameObject V2;
+    public GameObject H1;
+    public GameObject H2;
 
 
 
@@ -26,22 +26,70 @@ public class TrafficLight : MonoBehaviour {
 
     void ChangeLights()
     {
-        if (V1.GetComponent<BoxCollider>().isTrigger)
+        if (V1.transform.localPosition.y == 3)
         {
-            V1.GetComponent<BoxCollider>().isTrigger = false;
-            V2.GetComponent<BoxCollider>().isTrigger = false;
+            Vector3 newPos = V1.transform.localPosition;
 
-            H1.GetComponent<BoxCollider>().isTrigger = true;
-            H2.GetComponent<BoxCollider>().isTrigger = true;
+            newPos.y = -5;
+
+            V1.transform.localPosition = newPos;
+
+
+
+            newPos = V2.transform.localPosition;
+
+            newPos.y = -5;
+
+            V2.transform.localPosition = newPos;
+
+
+
+            newPos = H1.transform.localPosition;
+
+            newPos.y = 3;
+
+            H1.transform.localPosition = newPos;
+
+
+
+            newPos = H2.transform.localPosition;
+
+            newPos.y = 3;
+
+            H2.transform.localPosition = newPos;
         }
 
         else
         {
-            V1.GetComponent<BoxCollider>().isTrigger = true;
-            V2.GetComponent<BoxCollider>().isTrigger = true;
+            Vector3 newPos = V1.transform.localPosition;
 
-            H1.GetComponent<BoxCollider>().isTrigger = false;
-            H2.GetComponent<BoxCollider>().isTrigger = false;
+            newPos.y = 3;
+
+            V1.transform.localPosition = newPos;
+
+
+
+            newPos = V2.transform.localPosition;
+
+            newPos.y = 3;
+
+            V2.transform.localPosition = newPos;
+
+
+
+            newPos = H1.transform.localPosition;
+
+            newPos.y = -5;
+
+            H1.transform.localPosition = newPos;
+
+
+
+            newPos = H2.transform.localPosition;
+
+            newPos.y = -5;
+
+            H2.transform.localPosition = newPos;
         }
 
     }
