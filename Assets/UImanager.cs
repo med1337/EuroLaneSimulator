@@ -18,8 +18,8 @@ public class UImanager : MonoBehaviour
     private Text highestscoreText;
 
     private int previousScore;
-    private int currentScore;
-    private int highestScore;
+    public int currentScore;
+    public int highestScore;
 
 
     // Use this for initialization
@@ -75,11 +75,14 @@ public class UImanager : MonoBehaviour
     }
     public void calculateHighestScore()
     {
-        if (currentScore >= highestScore)
+        //if (currentScore >= highestScore)
+        if (currentScore >= PlayerPrefs.GetInt("HighScore"))
         {
             highestScore = currentScore;
+            PlayerPrefs.SetInt("HighScore", highestScore);
         }
-        highestscoreText.text = highestScore.ToString();
+        //highestscoreText.text = highestScore.ToString();
+        highestscoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
 }
