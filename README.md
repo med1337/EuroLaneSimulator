@@ -1,7 +1,7 @@
 # EuroTruckDemake
 Demake of Euro Truck Simulator. Devloped for Commercial Games Development module taught at BSc Games Technology at University of the West of England
 
-## Global Game Jam 2019
+## About
 
 **Year:** 2017
 
