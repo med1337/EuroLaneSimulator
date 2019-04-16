@@ -24,7 +24,7 @@ Demake of Euro Truck Simulator. Devloped for Commercial Games Development module
 
 [1]: https://github.com/med1337/
 [2]: https://www.linkedin.com/in/leszek-bagnucki/
-[3]: https://www.linkedin.com/in/samuelharden/
+[3]: https://github.com/Samuel-Harden
 [4]: https://www.linkedin.com/in/samuelharden/
 [5]: https://github.com/zkajo/
 [6]: https://www.linkedin.com/in/zbigniew-kajota-58178076/
