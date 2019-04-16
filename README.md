@@ -1,6 +1,14 @@
 # EuroTruckDemake
 Demake of Euro Truck Simulator. Devloped for Commercial Games Development module taught at BSc Games Technology at University of the West of England
 
+## Global Game Jam 2019
+
+**Year:** 2017
+
+**Platforms:** PC
+
+**Engine:** Unity
+
 ## Team
 ### Leszek Bagnucki 
 [![github](https://cloud.githubusercontent.com/assets/17016297/18839843/0e06a67a-83d2-11e6-993a-b35a182500e0.png)][1]
@@ -20,6 +28,12 @@ Demake of Euro Truck Simulator. Devloped for Commercial Games Development module
 ### Tom Turner
 [![github](https://cloud.githubusercontent.com/assets/17016297/18839843/0e06a67a-83d2-11e6-993a-b35a182500e0.png)][11]
 [![linkedin](https://cloud.githubusercontent.com/assets/17016297/18839848/0fc7e74e-83d2-11e6-8c6a-277fc9d6e067.png)][12]
+
+
+## Demo
+**Gameplay video:** https://www.youtube.com/watch?v=sbF0BEep8rw
+
+
 
 
 [1]: https://github.com/med1337/
