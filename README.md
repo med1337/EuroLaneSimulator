@@ -1,6 +1,7 @@
 # EuroTruckDemake
 Demake of Euro Truck Simulator. Devloped for Commercial Games Development module taught at BSc Games Technology at University of the West of England
 
+![front](https://tomturnerblog.files.wordpress.com/2017/10/euro_truck_demake_front_image2.png)
 ## About
 
 **Year:** 2017
@@ -31,7 +32,7 @@ Demake of Euro Truck Simulator. Devloped for Commercial Games Development module
 
 
 ## Demo
-**Gameplay video:** https://www.youtube.com/watch?v=sbF0BEep8rw
+**Gameplay video:** https://www.youtube.com/watch?v=ox5R_5XvocA
 
 
 
