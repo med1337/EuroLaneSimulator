@@ -2,7 +2,7 @@
 # EuroTruckDemake
 Demake of Euro Truck Simulator. Devloped for Commercial Games Development module taught at BSc Games Technology at University of the West of England
 
-**Gameplay video:** https://www.youtube.com/watch?v=ox5R_5XvocA
+**Gameplay video:** https://www.youtube.com/watch?v=sbF0BEep8rw
 
 ## About
 
